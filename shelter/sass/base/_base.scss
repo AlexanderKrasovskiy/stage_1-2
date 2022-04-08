@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid coral;
+  //outline: 1px solid coral;
 }
 
 html {
@@ -15,9 +15,13 @@ body {
   font-weight: normal;
 }
 
-h1 {
+%h1 {
   font-size: 32px;
   line-height: 110%;
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.06em;
 }
 
 h2 {
@@ -28,20 +32,25 @@ h2 {
 h3 {
   font-size: 35px;
   line-height: 130%;
+  // letter-spacing: $letter-spacing;
 }
 
 h4 {
   font-size: 20px;
   line-height: 115%;
+  // letter-spacing: $letter-spacing;
 }
 
 h5 {
   font-size: 15px;
   line-height: 110%;
+  // letter-spacing: $letter-spacing;
 }
 
-p {
+%paragraph-l {
   @extend %font-arial;
+  font-style: normal;
+  font-weight: normal;
   font-size: 15px;
   line-height: 160%;
 }

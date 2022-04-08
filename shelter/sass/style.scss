@@ -1,13 +1,16 @@
 @import 'abstracts/constants';
-// @import 'abstracts/mixins';
 @import 'abstracts/placeholders';
+// @import 'abstracts/mixins';
 
-@import 'vendors/normalize';
+//@import 'vendors/normalize';
 
 @import 'base/fonts';
 @import 'base/base';
 
 @import 'layout/wrapper';
+@import 'layout/header';
 // @import 'layout/columns';
 
-// @import 'components/buttons';
+@import 'components/logo';
+@import 'components/nav';
+//@import 'components/buttons';

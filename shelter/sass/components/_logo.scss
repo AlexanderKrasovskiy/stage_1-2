@@ -1,0 +1,21 @@
+.logo {
+  display: block;
+  text-decoration: none;
+}
+
+.logo__title {
+  color: $color-primary;
+  @extend %h1;
+}
+
+.logo__subtitle {
+  margin-left: 4px;
+  margin-top: 10px;
+  @extend %font-arial;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: $color-light-xl;
+}
