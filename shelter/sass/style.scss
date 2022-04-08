@@ -6,6 +6,7 @@
 
 @import 'base/fonts';
 @import 'base/base';
+@import 'base/buttons';
 
 @import 'layout/wrapper';
 @import 'layout/header';
@@ -13,4 +14,4 @@
 
 @import 'components/logo';
 @import 'components/nav';
-//@import 'components/buttons';
+@import 'components/hero';

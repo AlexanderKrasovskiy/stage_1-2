@@ -1,0 +1,15 @@
+.btn {
+  @extend %btn-l;
+  color: $color-dark-3xl;
+  border-radius: 100px;
+}
+
+.btn__link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: $color-primary;
+  padding: 15px 45px;
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
