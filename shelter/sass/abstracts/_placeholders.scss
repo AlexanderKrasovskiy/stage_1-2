@@ -1,0 +1,15 @@
+%transition {
+  transition: all 0.3s ease-out;
+}
+
+// .message {
+//   @extend %transition;
+// }
+
+%font-georgia {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+%font-arial {
+  font-family: Arial, Verdana, sans-serif;
+}

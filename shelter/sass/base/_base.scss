@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 1px solid coral;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 110%;
+}
+
+h2 {
+  font-size: 44px;
+  line-height: 130%;
+}
+
+h3 {
+  font-size: 35px;
+  line-height: 130%;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 115%;
+}
+
+h5 {
+  font-size: 15px;
+  line-height: 110%;
+}
+
+p {
+  @extend %font-arial;
+  font-size: 15px;
+  line-height: 160%;
+}
