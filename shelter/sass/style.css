@@ -1,8 +1,8 @@
-.btn, .help__card__text, .friends__name, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
+.btn, .donation__subtitle, .help__card__text, .friends__name, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.logo__subtitle, .about__text, .hero__text, .nav__link {
+.logo__subtitle, .donation__text, .about__text, .hero__text, .nav__link {
   font-family: Arial, Verdana, sans-serif;
 }
 
@@ -110,7 +110,7 @@ body {
   line-height: 130%;
 }
 
-.help__title, .friends__title, .about__title {
+.donation__title, .help__title, .friends__title, .about__title {
   font-style: normal;
   font-weight: normal;
   font-size: 35px;
@@ -126,9 +126,12 @@ body {
   letter-spacing: 0.06em;
 }
 
-h5 {
+.donation__subtitle {
+  font-style: normal;
+  font-weight: normal;
   font-size: 15px;
   line-height: 110%;
+  letter-spacing: 0.06em;
 }
 
 .about__text, .hero__text, .nav__link {
@@ -136,6 +139,13 @@ h5 {
   font-weight: normal;
   font-size: 15px;
   line-height: 160%;
+}
+
+.donation__text {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 150%;
 }
 
 .btn {
@@ -162,6 +172,11 @@ h5 {
 }
 .btn__link:hover {
   background-color: #FDDCC4;
+}
+
+.btn__bank {
+  padding: 10px 15px 4px;
+  border-radius: 9px;
 }
 
 .btn__round {
@@ -482,4 +497,47 @@ h5 {
 .help__card__text {
   color: #545454;
   margin-top: 30px;
+}
+
+.donation__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 78px;
+  padding-bottom: 100px;
+  background-color: #F6F6F6;
+}
+
+.donation__img {
+  max-width: 505px;
+  height: 261px;
+}
+.donation__img img {
+  display: block;
+  width: 100%;
+}
+
+.donation__content {
+  max-width: 380px;
+  margin-left: 30px;
+}
+
+.donation__title {
+  color: #545454;
+}
+
+.donation__subtitle {
+  color: #545454;
+  margin: 20px 0;
+}
+
+.donation__text {
+  color: #B2B2B2;
+  margin-top: 20px;
 }/*# sourceMappingURL=style.css.map */

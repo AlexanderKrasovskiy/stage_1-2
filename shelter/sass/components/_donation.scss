@@ -1,0 +1,40 @@
+.donation__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //gap: 30px;
+  padding-top: 78px;
+  padding-bottom: 100px;
+  background-color: $color-light-l;
+}
+
+.donation__img {
+  max-width: 505px;
+  height: 261px;
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.donation__content {
+  max-width: 380px;
+  margin-left: 30px
+}
+
+.donation__title {
+  @extend %h3;
+  color: $color-dark-l;
+}
+
+.donation__subtitle {
+  @extend %h5;
+  color: $color-dark-l;
+  margin: 20px 0;
+}
+
+.donation__text {
+  @extend %paragraph-s;
+  color: $color-dark-m;
+  margin-top: 20px;
+}
