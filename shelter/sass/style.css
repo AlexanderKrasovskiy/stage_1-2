@@ -1,8 +1,8 @@
-.btn, .hero__title, .logo__title, body {
+.btn, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.logo__subtitle, .hero__text, .nav__link {
+.logo__subtitle, .about__text, .hero__text, .nav__link {
   font-family: Arial, Verdana, sans-serif;
 }
 
@@ -111,9 +111,12 @@ body {
   line-height: 130%;
 }
 
-h3 {
+.about__title {
+  font-style: normal;
+  font-weight: normal;
   font-size: 35px;
   line-height: 130%;
+  letter-spacing: 0.06em;
 }
 
 h4 {
@@ -126,7 +129,7 @@ h5 {
   line-height: 110%;
 }
 
-.hero__text, .nav__link {
+.about__text, .hero__text, .nav__link {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -263,12 +266,46 @@ h5 {
 }
 
 .hero__img {
-  display: block;
-  width: 100%;
   max-width: 698px;
   height: 728px;
-  background-image: url("../../assets/images/hero-puppy.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
+}
+.hero__img img {
+  display: block;
+  width: 100%;
+}
+
+.about__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 80px 215px 100px;
+  background-color: #FFFFFF;
+}
+
+.about__content {
+  max-width: 430px;
+}
+
+.about__title {
+  color: #545454;
+}
+
+.about__text {
+  color: #4C4C4C;
+  margin-top: 25px;
+}
+
+.about__img {
+  max-width: 300px;
+  height: 408px;
+}
+.about__img img {
+  display: block;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

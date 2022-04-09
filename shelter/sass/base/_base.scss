@@ -33,10 +33,13 @@ body {
   line-height: 130%;
 }
 
-h3 {
+%h3 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
   font-size: 35px;
   line-height: 130%;
-  // letter-spacing: $letter-spacing;
+  letter-spacing: 0.06em;
 }
 
 h4 {
