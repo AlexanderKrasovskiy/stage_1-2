@@ -1,0 +1,36 @@
+.help__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-light-xl;
+  padding: 80px 87px 100px;
+}
+
+.help__title {
+  @extend %h3;
+  color: $color-dark-l;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.help__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 120px;
+  row-gap: 55px;
+}
+
+.help__card {
+  //width: 170px; - for tablet
+  height: 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.help__card__text {
+  @extend %h4;
+  color: $color-dark-l;
+  margin-top: 30px;
+}

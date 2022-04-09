@@ -1,4 +1,4 @@
-.btn, .friends__name, .friends__title, .about__title, .hero__title, .logo__title, body {
+.btn, .help__card__text, .friends__name, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -110,7 +110,7 @@ body {
   line-height: 130%;
 }
 
-.friends__title, .about__title {
+.help__title, .friends__title, .about__title {
   font-style: normal;
   font-weight: normal;
   font-size: 35px;
@@ -118,7 +118,7 @@ body {
   letter-spacing: 0.06em;
 }
 
-.friends__name {
+.help__card__text, .friends__name {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -427,4 +427,59 @@ h5 {
   color: #545454;
   text-align: center;
   padding: 30px 0;
+}
+
+.help__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFFFFF;
+  padding: 80px 87px 100px;
+}
+
+.help__title {
+  color: #545454;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.help__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 120px;
+     -moz-column-gap: 120px;
+          column-gap: 120px;
+  row-gap: 55px;
+}
+
+.help__card {
+  height: 113px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.help__card__text {
+  color: #545454;
+  margin-top: 30px;
 }/*# sourceMappingURL=style.css.map */
