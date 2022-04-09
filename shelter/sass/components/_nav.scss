@@ -14,6 +14,7 @@
   text-decoration: none;
   color: $color-dark-s;
   @extend %paragraph-l;
+  transition: all 0.5s;
   &:hover {
     color: $color-light-s;
   }

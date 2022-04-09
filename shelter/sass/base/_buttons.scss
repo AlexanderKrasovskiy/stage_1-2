@@ -2,6 +2,7 @@
   @extend %btn-l;
   color: $color-dark-3xl;
   border-radius: 100px;
+  transition: all 0.5s;
 }
 
 .btn__link {
@@ -9,6 +10,34 @@
   text-decoration: none;
   background-color: $color-primary;
   padding: 15px 45px;
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
+
+.btn__round {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: $color-dark-3xl;
+  &:hover {
+    background-color: $color-primary-light;
+    cursor: pointer;
+  }
+  &-left {
+    background-image: url('../../assets/icons/btns/arrow-left.svg');
+  }
+  &-right {
+    background-image: url('../../assets/icons/btns/arrow-right.svg');
+  }
+}
+
+.btn__learn {
+  display: inline-block;
+  border: 2px solid $color-primary;
+  padding: 13px 43px;
   &:hover {
     background-color: $color-primary-light;
   }

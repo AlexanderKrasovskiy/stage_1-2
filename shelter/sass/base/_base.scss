@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid coral;
+  //outline: 1px solid coral;
 }
 
 html {
@@ -42,10 +42,13 @@ body {
   letter-spacing: 0.06em;
 }
 
-h4 {
+%h4 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
   font-size: 20px;
   line-height: 115%;
-  // letter-spacing: $letter-spacing;
+  letter-spacing: 0.06em;
 }
 
 h5 {

@@ -1,4 +1,4 @@
-.btn, .about__title, .hero__title, .logo__title, body {
+.btn, .friends__name, .friends__title, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -83,7 +83,6 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 1px solid coral;
 }
 
 html {
@@ -111,7 +110,7 @@ body {
   line-height: 130%;
 }
 
-.about__title {
+.friends__title, .about__title {
   font-style: normal;
   font-weight: normal;
   font-size: 35px;
@@ -119,9 +118,12 @@ body {
   letter-spacing: 0.06em;
 }
 
-h4 {
+.friends__name {
+  font-style: normal;
+  font-weight: normal;
   font-size: 20px;
   line-height: 115%;
+  letter-spacing: 0.06em;
 }
 
 h5 {
@@ -147,6 +149,9 @@ h5 {
 .btn {
   color: #292929;
   border-radius: 100px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .btn__link {
@@ -156,6 +161,34 @@ h5 {
   padding: 15px 45px;
 }
 .btn__link:hover {
+  background-color: #FDDCC4;
+}
+
+.btn__round {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #292929;
+}
+.btn__round:hover {
+  background-color: #FDDCC4;
+  cursor: pointer;
+}
+.btn__round-left {
+  background-image: url("../../assets/icons/btns/arrow-left.svg");
+}
+.btn__round-right {
+  background-image: url("../../assets/icons/btns/arrow-right.svg");
+}
+
+.btn__learn {
+  display: inline-block;
+  border: 2px solid #F1CDB3;
+  padding: 13px 43px;
+}
+.btn__learn:hover {
   background-color: #FDDCC4;
 }
 
@@ -220,6 +253,9 @@ h5 {
 .nav__link {
   text-decoration: none;
   color: #CDCDCD;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .nav__link:hover {
   color: #FAFAFA;
@@ -308,4 +344,87 @@ h5 {
 .about__img img {
   display: block;
   width: 100%;
+}
+
+.friends__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #F6F6F6;
+}
+.friends__wrapper > .btn__link {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.friends__title {
+  color: #545454;
+  text-align: center;
+}
+
+.friends__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.friends__carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 990px;
+}
+
+.friends__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 270px;
+  border-radius: 9px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  background-color: #FAFAFA;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.friends__card:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.friends__card:hover > .btn__learn {
+  background-color: #FDDCC4;
+}
+
+.friends__name {
+  color: #545454;
+  text-align: center;
+  padding: 30px 0;
 }/*# sourceMappingURL=style.css.map */
