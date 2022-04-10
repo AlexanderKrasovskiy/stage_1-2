@@ -1,4 +1,4 @@
-.btn, .donation__subtitle, .help__card__text, .friends__name, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
+.btn, .donation__subtitle, .help__card__text, .friends__name, .footer__title, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -110,7 +110,7 @@ body {
   line-height: 130%;
 }
 
-.donation__title, .help__title, .friends__title, .about__title {
+.footer__title, .donation__title, .help__title, .friends__title, .about__title {
   font-style: normal;
   font-weight: normal;
   font-size: 35px;
@@ -208,9 +208,13 @@ body {
 }
 
 .wrapper {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+}
+
+.header {
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), -o-radial-gradient(left, 100% 215.42%, #5B483A 0%, #262425 100%), #211F20;
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .header__wrapper {
@@ -225,8 +229,6 @@ body {
           align-items: center;
   padding-top: 60px;
   padding-bottom: 60px;
-  background: url("../../assets/icons/bg_noise_pattern_x2.png"), -o-radial-gradient(left, 100% 215.42%, #5B483A 0%, #262425 100%), #211F20;
-  background: url("../../assets/icons/bg_noise_pattern_x2.png"), radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .logo {
@@ -289,6 +291,11 @@ body {
   bottom: -3px;
 }
 
+.hero {
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), -o-radial-gradient(left, 100% 215.42%, #5B483A 0%, #262425 100%), #211F20;
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
+}
+
 .hero__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -296,8 +303,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url("../../assets/icons/bg_noise_pattern_x2.png"), -o-radial-gradient(left, 100% 215.42%, #5B483A 0%, #262425 100%), #211F20;
-  background: url("../../assets/icons/bg_noise_pattern_x2.png"), radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .hero__content {
@@ -325,6 +330,10 @@ body {
   width: 100%;
 }
 
+.about {
+  background-color: #FFFFFF;
+}
+
 .about__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -335,8 +344,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 80px 215px 100px;
-  background-color: #FFFFFF;
+  padding: 80px 175px 100px;
 }
 
 .about__content {
@@ -361,6 +369,10 @@ body {
   width: 100%;
 }
 
+.friends {
+  background-color: #F6F6F6;
+}
+
 .friends__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -371,7 +383,6 @@ body {
           flex-direction: column;
   padding-top: 80px;
   padding-bottom: 100px;
-  background-color: #F6F6F6;
 }
 .friends__wrapper > .btn__link {
   -ms-flex-item-align: center;
@@ -444,6 +455,10 @@ body {
   padding: 30px 0;
 }
 
+.help {
+  background-color: #FFFFFF;
+}
+
 .help__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -455,8 +470,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #FFFFFF;
-  padding: 80px 87px 100px;
+  padding: 80px 47px 100px;
 }
 
 .help__title {
@@ -499,6 +513,10 @@ body {
   margin-top: 30px;
 }
 
+.donation {
+  background-color: #F6F6F6;
+}
+
 .donation__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -511,7 +529,6 @@ body {
           justify-content: center;
   padding-top: 78px;
   padding-bottom: 100px;
-  background-color: #F6F6F6;
 }
 
 .donation__img {
@@ -540,4 +557,48 @@ body {
 .donation__text {
   color: #B2B2B2;
   margin-top: 20px;
+}
+
+.footer {
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), -o-radial-gradient(left, 100% 215.42%, #5B483A 0%, #262425 100%), #211F20;
+  background: url("../../assets/icons/bg_noise_pattern_x2.png"), radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.footer__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 159px;
+     -moz-column-gap: 159px;
+          column-gap: 159px;
+  padding-top: 40px;
+}
+
+.footer__questions {
+  width: 278.5px;
+  padding-top: 16px;
+}
+
+.footer__visit {
+  max-width: 302px;
+  padding-top: 16px;
+}
+
+.footer__title {
+  color: #FFFFFF;
+}
+
+.footer__link {
+  display: block;
+  margin-top: 37.5px;
+}
+
+.footer__location {
+  display: block;
+  margin-top: 31px;
 }/*# sourceMappingURL=style.css.map */

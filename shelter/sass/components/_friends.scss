@@ -1,10 +1,14 @@
+.friends {
+  background-color: $color-light-l;
+
+}
+
 .friends__wrapper {
   display: flex;
   flex-direction: column;
   //align-items: center;
   padding-top: 80px;
   padding-bottom: 100px;
-  background-color: $color-light-l;
   > .btn__link {
     align-self: center;
   }
