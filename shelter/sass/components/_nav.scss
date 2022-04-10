@@ -1,0 +1,49 @@
+.nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-bottom: 4px;
+}
+
+.nav__item {
+  margin-left: 35px;
+  position: relative;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: $color-dark-s;
+  @extend %paragraph-l;
+  transition: all 0.5s;
+  &:hover {
+    color: $color-light-s;
+  }
+  &.active {
+    color: $color-light-s;
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      background-color: $color-primary;
+      height: 3px;
+      width: 100%;
+      left: 0;
+      bottom: -3px;
+    }
+  }
+}
+
+.nav__link {
+  &-pets {
+    color: $color-dark-l;
+    &:hover {
+      color: $color-dark-3xl;
+    }
+    &.active {
+      color: $color-dark-l;
+      &:hover {
+        color: $color-dark-3xl;
+      }
+    }
+  }
+}

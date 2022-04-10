@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  //outline: 1px solid coral;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  background-color: $color-dark-s;
+}
+
+%h1 {
+  font-size: 32px;
+  line-height: 110%;
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+}
+
+%h2 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 130%;
+}
+
+%h3 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}
+
+%h4 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+%h5 {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+}
+
+%paragraph-l {
+  @extend %font-arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 160%;
+}
+
+%paragraph-s {
+  @extend %font-arial;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+%btn-l {
+  @extend %font-georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}

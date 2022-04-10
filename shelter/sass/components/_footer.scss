@@ -1,0 +1,56 @@
+.footer {
+  background: url('../../assets/icons/bg_noise_pattern_x2.png'),
+              radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
+
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  justify-content: center;
+  column-gap: 159px;
+
+  padding-top: 40px;
+}
+
+.footer__questions {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // height: 234px;
+
+  width: 278.5px;
+  //margin-right: 160px;
+  padding-top: 16px;
+}
+
+.footer__visit {
+  max-width: 302px;
+  padding-top: 16px;
+}
+
+.footer__title {
+  @extend %h3;
+  //letter-spacing: 6%;
+  color: $color-light-xl;
+}
+
+.footer__link {
+  display: block;
+  margin-top: 37.5px;
+}
+
+.footer__location {
+  display: block;
+  margin-top: 31px;
+}
+
+// .footer__img {
+//   max-width: 300px;
+//   height: 310px;
+//   img {
+//     display: block;
+//     width: 100%;
+//   }
+// }

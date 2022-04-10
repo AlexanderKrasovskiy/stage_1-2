@@ -1,0 +1,69 @@
+.btn {
+  @extend %btn-l;
+  color: $color-dark-3xl;
+  border-radius: 100px;
+  transition: all 0.5s;
+}
+
+.btn__link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: $color-primary;
+  padding: 15px 45px;
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
+
+.btn__bank {
+  padding: 10px 15px 4px;
+  border-radius: 9px;
+}
+
+.btn__round {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #F1CDB3;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: $color-dark-3xl;
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+    cursor: pointer;
+  }
+  &-left {
+    background-image: url('../../assets/icons/btns/arrow-left.svg');
+  }
+  &-right {
+    background-image: url('../../assets/icons/btns/arrow-right.svg');
+  }
+  &-pets {
+    @extend %h4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.inactive {
+      color: $color-dark-s;
+      border-color: $color-dark-s;
+      &:hover {
+        background-color: inherit;
+        cursor: default;
+      }
+    };
+    &.active {
+      background-color: $color-primary;
+      border: none;
+    }
+  }
+}
+
+.btn__learn {
+  display: inline-block;
+  border: 2px solid $color-primary;
+  padding: 13px 43px;
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+}
