@@ -18,7 +18,7 @@
   &:hover {
     color: $color-light-s;
   }
-  &-selected {
+  &.active {
     color: $color-light-s;
     &:after {
       content: "";
@@ -29,6 +29,21 @@
       width: 100%;
       left: 0;
       bottom: -3px;
+    }
+  }
+}
+
+.nav__link {
+  &-pets {
+    color: $color-dark-l;
+    &:hover {
+      color: $color-dark-3xl;
+    }
+    &.active {
+      color: $color-dark-l;
+      &:hover {
+        color: $color-dark-3xl;
+      }
     }
   }
 }

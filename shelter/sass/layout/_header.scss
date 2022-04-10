@@ -1,7 +1,17 @@
+// .body-pets {
+//   height: 3000px;
+// }
+
 .header {
   background: url('../../assets/icons/bg_noise_pattern_x2.png'),
               radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
-  
+  &-pets {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $color-light-xl;
+  }
 }
 
 .header__wrapper {
@@ -11,5 +21,8 @@
   //margin-top: 30px;
   padding-top: 60px;
   padding-bottom: 60px;
-
+  &-pets {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }

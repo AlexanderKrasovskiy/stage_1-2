@@ -29,6 +29,7 @@
   color: $color-dark-3xl;
   &:hover {
     background-color: $color-primary-light;
+    border-color: $color-primary-light;
     cursor: pointer;
   }
   &-left {
@@ -36,6 +37,24 @@
   }
   &-right {
     background-image: url('../../assets/icons/btns/arrow-right.svg');
+  }
+  &-pets {
+    @extend %h4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.inactive {
+      color: $color-dark-s;
+      border-color: $color-dark-s;
+      &:hover {
+        background-color: inherit;
+        cursor: default;
+      }
+    };
+    &.active {
+      background-color: $color-primary;
+      border: none;
+    }
   }
 }
 
@@ -45,5 +64,6 @@
   padding: 13px 43px;
   &:hover {
     background-color: $color-primary-light;
+    border-color: $color-primary-light;
   }
 }

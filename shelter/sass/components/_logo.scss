@@ -6,6 +6,9 @@
 .logo__title {
   color: $color-primary;
   @extend %h1;
+  &-pets {
+    color: $color-dark-l;
+  }
 }
 
 .logo__subtitle {
@@ -18,4 +21,7 @@
   line-height: 15px;
   letter-spacing: 0.1em;
   color: $color-light-xl;
+  &-pets {
+    color: $color-dark-3xl;
+  }
 }
