@@ -54,6 +54,7 @@
     &.active {
       background-color: $color-primary;
       border: none;
+      cursor: default;
     }
   }
 }
