@@ -1,22 +1,21 @@
 .about {
   background-color: $color-light-xl;
-
 }
 
 .about__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  //padding: 80px 215px 100px;
   padding: 80px 175px 100px;
-
-
+  @include media-laptop {
+    flex-direction: column-reverse;
+    row-gap: 80px;
+    padding: 80px 30px 100px;
+  }
 }
 
 .about__content {
   max-width: 430px;
-
 }
 
 .about__title {
@@ -32,9 +31,9 @@
 
 .about__img {
   max-width: 300px;
-  height: 408px;
+  //height: 408px;
   img {
     display: block;
-    width: 100%;
+    max-width: 100%;
   }
 }

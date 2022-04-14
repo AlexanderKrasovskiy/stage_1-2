@@ -442,6 +442,16 @@ body {
           align-items: center;
   padding: 80px 175px 100px;
 }
+@media (max-width: 1279.9px) {
+  .about__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    row-gap: 80px;
+    padding: 80px 30px 100px;
+  }
+}
 
 .about__content {
   max-width: 430px;
@@ -458,11 +468,10 @@ body {
 
 .about__img {
   max-width: 300px;
-  height: 408px;
 }
 .about__img img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 .friends {
