@@ -700,19 +700,33 @@ body {
   padding-top: 78px;
   padding-bottom: 100px;
 }
+@media (max-width: 1279.9px) {
+  .donation__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding-top: 79px;
+  }
+}
 
 .donation__img {
   max-width: 505px;
-  height: 261px;
 }
 .donation__img img {
   display: block;
-  width: 100%;
+  max-width: 100%;
 }
 
 .donation__content {
   max-width: 380px;
   margin-left: 30px;
+}
+@media (max-width: 1279.9px) {
+  .donation__content {
+    margin-left: 0px;
+    margin-bottom: 60px;
+  }
 }
 
 .donation__title {
