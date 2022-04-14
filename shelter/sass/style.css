@@ -628,7 +628,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 80px 47px 100px;
+  padding: 80px 30px 100px;
 }
 
 .help__title {
@@ -651,6 +651,13 @@ body {
           column-gap: 120px;
   row-gap: 55px;
 }
+@media (max-width: 1279.9px) {
+  .help__content {
+    -webkit-column-gap: 60px;
+       -moz-column-gap: 60px;
+            column-gap: 60px;
+  }
+}
 
 .help__card {
   height: 113px;
@@ -664,6 +671,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 1279.9px) {
+  .help__card {
+    width: 170px;
+  }
 }
 
 .help__card__text {

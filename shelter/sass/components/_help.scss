@@ -1,16 +1,12 @@
 .help {
   background-color: $color-light-xl;
-
 }
 
 .help__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  //padding: 80px 87px 100px;
-  padding: 80px 47px 100px;
-
+  padding: 80px 30px 100px;
 }
 
 .help__title {
@@ -26,14 +22,19 @@
   justify-content: center;
   column-gap: 120px;
   row-gap: 55px;
+  @include media-laptop {
+    column-gap: 60px;
+  }
 }
 
 .help__card {
-  //width: 170px; - for tablet
   height: 113px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include media-laptop {
+    width: 170px;
+  }
 }
 
 .help__card__text {
