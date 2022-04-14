@@ -24,6 +24,7 @@
   row-gap: 55px;
   @include media-laptop {
     column-gap: 60px;
+    max-width: 630px;
   }
 }
 
