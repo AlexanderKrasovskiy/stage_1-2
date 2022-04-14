@@ -584,6 +584,11 @@ body {
   padding-top: 80px;
   padding-bottom: 100px;
 }
+@media (max-width: 1279.9px) {
+  .friends__wrapper-pets {
+    padding-bottom: 76px;
+  }
+}
 
 .friends__carousel-pets {
   display: -webkit-box;
@@ -591,15 +596,25 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   row-gap: 30px;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
   max-width: 1200px;
-  margin-top: 45px;
-  margin-bottom: 45px;
+  margin: 45px auto;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+@media (max-width: 1279.9px) {
+  .friends__carousel-pets {
+    max-width: 580px;
+    margin: 30px auto 38px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .friends__carousel-pets > .friends__card:nth-child(n+7) {
+    display: none;
+  }
 }
 
 .friends__pagination-pets {
