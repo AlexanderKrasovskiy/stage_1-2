@@ -509,8 +509,8 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 58px;
+  margin-bottom: 58px;
 }
 
 .friends__carousel {
@@ -520,10 +520,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 990px;
+  -webkit-column-gap: 90px;
+     -moz-column-gap: 90px;
+          column-gap: 90px;
+  max-width: 990px;
+  overflow: hidden;
+}
+@media (max-width: 1279.9px) {
+  .friends__carousel {
+    -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
+            column-gap: 40px;
+    max-width: 580px;
+  }
+  .friends__carousel > * {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
 }
 
 .friends__card {
