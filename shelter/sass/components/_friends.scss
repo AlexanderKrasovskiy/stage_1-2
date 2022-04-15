@@ -91,20 +91,22 @@
   row-gap: 30px;
   column-gap: 40px;
   max-width: 1200px;
-
+  max-height: 900.2px;
+  overflow: hidden;
   // margin-top: 45px;
   // margin-bottom: 45px;
-  margin: 45px auto;
+  margin: 45px auto 74px;
   padding-top: 15px;
   padding-bottom: 15px;
   @include media-laptop {
     max-width: calc(2*270px + 1*40px);
+    max-height: calc(3*435.1px + 2*30px);
     margin: 30px auto 38px;
     padding-top: 0px;
     padding-bottom: 0px;
-    & > .friends__card:nth-child(n + 7) {
-      display: none;
-    }
+    // & > .friends__card:nth-child(n + 7) {
+    //   display: none;
+    // }
   }
 }
 

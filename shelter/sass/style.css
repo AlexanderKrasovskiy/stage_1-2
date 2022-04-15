@@ -601,19 +601,19 @@ body {
      -moz-column-gap: 40px;
           column-gap: 40px;
   max-width: 1200px;
-  margin: 45px auto;
+  max-height: 900.2px;
+  overflow: hidden;
+  margin: 45px auto 74px;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 @media (max-width: 1279.9px) {
   .friends__carousel-pets {
     max-width: 580px;
+    max-height: 1365.3px;
     margin: 30px auto 38px;
     padding-top: 0px;
     padding-bottom: 0px;
-  }
-  .friends__carousel-pets > .friends__card:nth-child(n+7) {
-    display: none;
   }
 }
 
