@@ -117,6 +117,11 @@ body {
   line-height: 130%;
   letter-spacing: 0.06em;
 }
+@media (max-width: 767.9px) {
+  .footer__title, .donation__title, .help__title, .friends__title, .about__title {
+    font-size: 25px;
+  }
+}
 
 .help__card__text, .friends__name, .btn__round-pets, .bank__text {
   font-style: normal;
@@ -596,6 +601,12 @@ body {
     padding: 80px 30px 100px;
   }
 }
+@media (max-width: 767.9px) {
+  .about__wrapper {
+    row-gap: 42px;
+    padding: 42px 10px;
+  }
+}
 
 .about__content {
   max-width: 430px;
@@ -604,10 +615,22 @@ body {
 .about__title {
   color: #545454;
 }
+@media (max-width: 767.9px) {
+  .about__title {
+    text-align: center;
+  }
+}
 
 .about__text {
   color: #4C4C4C;
   margin-top: 25px;
+}
+@media (max-width: 767.9px) {
+  .about__text {
+    padding: 0 15px;
+    text-align: justify;
+    margin-top: 23px;
+  }
 }
 
 .about__img {
@@ -616,6 +639,11 @@ body {
 .about__img img {
   display: block;
   max-width: 100%;
+}
+@media (max-width: 767.9px) {
+  .about__img {
+    max-width: 260px;
+  }
 }
 
 .friends {

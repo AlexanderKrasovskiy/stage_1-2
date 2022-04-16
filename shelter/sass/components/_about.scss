@@ -12,6 +12,10 @@
     row-gap: 80px;
     padding: 80px 30px 100px;
   }
+  @include media-tablet {
+    row-gap: 42px;
+    padding: 42px 10px;
+  }
 }
 
 .about__content {
@@ -21,12 +25,20 @@
 .about__title {
   @extend %h3;
   color: $color-dark-l;
+  @include media-tablet {
+    text-align: center;
+  }
 }
 
 .about__text {
   @extend %paragraph-l;
   color: $color-dark-xl;
   margin-top: 25px;
+  @include media-tablet {
+    padding: 0 15px;
+    text-align: justify;
+    margin-top: 23px;
+  }
 }
 
 .about__img {
@@ -35,5 +47,8 @@
   img {
     display: block;
     max-width: 100%;
+  }
+  @include media-tablet {
+    max-width: 260px;
   }
 }
