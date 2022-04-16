@@ -24,6 +24,9 @@
   @include media-laptop {
     padding: 30px 30px 60px;
   }
+  @include media-tablet {
+    padding: 30px 53px 60px 10px;
+  }
   &-pets {
     padding-top: 30px;
     padding-bottom: 30px;

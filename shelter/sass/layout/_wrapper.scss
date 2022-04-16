@@ -7,4 +7,7 @@
   @include media-laptop {
     padding: 0 30px;
   }
+  @include media-tablet {
+    padding: 0 10px;
+  }
 }

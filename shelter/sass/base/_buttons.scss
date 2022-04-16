@@ -16,8 +16,15 @@
 }
 
 .btn__bank {
-  padding: 10px 15px 4px;
+  padding: 10px 15px;
   border-radius: 9px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 349px;
+}
+
+.bank__text {
+  @extend %h4;
 }
 
 .btn__round {

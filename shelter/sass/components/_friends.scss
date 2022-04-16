@@ -91,7 +91,7 @@
   row-gap: 30px;
   column-gap: 40px;
   max-width: 1200px;
-  max-height: 900.2px;
+  max-height: calc(2*435.1px + 1*30px);
   overflow: hidden;
   // margin-top: 45px;
   // margin-bottom: 45px;
