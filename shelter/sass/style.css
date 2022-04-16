@@ -665,6 +665,11 @@ body {
   -ms-flex-item-align: center;
       align-self: center;
 }
+@media (max-width: 767.9px) {
+  .friends__wrapper {
+    padding: 42px 10px;
+  }
+}
 
 .friends__title {
   color: #545454;
@@ -683,6 +688,30 @@ body {
           justify-content: space-between;
   margin-top: 58px;
   margin-bottom: 58px;
+}
+@media (max-width: 767.9px) {
+  .friends__container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    row-gap: 20px;
+    -webkit-column-gap: 80px;
+       -moz-column-gap: 80px;
+            column-gap: 80px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+  }
+  .friends__container .btn__round {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .friends__container .carousel__container {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
 }
 
 .friends__carousel {
@@ -708,6 +737,12 @@ body {
   .friends__carousel > * {
     -ms-flex-negative: 0;
         flex-shrink: 0;
+  }
+}
+@media (max-width: 767.9px) {
+  .friends__carousel {
+    max-width: 270px;
+    margin: 0 auto;
   }
 }
 

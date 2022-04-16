@@ -11,6 +11,9 @@
   > .btn__link {
     align-self: center;
   }
+  @include media-tablet {
+    padding: 42px 10px;
+  }
 }
 
 .friends__title {
@@ -25,6 +28,24 @@
   justify-content: space-between;
   margin-top: 58px;
   margin-bottom: 58px;
+  @include media-tablet {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 80px;
+    //flex-direction: column;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    .btn__round {
+      //display: inline-block;
+      //flex-basis: 50%;
+      order: 2;
+      //margin: 20px 25px 0px;
+    }
+    .carousel__container {
+      flex-basis: 100%;
+    }
+  }
 }
 
 .friends__carousel {
@@ -39,6 +60,12 @@
     >* {
       flex-shrink: 0;
     }
+  }
+  @include media-tablet {
+    // width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+    // flex-basis: 100%;
   }
 }
 
