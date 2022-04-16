@@ -997,7 +997,7 @@ body {
 }
 @media (max-width: 767.9px) {
   .donation__img {
-    max-width: 260px;
+    margin: 0 20px;
   }
 }
 
@@ -1088,6 +1088,12 @@ body {
     padding-top: 30px;
   }
 }
+@media (max-width: 767.9px) {
+  .footer__wrapper {
+    max-width: 320px;
+    row-gap: 37px;
+  }
+}
 
 .footer__questions {
   max-width: 278.5px;
@@ -1108,19 +1114,50 @@ body {
     padding-top: 0px;
   }
 }
+@media (max-width: 767.9px) {
+  .footer__visit {
+    max-width: 300px;
+  }
+}
 
 .footer__title {
   color: #FFFFFF;
+}
+@media (max-width: 767.9px) {
+  .footer__title {
+    max-width: 278.5px;
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 .footer__link {
   display: block;
   margin-top: 37.5px;
 }
+@media (max-width: 767.9px) {
+  .footer__link {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 38px auto 0px;
+  }
+  .footer__link img {
+    max-width: 100%;
+  }
+}
 
 .footer__location {
   display: block;
   margin-top: 31px;
+}
+@media (max-width: 767.9px) {
+  .footer__location {
+    margin-top: 38px;
+  }
+  .footer__location img {
+    max-width: 100%;
+  }
 }
 
 .footer__img {
@@ -1129,4 +1166,9 @@ body {
 .footer__img img {
   display: block;
   max-width: 100%;
+}
+@media (max-width: 767.9px) {
+  .footer__img {
+    max-width: 260px;
+  }
 }/*# sourceMappingURL=style.css.map */
