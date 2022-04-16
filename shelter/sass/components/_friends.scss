@@ -109,6 +109,9 @@
   @include media-laptop {
     padding-bottom: 76px;
   }
+  @include media-tablet {
+    padding: 42px 10px;
+  }
 }
 
 .friends__carousel-pets {
@@ -134,6 +137,10 @@
     // & > .friends__card:nth-child(n + 7) {
     //   display: none;
     // }
+  }
+  @include media-tablet {
+    max-width: 270px;
+    margin: 41px auto 42px;
   }
 }
 

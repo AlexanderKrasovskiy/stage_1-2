@@ -18,6 +18,9 @@
   width: 100%;
   height: 2px;
   background-color: $color-primary;
+  &-pets {
+    background-color: #000;
+  }
 }
 
 .burger__overlay {

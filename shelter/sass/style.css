@@ -294,6 +294,9 @@ body {
   height: 2px;
   background-color: #F1CDB3;
 }
+.burger__line-pets {
+  background-color: #000;
+}
 
 .burger__overlay {
   display: none;
@@ -811,6 +814,11 @@ body {
     padding-bottom: 76px;
   }
 }
+@media (max-width: 767.9px) {
+  .friends__wrapper-pets {
+    padding: 42px 10px;
+  }
+}
 
 .friends__carousel-pets {
   display: -webkit-box;
@@ -836,6 +844,12 @@ body {
     margin: 30px auto 38px;
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+}
+@media (max-width: 767.9px) {
+  .friends__carousel-pets {
+    max-width: 270px;
+    margin: 41px auto 42px;
   }
 }
 
