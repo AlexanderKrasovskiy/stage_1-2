@@ -852,11 +852,21 @@ body {
           align-items: center;
   padding: 80px 30px 100px;
 }
+@media (max-width: 767.9px) {
+  .help__wrapper {
+    padding: 42px 10px;
+  }
+}
 
 .help__title {
   color: #545454;
   text-align: center;
   padding-bottom: 60px;
+}
+@media (max-width: 767.9px) {
+  .help__title {
+    padding-bottom: 42px;
+  }
 }
 
 .help__content {
@@ -881,6 +891,15 @@ body {
     max-width: 630px;
   }
 }
+@media (max-width: 767.9px) {
+  .help__content {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 30px;
+    max-width: 290px;
+  }
+}
 
 .help__card {
   height: 113px;
@@ -900,10 +919,26 @@ body {
     width: 170px;
   }
 }
+@media (max-width: 767.9px) {
+  .help__card {
+    width: 130px;
+    max-height: 87px;
+  }
+  .help__card img {
+    width: 50px;
+  }
+}
 
 .help__card__text {
   color: #545454;
   margin-top: 30px;
+}
+@media (max-width: 767.9px) {
+  .help__card__text {
+    font-size: 15px;
+    line-height: 110%;
+    margin-top: 20px;
+  }
 }
 
 .donation {

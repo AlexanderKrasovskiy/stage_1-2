@@ -7,6 +7,9 @@
   flex-direction: column;
   align-items: center;
   padding: 80px 30px 100px;
+  @include media-tablet {
+    padding: 42px 10px;
+  }
 }
 
 .help__title {
@@ -14,6 +17,9 @@
   color: $color-dark-l;
   text-align: center;
   padding-bottom: 60px;
+  @include media-tablet {
+    padding-bottom: 42px;
+  }
 }
 
 .help__content {
@@ -26,6 +32,11 @@
     column-gap: 60px;
     max-width: 630px;
   }
+  @include media-tablet {
+    justify-content: flex-start;
+    gap: 30px;
+    max-width: 290px;
+  }
 }
 
 .help__card {
@@ -36,10 +47,22 @@
   @include media-laptop {
     width: 170px;
   }
+  @include media-tablet {
+    width: 130px;
+    max-height: 87px;
+    img {
+      width: 50px;
+    }
+  }
 }
 
 .help__card__text {
   @extend %h4;
   color: $color-dark-l;
   margin-top: 30px;
+  @include media-tablet {
+    font-size: 15px;
+    line-height: 110%;
+    margin-top: 20px;
+  }
 }
