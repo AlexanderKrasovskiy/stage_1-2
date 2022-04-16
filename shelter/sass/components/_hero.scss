@@ -1,7 +1,6 @@
 .hero {
   background: url('../assets/icons/bg_noise_pattern_x2.png'),
               radial-gradient(100% 215.42% at left, #5B483A 0%, #262425 100%), #211F20;
-
 }
 
 .hero__wrapper {
@@ -27,11 +26,20 @@
       align-self: center
     }
   }
+  @include media-tablet {
+    align-items: center;
+    margin-bottom: 105px;
+  }
 }
 
 .hero__title {
   @extend %h2;
   color: $color-light-xl;
+  @include media-tablet {
+    font-size: 25px;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
 }
 
 .hero__text {
@@ -39,6 +47,9 @@
   color: $color-dark-s;
   margin-top: 42px;
   margin-bottom: 42px;
+  @include media-tablet {
+    text-align: center;
+  }
 }
 
 .hero__img {
@@ -50,5 +61,8 @@
   @include media-laptop {
     max-width: 569px;
     align-self: flex-end;
+  }
+  @include media-tablet {
+    margin-left: 40px;
   }
 }
