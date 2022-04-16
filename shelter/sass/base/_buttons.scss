@@ -21,10 +21,18 @@
   display: flex;
   justify-content: space-between;
   max-width: 349px;
+  @include media-tablet {
+    align-items: center;
+  }
 }
 
 .bank__text {
   @extend %h4;
+  @include media-tablet {
+    font-size: 15px;
+    line-height: 110%;
+    padding-left: 15px;
+  }
 }
 
 .btn__round {
