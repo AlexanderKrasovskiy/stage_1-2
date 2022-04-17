@@ -198,6 +198,9 @@ body {
   }
 }
 
+.bank__text {
+  color: #545454;
+}
 @media (max-width: 767.9px) {
   .bank__text {
     font-size: 15px;
