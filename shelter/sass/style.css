@@ -1,4 +1,4 @@
-.btn, .donation__subtitle, .help__card__text, .friends__name, .btn__round-pets, .bank__text, .footer__title, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
+.btn, .donation__subtitle, .help__card__text, .friends__name, .btn__round-pets.btn__round, .bank__text, .footer__title, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -123,7 +123,7 @@ body {
   }
 }
 
-.help__card__text, .friends__name, .btn__round-pets, .bank__text {
+.help__card__text, .friends__name, .btn__round-pets.btn__round, .bank__text {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -228,7 +228,7 @@ body {
 .btn__round-right {
   background-image: url("../assets/icons/btns/arrow-right.svg");
 }
-.btn__round-pets {
+.btn__round-pets.btn__round {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -239,15 +239,15 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-.btn__round-pets.inactive {
+.btn__round-pets.btn__round.inactive {
   color: #CDCDCD;
   border-color: #CDCDCD;
 }
-.btn__round-pets.inactive:hover {
+.btn__round-pets.btn__round.inactive:hover {
   background-color: inherit;
   cursor: default;
 }
-.btn__round-pets.active {
+.btn__round-pets.btn__round.active {
   background-color: #F1CDB3;
   border: none;
   cursor: default;
@@ -806,6 +806,7 @@ body {
 }
 .friends__card:hover > .btn__learn {
   background-color: #FDDCC4;
+  border-color: #FDDCC4;
 }
 
 .friends__name {
