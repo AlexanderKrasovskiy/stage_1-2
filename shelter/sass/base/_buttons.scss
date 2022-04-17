@@ -54,7 +54,7 @@
   &-right {
     background-image: url('../assets/icons/btns/arrow-right.svg');
   }
-  &-pets {
+  &-pets.btn__round {
     @extend %h4;
     display: flex;
     justify-content: center;
