@@ -4,7 +4,10 @@
   max-width: 1200px;
 
   margin: 0 auto;
-  // @include media-laptop {
-  //   padding: 0 30px;
-  // }
+  @include media-laptop {
+    padding: 0 30px;
+  }
+  @include media-tablet {
+    padding: 0 10px;
+  }
 }
