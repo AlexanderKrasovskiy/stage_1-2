@@ -20,7 +20,23 @@
         <p class="logo__subtitle">Shelter for pets in Boston</p>
       </a>
 
-      <nav class="header__nav">
+
+      <div class="burger"> <!-- add active -->
+        <div class="burger__line"></div>
+        <div class="burger__line"></div>
+        <div class="burger__line"></div>
+      </div>
+
+      <div class="burger__overlay"></div> <!-- add active -->
+
+
+      <nav class="header__nav"> <!-- add active -->
+
+        <a href="#" class="logo nav__logo">
+          <div class="logo__title">Cozy House</div>
+          <p class="logo__subtitle">Shelter for pets in Boston</p>
+        </a>
+
         <ul class="nav">
           <li class="nav__item"><a class="nav__link active" href="#">About the shelter</a></li>
           <li class="nav__item"><a class="nav__link" href="./pets.html">Our pets</a></li>
@@ -70,31 +86,37 @@
       <h3 class="friends__title">Our friends who<br> are looking for a house</h3>
 
       <div class="friends__container">
-        <div class="btn btn__round btn__round-left"></div>
+        <!-- <div class="btn__container"> -->
+          <div class="btn btn__round btn__round-left"></div>
+        <!-- </div> -->
 
-        <div class="friends__carousel">
-
-          <div class="friends__card">
-            <img src="../assets/images/pets/katrine.png" alt="cat">
-            <h4 class="friends__name">Katrine</h4>
-            <div class="btn btn__learn">Learn more</div>
+        <div class="carousel__container">
+          <div class="friends__carousel">
+  
+            <div class="friends__card">
+              <img src="../assets/images/pets/katrine.png" alt="cat">
+              <h4 class="friends__name">Katrine</h4>
+              <div class="btn btn__learn">Learn more</div>
+            </div>
+            
+            <div class="friends__card">
+              <img src="../assets/images/pets/jennifer.png" alt="puppy">
+              <h4 class="friends__name">Jennifer</h4>
+              <div class="btn btn__learn">Learn more</div>
+            </div>
+            
+            <div class="friends__card">
+              <img src="../assets/images/pets/woody.png" alt="dog">
+              <h4 class="friends__name">Woody</h4>
+              <div class="btn btn__learn">Learn more</div>
+            </div>
+  
           </div>
-          
-          <div class="friends__card">
-            <img src="../assets/images/pets/jennifer.png" alt="puppy">
-            <h4 class="friends__name">Jennifer</h4>
-            <div class="btn btn__learn">Learn more</div>
-          </div>
-          
-          <div class="friends__card">
-            <img src="../assets/images/pets/woody.png" alt="dog">
-            <h4 class="friends__name">Woody</h4>
-            <div class="btn btn__learn">Learn more</div>
-          </div>
-
         </div>
 
-        <div class="btn btn__round btn__round-right"></div>
+        <!-- <div class="btn__container"> -->
+          <div class="btn btn__round btn__round-right"></div>
+        <!-- </div> -->
       </div>
 
       <a class="btn btn__link" href="./pets.html">Get to know the rest</a>
@@ -171,7 +193,9 @@
         <h5 class="donation__subtitle">Name of the bank / Type of bank account</h5>
 
         <a class="btn btn__link btn__bank" href="#donation">
-          <img src="../assets/icons/btns/donation-btn.png" alt="Bank account">
+          <!-- <img src="../assets/icons/btns/donation-btn.png" alt="Bank account"> -->
+          <img src="../assets/icons/btns/credit-card.svg" alt="Bank card">
+          <div class="bank__text">8380 2880 8028 8791 7435</div>
         </a>
         <p class="donation__text">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
       </div>

@@ -1,13 +1,70 @@
+.nav__logo {
+  display: none;
+}
+
+// body {
+//   position: relative;
+//   overflow-x: hidden;
+// }
+// .header__wrapper {
+//   position: relative;
+//   overflow-x: hidden;
+// }
+
+@include media-tablet {
+  .header__nav {
+    position: fixed;
+    width: 320px;
+    top: 0;
+    right: -320px;
+
+    //height: 100vh;
+    bottom: 0;
+
+    z-index: 2;
+
+    background-color: $color-dark-3xl;
+    padding: 30px 10px;
+
+    display: flex;
+    //display: none;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+    transition: all 0.5s;
+    &.active {
+      right: 0px;
+    }
+    &-pets {
+      background-color: $color-light-s;
+    }
+  }
+  .nav__logo {
+    display: block;
+    align-self: flex-start;
+    // margin-bottom: auto;
+    // margin-right: auto;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
   list-style: none;
   padding-bottom: 4px;
+  @include media-tablet {
+    margin-top: 158px;
+    flex-direction: column;
+    row-gap: 40px;
+  }
 }
 
 .nav__item {
   margin-left: 35px;
   position: relative;
+  @include media-tablet {
+    margin-left: 0;
+  }
 }
 
 .nav__link {
@@ -31,8 +88,11 @@
       bottom: -3px;
     }
   }
+  @include media-tablet {
+    font-size: 32px;
+  }
 }
-
+// =========== for PETS page ====================
 .nav__link {
   &-pets {
     color: $color-dark-l;

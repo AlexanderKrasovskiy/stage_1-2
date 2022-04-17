@@ -1,12 +1,13 @@
 @import 'abstracts/constants';
 @import 'abstracts/placeholders';
-// @import 'abstracts/mixins';
+@import 'abstracts/mixins';
 
 //@import 'vendors/normalize';
 
 @import 'base/fonts';
 @import 'base/base';
 @import 'base/buttons';
+@import 'base/hamburger';
 
 @import 'layout/wrapper';
 @import 'layout/header';

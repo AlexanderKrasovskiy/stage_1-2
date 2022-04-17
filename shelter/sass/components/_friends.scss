@@ -1,6 +1,5 @@
 .friends {
   background-color: $color-light-l;
-
 }
 
 .friends__wrapper {
@@ -11,6 +10,9 @@
   padding-bottom: 100px;
   > .btn__link {
     align-self: center;
+  }
+  @include media-tablet {
+    padding: 42px 10px;
   }
 }
 
@@ -24,15 +26,47 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 58px;
+  margin-bottom: 58px;
+  @include media-tablet {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 80px;
+    //flex-direction: column;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    .btn__round {
+      //display: inline-block;
+      //flex-basis: 50%;
+      order: 2;
+      //margin: 20px 25px 0px;
+    }
+    .carousel__container {
+      flex-basis: 100%;
+    }
+  }
 }
 
 .friends__carousel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: calc(3*270px + 2*90px);
+  column-gap: 90px;
+  max-width: calc(3*270px + 2*90px);
+  overflow: hidden;
+  @include media-laptop {
+    column-gap: 40px;
+    max-width: calc(2*270px + 1*40px);
+    >* {
+      flex-shrink: 0;
+    }
+  }
+  @include media-tablet {
+    // width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+    // flex-basis: 100%;
+  }
 }
 
 .friends__card {
@@ -72,18 +106,42 @@
   margin-top: 120.2px;
   padding-top: 80px;
   padding-bottom: 100px;
+  @include media-laptop {
+    padding-bottom: 76px;
+  }
+  @include media-tablet {
+    padding: 42px 10px;
+  }
 }
 
 .friends__carousel-pets {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  //justify-content: space-between;
   row-gap: 30px;
+  column-gap: 40px;
   max-width: 1200px;
-  margin-top: 45px;
-  margin-bottom: 45px;
+  max-height: calc(2*435.1px + 1*30px);
+  overflow: hidden;
+  // margin-top: 45px;
+  // margin-bottom: 45px;
+  margin: 45px auto 74px;
   padding-top: 15px;
   padding-bottom: 15px;
+  @include media-laptop {
+    max-width: calc(2*270px + 1*40px);
+    max-height: calc(3*435.1px + 2*30px);
+    margin: 30px auto 38px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    // & > .friends__card:nth-child(n + 7) {
+    //   display: none;
+    // }
+  }
+  @include media-tablet {
+    max-width: 270px;
+    margin: 41px auto 42px;
+  }
 }
 
 .friends__pagination-pets {
