@@ -402,15 +402,17 @@ body {
 
 @media (max-width: 767.9px) {
   .header__nav {
-    position: absolute;
+    position: fixed;
     width: 320px;
     top: 0;
-    right: -150px;
+    right: -320px;
     bottom: 0;
     z-index: 2;
     background-color: #292929;
     padding: 30px 10px;
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -418,6 +420,15 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .header__nav.active {
+    right: 0px;
+  }
+  .header__nav-pets {
+    background-color: #FAFAFA;
   }
 
   .nav__logo {

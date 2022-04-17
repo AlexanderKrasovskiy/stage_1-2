@@ -13,10 +13,10 @@
 
 @include media-tablet {
   .header__nav {
-    position: absolute;
+    position: fixed;
     width: 320px;
     top: 0;
-    right: -150px;
+    right: -320px;
 
     //height: 100vh;
     bottom: 0;
@@ -26,11 +26,18 @@
     background-color: $color-dark-3xl;
     padding: 30px 10px;
 
-    //display: flex;
-    display: none;
+    display: flex;
+    //display: none;
     flex-direction: column;
     align-items: center;
     // justify-content: center;
+    transition: all 0.5s;
+    &.active {
+      right: 0px;
+    }
+    &-pets {
+      background-color: $color-light-s;
+    }
   }
   .nav__logo {
     display: block;
