@@ -28,6 +28,7 @@
 
 .bank__text {
   @extend %h4;
+  color: $color-dark-l;
   @include media-tablet {
     font-size: 15px;
     line-height: 110%;
