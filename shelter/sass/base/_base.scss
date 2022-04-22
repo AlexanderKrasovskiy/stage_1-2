@@ -16,6 +16,12 @@ body {
   background-color: $color-dark-s;
 }
 
+.body {
+  &.active {
+    overflow: hidden;
+  }
+}
+
 %h1 {
   font-size: 32px;
   line-height: 110%;

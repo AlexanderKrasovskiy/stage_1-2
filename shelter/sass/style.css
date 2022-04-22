@@ -95,6 +95,10 @@ body {
   background-color: #CDCDCD;
 }
 
+.body.active {
+  overflow: hidden;
+}
+
 .logo__title {
   font-size: 32px;
   line-height: 110%;
@@ -431,7 +435,7 @@ body {
     right: 0px;
   }
   .header__nav-pets {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
   }
 
   .nav__logo {

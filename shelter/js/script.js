@@ -5,6 +5,8 @@ function activateBurgerMenu() {
   const burgerOverlay = document.querySelector('.burger__overlay');
   const burgerMenu = document.querySelector('.header__nav');
 
+  const bodyTag = document.body;
+
   burgerBtn.addEventListener('click', toggleActive);
   burgerOverlay.addEventListener('click', closeMenu);
   burgerMenu.addEventListener('click', (e) => {
@@ -23,12 +25,16 @@ function activateBurgerMenu() {
     burgerBtn.classList.toggle('active');
     burgerOverlay.classList.toggle('active');
     burgerMenu.classList.toggle('active');
+
+    bodyTag.classList.toggle('active');
   };
 
   function closeMenu() {
     burgerBtn.classList.remove('active');
     burgerOverlay.classList.remove('active');
     burgerMenu.classList.remove('active');
+
+    bodyTag.classList.remove('active');
   };
 };
 
@@ -41,14 +47,14 @@ function updateLinks() {
   const helpLink = linkBtns[2];
   const contacts = linkBtns[3];
 
-  helpLink.removeAttribute('href');
-  contacts.removeAttribute('href');
+  //helpLink.removeAttribute('href');
+  //contacts.removeAttribute('href');
   // classList add inactive ?
 
   
   // !!! just for main page !!!
-  const makeAFriendBtn = document.querySelector('.hero__content .btn__link');
-  makeAFriendBtn.setAttribute('href', './pets.html');
+  //const makeAFriendBtn = document.querySelector('.hero__content .btn__link');
+  //makeAFriendBtn.setAttribute('href', './pets.html');
 };
 
 updateLinks()
