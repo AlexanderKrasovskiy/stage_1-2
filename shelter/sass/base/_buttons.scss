@@ -39,7 +39,7 @@
 .btn__round {
   width: 52px;
   height: 52px;
-  border: 2px solid #F1CDB3;
+  border: 2px solid $color-primary;
   background-repeat: no-repeat;
   background-position: center;
   color: $color-dark-3xl;
@@ -53,6 +53,9 @@
   }
   &-right {
     background-image: url('../assets/icons/btns/arrow-right.svg');
+  }
+  &-cross {
+    background-image: url('../assets/icons/btns/cross.svg')
   }
   &-pets.btn__round {
     @extend %h4;
