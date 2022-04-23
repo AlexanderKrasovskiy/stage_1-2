@@ -103,6 +103,16 @@
   to {left: 0px;}
 }
 
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 2s;
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 2s;
+}
+
 @include media-laptop {
   @keyframes move-right {
     from {left: -640px;}
@@ -112,6 +122,11 @@
   @keyframes move-left {
     from {left: -640px;}
     to {left: -20px;}
+  }
+
+  .transition-right,
+  .transition-left {
+    animation-duration: 1.5s;
   }
 }
 
@@ -125,16 +140,11 @@
     from {left: -300px;}
     to {left: 0px;}
   }
-}
 
-.transition-right {
-  animation-name: move-right;
-  animation-duration: 2s;
-}
-
-.transition-left {
-  animation-name: move-left;
-  animation-duration: 2s;
+  .transition-right,
+  .transition-left {
+    animation-duration: 1s;
+  }
 }
 
 
