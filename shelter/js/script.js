@@ -216,6 +216,77 @@ activateSlider();
 
 //=================== MODAL =============================
 
-
 // 4) MODAL card (wrapper) onclick -> ( compose + open ) modal + fix body
 //  - close modal
+function activateModal() {
+  const MODAL = document.querySelector('.modal__overlay');
+  const CAROUSEL_LINE = document.querySelector('.friends__carousel');
+  const PAGE_BODY = document.body;
+
+  CAROUSEL_LINE.addEventListener('click', (e) => {
+    if (e.target.closest('.friends__card')) {
+      let targetId = +e.target.closest('.friends__card').dataset.petId;
+      composeModalData(targetId);
+      openModal();
+    }
+  });
+
+  function composeModalData(id) {
+    let {img, type, name, breed, description, age, inoculations, diseases, parasites} = petsDataArr[id];
+    MODAL.innerHTML = `
+    <div class="modal__card">
+
+      <div class="btn btn__round btn__round-cross"></div>
+
+      <div class="modal__img">
+        <img src="${img}" alt="${type}">
+      </div>
+
+      <div class="modal__content">
+        <h4 class="modal__name">${name}</h4>
+        <p class="modal__breed">${type} - ${breed}</p>
+        <p class="modal__description">${description}</p>
+        <ul class="modal__specs">
+          <li>
+            <span>Age:</span> ${age}
+          </li>
+          <li>
+            <span>Inoculations:</span> ${inoculations.join(', ')}
+          </li>
+          <li>
+            <span>Diseases:</span> ${diseases.join(', ')}
+          </li>
+          <li>
+            <span>Parasites:</span> ${parasites.join(', ')}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    `;
+  };
+
+  function openModal() {
+    MODAL.classList.add('active');
+    PAGE_BODY.classList.add('active');
+
+    let crossBtn = document.querySelector('.btn__round-cross');
+    crossBtn.addEventListener('click', (e) => closeModal(e));
+    MODAL.addEventListener('click', (e) => closeModal(e));
+  }
+
+  function closeModal(e) {
+    if (e.target.classList.contains('btn__round-cross') || e.target.classList.contains('modal__overlay')) {
+
+      MODAL.classList.remove('active');
+      PAGE_BODY.classList.remove('active');
+  
+      let crossBtn = document.querySelector('.btn__round-cross');
+      crossBtn.removeEventListener('click', closeModal);
+      MODAL.removeEventListener('click', closeModal);
+
+    }
+  }
+};
+
+activateModal();
