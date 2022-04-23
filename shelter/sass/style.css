@@ -899,8 +899,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 58px;
-  margin-bottom: 58px;
 }
 @media (max-width: 767.9px) {
   .friends__container {
@@ -913,8 +911,7 @@ body {
     -webkit-column-gap: 80px;
        -moz-column-gap: 80px;
             column-gap: 80px;
-    margin-top: 42px;
-    margin-bottom: 42px;
+    padding-bottom: 42px;
   }
   .friends__container .btn__round {
     -webkit-box-ordinal-group: 3;
@@ -927,36 +924,179 @@ body {
   }
 }
 
+.carousel__window {
+  width: 1080px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media (max-width: 1279.9px) {
+  .carousel__window {
+    width: 580px;
+  }
+}
+@media (max-width: 767.9px) {
+  .carousel__window {
+    width: 300px;
+  }
+}
+
 .friends__carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 90px;
-     -moz-column-gap: 90px;
-          column-gap: 90px;
-  max-width: 990px;
-  overflow: hidden;
+  position: relative;
+  left: -1080px;
 }
 @media (max-width: 1279.9px) {
   .friends__carousel {
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-    max-width: 580px;
-  }
-  .friends__carousel > * {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    left: -640px;
   }
 }
 @media (max-width: 767.9px) {
   .friends__carousel {
-    max-width: 270px;
-    margin: 0 auto;
+    left: -300px;
   }
+}
+
+.card__frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 90px;
+     -moz-column-gap: 90px;
+          column-gap: 90px;
+  padding: 58px 45px;
+}
+@media (max-width: 1279.9px) {
+  .card__frame {
+    -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
+            column-gap: 40px;
+    padding: 58px 20px;
+  }
+}
+@media (max-width: 767.9px) {
+  .card__frame {
+    padding: 42px 15px 0;
+    -webkit-column-gap: 0;
+       -moz-column-gap: 0;
+            column-gap: 0;
+  }
+}
+
+@-webkit-keyframes move-right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+
+@keyframes move-right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+@-webkit-keyframes move-left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+@keyframes move-left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+@media (max-width: 1279.9px) {
+  @-webkit-keyframes move-right {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1260px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1260px;
+    }
+  }
+  @-webkit-keyframes move-left {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -20px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -20px;
+    }
+  }
+}
+@media (max-width: 767.9px) {
+  @-webkit-keyframes move-right {
+    from {
+      left: -300px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -300px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @-webkit-keyframes move-left {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+}
+.transition-right {
+  -webkit-animation-name: move-right;
+          animation-name: move-right;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.transition-left {
+  -webkit-animation-name: move-left;
+          animation-name: move-left;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 
 .friends__card {

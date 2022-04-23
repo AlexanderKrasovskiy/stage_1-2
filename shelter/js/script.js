@@ -77,7 +77,7 @@ async function getData(url) {
 const petsData = await getData('../js/support/pets.json');
 
 
-// 1) CSS Carousel - Stream
+//=================== CAROUSEL =============================
 
 // 2) onload (make fn -> m.b. onresize later):
 //  - fetch json

@@ -5,7 +5,6 @@
 .friends__wrapper {
   display: flex;
   flex-direction: column;
-  //align-items: center;
   padding-top: 80px;
   padding-bottom: 100px;
   > .btn__link {
@@ -26,21 +25,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 58px;
-  margin-bottom: 58px;
   @include media-tablet {
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 20px;
     column-gap: 80px;
-    //flex-direction: column;
-    margin-top: 42px;
-    margin-bottom: 42px;
+    padding-bottom: 42px;
     .btn__round {
-      //display: inline-block;
-      //flex-basis: 50%;
       order: 2;
-      //margin: 20px 25px 0px;
     }
     .carousel__container {
       flex-basis: 100%;
@@ -48,26 +40,105 @@
   }
 }
 
-.friends__carousel {
-  display: flex;
-  align-items: center;
-  column-gap: 90px;
-  max-width: calc(3*270px + 2*90px);
+.carousel__window {
+  width: calc(270px*3 + 90px*3);
   overflow: hidden;
+  margin: 0 auto;
   @include media-laptop {
-    column-gap: 40px;
-    max-width: calc(2*270px + 1*40px);
-    >* {
-      flex-shrink: 0;
-    }
+    width: calc(270px*2 + 40px*1);
   }
   @include media-tablet {
-    // width: 100%;
-    max-width: 270px;
-    margin: 0 auto;
-    // flex-basis: 100%;
+    width: 300px;
   }
 }
+
+.friends__carousel {
+  display: flex;
+  // >* {
+  //   flex-shrink: 0;
+  // }
+  position: relative;
+  left: calc((270px*3 + 90px*3) * -1);
+  //align-items: center;
+  //column-gap: 90px;
+  //max-width: calc(3*270px + 2*90px);
+  @include media-laptop {
+    left: calc((270px*2 + 40px*2 + 20px) * -1); // = 640px +- 620px
+    //column-gap: 40px;
+    //max-width: calc(2*270px + 1*40px);
+    // >* {
+    //   flex-shrink: 0;
+    // }
+  }
+  @include media-tablet {
+    left: -300px;
+    //max-width: 270px;
+    //margin: 0 auto;
+  }
+}
+
+.card__frame {
+  display: flex;
+  column-gap: 90px;
+  padding: 58px 45px;
+  @include media-laptop {
+    column-gap: 40px;
+    padding: 58px 20px;
+  }
+  @include media-tablet {
+    padding: 42px 15px 0;
+    column-gap: 0;
+  }
+}
+
+// ===================== TRANSITIONS =====================
+
+@keyframes move-right {
+  from {left: -1080px;}
+  to {left: -2160px;}
+}
+
+@keyframes move-left {
+  from {left: -1080px;}
+  to {left: 0px;}
+}
+
+@include media-laptop {
+  @keyframes move-right {
+    from {left: -640px;}
+    to {left: -1260px;}
+  }
+  
+  @keyframes move-left {
+    from {left: -640px;}
+    to {left: -20px;}
+  }
+}
+
+@include media-tablet {
+  @keyframes move-right {
+    from {left: -300px;}
+    to {left: -600px;}
+  }
+  
+  @keyframes move-left {
+    from {left: -300px;}
+    to {left: 0px;}
+  }
+}
+
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 2s;
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 2s;
+}
+
+
+// ===================== CARD STYLES =====================
 
 .friends__card {
   display: flex;
@@ -118,14 +189,11 @@
 .friends__carousel-pets {
   display: flex;
   flex-wrap: wrap;
-  //justify-content: space-between;
   row-gap: 30px;
   column-gap: 40px;
   max-width: 1200px;
   max-height: calc(2*435.1px + 1*30px);
   overflow: hidden;
-  // margin-top: 45px;
-  // margin-bottom: 45px;
   margin: 45px auto 74px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -135,9 +203,6 @@
     margin: 30px auto 38px;
     padding-top: 0px;
     padding-bottom: 0px;
-    // & > .friends__card:nth-child(n + 7) {
-    //   display: none;
-    // }
   }
   @include media-tablet {
     max-width: 270px;
