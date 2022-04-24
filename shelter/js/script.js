@@ -294,11 +294,36 @@ function activateModal() {
 
 //=================== PAGINATION PETS =============================
 
-// - pets pagination
 // - pets modal
 // - separate js file for pets page ( pagination + modal - modules? )
 
 function activatePagination() {
+  const CAROUSEL = document.querySelector('.friends__carousel-pets');
+  const BTN_START = document.querySelector('#pagination-btn-start');
+  const BTN_END = document.querySelector('#pagination-btn-end');
+  const BTN_PREV = document.querySelector('#pagination-btn-previous');
+  const BTN_NEXT = document.querySelector('#pagination-btn-next');
+  const PAGE_NUMBER = document.querySelector('#pagination-page-number');
+
+  let currentPageNum = 1;
+  let cardsInFrame = 8;
+  updateNumCardsInFrame();
+  let lastPageNum = 48 / cardsInFrame;
+  //let direction = ''; // next / prev / end / start
+
+  function updateNumCardsInFrame() {
+    if (window.matchMedia("(max-width: 767.9px)").matches) {
+      cardsInFrame = 3;
+    } else if (window.matchMedia("(max-width: 1279.9px)").matches) {
+      cardsInFrame = 6;
+    } else {
+      cardsInFrame = 8;
+    }
+  };
+
+
+  let petsPositionArr = generateRandomPaginationCardsArr(cardsInFrame);
+  testpagesArr(petsPositionArr, cardsInFrame);
   
   function generateRandomPaginationCardsArr(cardsPerPage) {
     let pagesNumsArr = [];
@@ -334,17 +359,14 @@ function activatePagination() {
       //console.log('Exclude: ', numsToExclude);
       pagesNumsArr = [...pagesNumsArr, ...frameArr];
     }
-  
+    
     return pagesNumsArr;
   };
-  
-  let rand = generateRandomPaginationCardsArr(8);
-  testpagesArr(rand, 8);
-  
+    
   function testpagesArr(arrToTest, cardsPerPage) {
     //console.log(arrToTest);
     for (let i = 0; i < 8; i++) {
-      console.log(i, ' repeats', countRepeatsInArr(arrToTest, i), ' times');
+      console.log('Pet id', i, ' repeats', countRepeatsInArr(arrToTest, i), ' times in arr of 48 cards');
     }
   
     function countRepeatsInArr(arr, item) {
@@ -380,6 +402,163 @@ function activatePagination() {
       console.log('Each page has no duplicates: ', uniqueStatus);
     }
   
+  };
+
+
+  fillPageWithCards();
+
+  function fillPageWithCards() {
+    CAROUSEL.innerHTML = '';
+    let firstPageIndexes = petsPositionArr.slice(0, cardsInFrame);
+    let cardsArr = prepareCards(firstPageIndexes);
+    CAROUSEL.innerHTML = cardsArr.join(' ');
+  };
+
+  function prepareCards(arrOfIndexes) {
+    let result = [];
+
+    arrOfIndexes.forEach(idx => {
+      let card = composePetCard(idx);
+      result.push(card);
+    });
+
+    return result;
+  };
+
+  function composePetCard(indexOfPet) {
+    let { id, img, type, name } = petsDataArr[indexOfPet];
+    let card = `
+    <div class="friends__card" data-pet-id="${id}">
+      <img src="${img}" alt="${type}">
+      <h4 class="friends__name">${name}</h4>
+      <div class="btn btn__learn">Learn more</div>
+    </div>
+    `;
+
+    return card;
+  };
+
+  
+  BTN_NEXT.addEventListener('click', moveNext);
+  //BTN_PREV.addEventListener('click', movePrev);
+  BTN_END.addEventListener('click', moveEnd);
+  //BTN_START.addEventListener('click', moveStart);
+
+
+  function moveNext() {
+    //direction = 'next';
+    CAROUSEL.classList.add('active');
+
+    currentPageNum++;
+    PAGE_NUMBER.textContent = currentPageNum;
+
+    if (currentPageNum === lastPageNum) {
+      BTN_NEXT.classList.add('inactive');
+      BTN_END.classList.add('inactive');
+    }
+
+    if (currentPageNum !== 1) {
+      BTN_START.classList.remove('inactive');
+      BTN_PREV.classList.remove('inactive');
+    }
+
+    removeAllBtnEventListeners()
+  };
+
+  function movePrev() {
+    //direction = 'prev';
+    CAROUSEL.classList.add('active');
+
+    currentPageNum--;
+    PAGE_NUMBER.textContent = currentPageNum;
+
+    if (currentPageNum === 1) {
+      BTN_START.classList.add('inactive');
+      BTN_PREV.classList.add('inactive');
+    }
+
+    if (currentPageNum !== lastPageNum) {
+      BTN_NEXT.classList.remove('inactive');
+      BTN_END.classList.remove('inactive');
+    }
+
+    removeAllBtnEventListeners();
+  };
+
+  function moveEnd() {
+    //direction = 'end';
+    CAROUSEL.classList.add('active');
+
+    currentPageNum = lastPageNum;
+    PAGE_NUMBER.textContent = currentPageNum;
+
+    BTN_NEXT.classList.add('inactive');
+    BTN_END.classList.add('inactive');
+
+    BTN_START.classList.remove('inactive');
+    BTN_PREV.classList.remove('inactive');
+
+    removeAllBtnEventListeners()
+  };
+
+  function moveStart() {
+    //direction = 'start';
+    CAROUSEL.classList.add('active');
+
+    currentPageNum = 1;
+    PAGE_NUMBER.textContent = currentPageNum;
+
+    BTN_START.classList.add('inactive');
+    BTN_PREV.classList.add('inactive');
+
+    BTN_NEXT.classList.remove('inactive');
+    BTN_END.classList.remove('inactive');
+
+    removeAllBtnEventListeners();
+  }
+
+  function removeAllBtnEventListeners() {
+    BTN_NEXT.removeEventListener('click', moveNext);
+    BTN_PREV.removeEventListener('click', movePrev);
+    BTN_END.removeEventListener('click', moveEnd);
+    BTN_START.removeEventListener('click', moveStart);
+  };
+
+
+
+  CAROUSEL.addEventListener('transitionend', () => {
+    CAROUSEL.classList.remove('active');
+
+    insertCardsToCurrentPage();
+
+    if (!(currentPageNum === lastPageNum)) {
+      BTN_NEXT.addEventListener('click', moveNext);
+      BTN_END.addEventListener('click', moveEnd);
+    }
+
+    if (currentPageNum !== 1) {
+      BTN_PREV.addEventListener('click', movePrev);
+      BTN_START.addEventListener('click', moveStart);
+    }
+  });
+
+  function insertCardsToCurrentPage() {
+    //currentPageNum // 1
+    //cardsInFrame // 8
+    // direction - next / prev / end / start
+    //petsPositionArr // 0-47
+    //prepareCards(arrOfPageCardIds)
+    let idxFrom;
+    let idxTo;
+
+    //if (direction === 'next') {
+      idxTo = currentPageNum * cardsInFrame;
+      idxFrom = idxTo - cardsInFrame;
+    //}
+
+    let pageIdsArr = petsPositionArr.slice(idxFrom, idxTo);
+    let cardsArr = prepareCards(pageIdsArr);
+    CAROUSEL.innerHTML = cardsArr.join(' ');
   };
 
 };
