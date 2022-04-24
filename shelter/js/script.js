@@ -13,10 +13,10 @@ function activateBurgerMenu() {
     const targetClassList = e.target.classList;
     //console.dir(targetClassList)
     if (targetClassList.contains('nav__logo')
-    || targetClassList.contains('logo__title')
-    || targetClassList.contains('logo__subtitle')
-    || targetClassList.contains('nav__link')
-    || targetClassList.contains('nav__item')) {
+      || targetClassList.contains('logo__title')
+      || targetClassList.contains('logo__subtitle')
+      || targetClassList.contains('nav__link')
+      || targetClassList.contains('nav__item')) {
       closeMenu();
     }
   });
@@ -49,7 +49,7 @@ async function getData(url) {
     const res = await fetch(url);
     const data = await res.json();
     return data;
-  } catch(e) {
+  } catch (e) {
     console.error(e)
   }
 };
@@ -58,7 +58,7 @@ const petsDataArr = await getData('../js/support/pets.json');
 
 
 
-//=================== SLIDER =============================
+//=================== SLIDER MAIN =============================
 
 function activateSlider() {
   const BTN_LEFT = document.querySelector('.btn__round-left');
@@ -76,9 +76,9 @@ function activateSlider() {
   updateNumCardsInFrame();
 
   function updateNumCardsInFrame() {
-    if (window.matchMedia( "(max-width: 767.9px)" ).matches) {
+    if (window.matchMedia("(max-width: 767.9px)").matches) {
       cardsInFrame = 1;
-    } else if (window.matchMedia( "(max-width: 1279.9px)" ).matches) {
+    } else if (window.matchMedia("(max-width: 1279.9px)").matches) {
       cardsInFrame = 2;
     } else {
       cardsInFrame = 3;
@@ -138,7 +138,7 @@ function activateSlider() {
   };
 
   function composePetCard(indexOfPet) {
-    let {id, img, type, name} = petsDataArr[indexOfPet];
+    let { id, img, type, name } = petsDataArr[indexOfPet];
     let card = `
     <div class="friends__card" data-pet-id="${id}">
       <img src="${img}" alt="${type}">
@@ -203,7 +203,7 @@ function activateSlider() {
     let cards = buildFrameOfRandomCards(centerFrameIndexesArr).join(' ');
     FRAME_LEFT.innerHTML = cards;
     FRAME_RIGHT.innerHTML = cards;
-    
+
 
     BTN_LEFT.addEventListener('click', moveLeft);
     BTN_RIGHT.addEventListener('click', moveRight);
@@ -211,13 +211,12 @@ function activateSlider() {
 
 };
 
-activateSlider();
+//activateSlider();
 
 
-//=================== MODAL =============================
 
-// 4) MODAL card (wrapper) onclick -> ( compose + open ) modal + fix body
-//  - close modal
+//=================== MODAL MAIN =============================
+
 function activateModal() {
   const MODAL = document.querySelector('.modal__overlay');
   const CAROUSEL_LINE = document.querySelector('.friends__carousel');
@@ -232,7 +231,7 @@ function activateModal() {
   });
 
   function composeModalData(id) {
-    let {img, type, name, breed, description, age, inoculations, diseases, parasites} = petsDataArr[id];
+    let { img, type, name, breed, description, age, inoculations, diseases, parasites } = petsDataArr[id];
     MODAL.innerHTML = `
     <div class="modal__card">
 
@@ -280,7 +279,7 @@ function activateModal() {
 
       MODAL.classList.remove('active');
       PAGE_BODY.classList.remove('active');
-  
+
       let crossBtn = document.querySelector('.btn__round-cross');
       crossBtn.removeEventListener('click', closeModal);
       MODAL.removeEventListener('click', closeModal);
@@ -289,4 +288,101 @@ function activateModal() {
   }
 };
 
-activateModal();
+//activateModal();
+
+
+
+//=================== PAGINATION PETS =============================
+
+// - pets pagination
+// - pets modal
+// - separate js file for pets page ( pagination + modal - modules? )
+
+function activatePagination() {
+  
+  function generateRandomPaginationCardsArr(cardsPerPage) {
+    let pagesNumsArr = [];
+    let numsToExclude = [0, 0, 0, 0, 0, 0, 0, 0];
+    let minIdxToExclude = 0;
+  
+    while (pagesNumsArr.length < 48) {
+      let frameArr = [];
+  
+      if (cardsPerPage < 8) {
+        while (!numsToExclude.every(val => val === minIdxToExclude)) {
+          if (cardsPerPage < 6 && frameArr.length === 3) break;
+          let idx = numsToExclude.indexOf(minIdxToExclude);
+          frameArr.push(idx);
+          numsToExclude[idx] += 1;
+          if (numsToExclude.every(val => val === (minIdxToExclude + 1))) {
+            minIdxToExclude++
+          }
+        }
+      }
+  
+      while (frameArr.length < cardsPerPage) {
+        let randomNum = Math.floor(Math.random() * 8);
+        if (frameArr.includes(randomNum)) continue;
+  
+        if (numsToExclude[randomNum] === 6) continue;
+  
+        numsToExclude[randomNum] ? numsToExclude[randomNum] += 1 : (numsToExclude[randomNum] = 1);
+  
+        frameArr.push(randomNum);
+      }
+      //console.log('Frame: ', frameArr);
+      //console.log('Exclude: ', numsToExclude);
+      pagesNumsArr = [...pagesNumsArr, ...frameArr];
+    }
+  
+    return pagesNumsArr;
+  };
+  
+  let rand = generateRandomPaginationCardsArr(8);
+  testpagesArr(rand, 8);
+  
+  function testpagesArr(arrToTest, cardsPerPage) {
+    //console.log(arrToTest);
+    for (let i = 0; i < 8; i++) {
+      console.log(i, ' repeats', countRepeatsInArr(arrToTest, i), ' times');
+    }
+  
+    function countRepeatsInArr(arr, item) {
+      let repeats = 0;
+      arr.reduce((acc, curr) => {
+  
+        if (curr === item) {
+          repeats++
+        }
+  
+      }, 0);
+      return repeats
+    }
+  
+    // each frame with no repeats
+    areNoRepeatsOnEachPage(arrToTest, cardsPerPage);
+  
+    function areNoRepeatsOnEachPage(arr, numCardsPerPage) {
+      let arrCopy = [...arr];
+      let uniqueStatus = true;
+  
+      while (arrCopy.length > 0) {
+        let page = arrCopy.splice(0, numCardsPerPage);
+        // if (page.every(item => item === page[0]));
+        let set = new Set(page);
+        if (page.length !== set.size) {
+          uniqueStatus = false;
+          console.log('Page with duplicates: ', page);
+          break;
+        }
+      }
+  
+      console.log('Each page has no duplicates: ', uniqueStatus);
+    }
+  
+  };
+
+};
+
+
+activatePagination()
