@@ -211,7 +211,7 @@ function activateSlider() {
 
 };
 
-activateSlider();
+//activateSlider();
 
 
 
@@ -288,7 +288,7 @@ function activateModal() {
   }
 };
 
-activateModal();
+//activateModal();
 
 
 
@@ -561,7 +561,7 @@ function activatePagination() {
 
 };
 
-//activatePagination();
+activatePagination();
 
 
 
@@ -638,4 +638,4 @@ function activatePetsModal() {
   }
 };
 
-//activatePetsModal();
+activatePetsModal();

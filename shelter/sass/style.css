@@ -340,7 +340,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 2;
+  z-index: 5;
 }
 .modal__overlay:hover .modal__card:not(:hover) .btn__round-cross {
   background-color: #FDDCC4;
@@ -525,6 +525,7 @@ body {
   left: 0;
   right: 0;
   background: #FFFFFF;
+  z-index: 4;
 }
 
 .header__wrapper {
