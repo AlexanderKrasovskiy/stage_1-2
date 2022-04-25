@@ -1,4 +1,5 @@
-.btn, .donation__subtitle, .help__card__text, .friends__name, .btn__round-pets.btn__round, .bank__text, .footer__title, .donation__title, .help__title, .friends__title, .about__title, .hero__title, .logo__title, body {
+@charset "UTF-8";
+.btn, .donation__subtitle, .modal__specs li, .modal__description, .help__card__text, .friends__name, .modal__breed, .btn__round-pets.btn__round, .bank__text, .footer__title, .donation__title, .help__title, .friends__title, .about__title, .modal__name, .hero__title, .logo__title, body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -95,6 +96,10 @@ body {
   background-color: #CDCDCD;
 }
 
+.body.active {
+  overflow: hidden;
+}
+
 .logo__title {
   font-size: 32px;
   line-height: 110%;
@@ -110,7 +115,7 @@ body {
   line-height: 130%;
 }
 
-.footer__title, .donation__title, .help__title, .friends__title, .about__title {
+.footer__title, .donation__title, .help__title, .friends__title, .about__title, .modal__name {
   font-style: normal;
   font-weight: normal;
   font-size: 35px;
@@ -118,12 +123,12 @@ body {
   letter-spacing: 0.06em;
 }
 @media (max-width: 767.9px) {
-  .footer__title, .donation__title, .help__title, .friends__title, .about__title {
+  .footer__title, .donation__title, .help__title, .friends__title, .about__title, .modal__name {
     font-size: 25px;
   }
 }
 
-.help__card__text, .friends__name, .btn__round-pets.btn__round, .bank__text {
+.help__card__text, .friends__name, .modal__breed, .btn__round-pets.btn__round, .bank__text {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -131,7 +136,7 @@ body {
   letter-spacing: 0.06em;
 }
 
-.donation__subtitle {
+.donation__subtitle, .modal__specs li, .modal__description {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -228,6 +233,9 @@ body {
 .btn__round-right {
   background-image: url("../assets/icons/btns/arrow-right.svg");
 }
+.btn__round-cross {
+  background-image: url("../assets/icons/btns/cross.svg");
+}
 .btn__round-pets.btn__round {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,6 +326,180 @@ body {
   display: block;
 }
 
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 5;
+}
+.modal__overlay:hover .modal__card:not(:hover) .btn__round-cross {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+  cursor: pointer;
+}
+.modal__overlay.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal__card {
+  width: 900px;
+  min-height: 500px;
+  background-color: #FAFAFA;
+  border-radius: 9px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (max-width: 1279.9px) {
+  .modal__card {
+    width: 630px;
+    min-height: 350px;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__card {
+    width: 240px;
+    min-height: 341px;
+  }
+}
+
+.modal__card > .btn__round-cross {
+  position: absolute;
+  top: -53px;
+  right: -42px;
+}
+@media (max-width: 767.9px) {
+  .modal__card > .btn__round-cross {
+    top: -52px;
+    right: -30px;
+  }
+}
+
+.modal__img {
+  width: 55.5555555556%;
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+  overflow: hidden;
+}
+.modal__img img {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 1279.9px) {
+  .modal__img {
+    width: 55.5555555556%;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__img {
+    display: none;
+  }
+}
+
+.modal__content {
+  max-width: 350px;
+  margin: 50px 20px auto auto;
+}
+@media (max-width: 1279.9px) {
+  .modal__content {
+    max-width: 260.5px;
+    margin: 10px 9px auto auto;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__content {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .modal__name {
+    font-size: 35px;
+    text-align: center;
+  }
+}
+
+.modal__breed {
+  padding-top: 9px;
+  padding-bottom: 41px;
+}
+@media (max-width: 1279.9px) {
+  .modal__breed {
+    padding-bottom: 21px;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__breed {
+    text-align: center;
+  }
+}
+
+.modal__description {
+  line-height: 112%;
+}
+@media (max-width: 1279.9px) {
+  .modal__description {
+    font-size: 13px;
+    line-height: 108%;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__description {
+    text-align: justify;
+    line-height: 110%;
+  }
+}
+
+.modal__specs {
+  list-style: none;
+  padding-top: 42px;
+  padding-left: 9px;
+}
+.modal__specs li {
+  margin-bottom: 11px;
+}
+.modal__specs li::before {
+  content: "•";
+  color: #F1CDB3;
+  font-weight: bold;
+  display: inline-block;
+  width: 4px;
+  margin-left: -10px;
+  margin-right: 6px;
+}
+.modal__specs li span {
+  font-weight: bold;
+}
+@media (max-width: 1279.9px) {
+  .modal__specs {
+    padding-top: 19px;
+  }
+  .modal__specs li {
+    margin-bottom: 7px;
+  }
+}
+@media (max-width: 767.9px) {
+  .modal__specs {
+    padding-top: 22px;
+  }
+  .modal__specs li:last-child {
+    margin: 0;
+  }
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -343,6 +525,7 @@ body {
   left: 0;
   right: 0;
   background: #FFFFFF;
+  z-index: 4;
 }
 
 .header__wrapper {
@@ -431,7 +614,7 @@ body {
     right: 0px;
   }
   .header__nav-pets {
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
   }
 
   .nav__logo {
@@ -718,8 +901,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 58px;
-  margin-bottom: 58px;
 }
 @media (max-width: 767.9px) {
   .friends__container {
@@ -732,8 +913,7 @@ body {
     -webkit-column-gap: 80px;
        -moz-column-gap: 80px;
             column-gap: 80px;
-    margin-top: 42px;
-    margin-bottom: 42px;
+    padding-bottom: 42px;
   }
   .friends__container .btn__round {
     -webkit-box-ordinal-group: 3;
@@ -746,38 +926,191 @@ body {
   }
 }
 
+.carousel__window {
+  width: 1080px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media (max-width: 1279.9px) {
+  .carousel__window {
+    width: 580px;
+  }
+}
+@media (max-width: 767.9px) {
+  .carousel__window {
+    width: 300px;
+  }
+}
+
 .friends__carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 90px;
-     -moz-column-gap: 90px;
-          column-gap: 90px;
-  max-width: 990px;
-  overflow: hidden;
+  position: relative;
+  left: -1080px;
 }
 @media (max-width: 1279.9px) {
   .friends__carousel {
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-    max-width: 580px;
-  }
-  .friends__carousel > * {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    left: -640px;
   }
 }
 @media (max-width: 767.9px) {
   .friends__carousel {
-    max-width: 270px;
-    margin: 0 auto;
+    left: -300px;
   }
 }
 
+.card__frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 90px;
+     -moz-column-gap: 90px;
+          column-gap: 90px;
+  padding: 58px 45px;
+}
+@media (max-width: 1279.9px) {
+  .card__frame {
+    -webkit-column-gap: 40px;
+       -moz-column-gap: 40px;
+            column-gap: 40px;
+    padding: 58px 20px;
+  }
+}
+@media (max-width: 767.9px) {
+  .card__frame {
+    padding: 42px 15px 0;
+    -webkit-column-gap: 0;
+       -moz-column-gap: 0;
+            column-gap: 0;
+  }
+}
+
+@-webkit-keyframes move-right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+
+@keyframes move-right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+@-webkit-keyframes move-left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+@keyframes move-left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+.transition-right {
+  -webkit-animation-name: move-right;
+          animation-name: move-right;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.transition-left {
+  -webkit-animation-name: move-left;
+          animation-name: move-left;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@media (max-width: 1279.9px) {
+  @-webkit-keyframes move-right {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1260px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -1260px;
+    }
+  }
+  @-webkit-keyframes move-left {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -20px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -640px;
+    }
+    to {
+      left: -20px;
+    }
+  }
+  .transition-right,
+.transition-left {
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+  }
+}
+@media (max-width: 767.9px) {
+  @-webkit-keyframes move-right {
+    from {
+      left: -300px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @keyframes move-right {
+    from {
+      left: -300px;
+    }
+    to {
+      left: -600px;
+    }
+  }
+  @-webkit-keyframes move-left {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+  @keyframes move-left {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+  .transition-right,
+.transition-left {
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+  }
+}
 .friends__card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -846,16 +1179,19 @@ body {
      -moz-column-gap: 40px;
           column-gap: 40px;
   max-width: 1200px;
-  max-height: 900.2px;
+  height: 900.2px;
   overflow: hidden;
   margin: 45px auto 74px;
   padding-top: 15px;
   padding-bottom: 15px;
+  -webkit-transition: opacity 0.7s;
+  -o-transition: opacity 0.7s;
+  transition: opacity 0.7s;
 }
 @media (max-width: 1279.9px) {
   .friends__carousel-pets {
     max-width: 580px;
-    max-height: 1365.3px;
+    height: 1365.3px;
     margin: 30px auto 38px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -866,6 +1202,9 @@ body {
     max-width: 270px;
     margin: 41px auto 42px;
   }
+}
+.friends__carousel-pets.active {
+  opacity: 0;
 }
 
 .friends__pagination-pets {
