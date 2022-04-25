@@ -1,0 +1,152 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.6);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 5;
+
+  &:hover {
+    .modal__card:not(:hover) .btn__round-cross {
+      background-color: $color-primary-light;
+      border-color: $color-primary-light;
+      cursor: pointer;
+    }
+  }
+  &.active {
+    display: flex;
+  }
+}
+
+.modal__card {
+  //max-width: 900px;
+  width: 900px;
+
+  min-height: 500px;
+  background-color: $color-light-s;
+  border-radius: 9px;
+  position: relative;
+
+  display: flex;
+  // justify-content: space-between;
+  @include media-laptop {
+    width: 630px;
+    min-height: 350px;
+  }
+  @include media-tablet {
+    width: 240px;
+    min-height: 341px;
+  }
+}
+
+.modal__card>.btn__round-cross {
+  position: absolute;
+  top: -53px;
+  right: -42px;
+  @include media-tablet {
+    top: -52px;
+    right: -30px;
+  }
+}
+
+.modal__img {
+  width: calc(500/900 * 100%);
+  border-bottom-left-radius: 9px;
+  border-top-left-radius: 9px;
+  overflow: hidden;
+  img {
+    display: block;
+    width: 100%;
+  }
+  @include media-laptop {
+    width: calc(350/630 * 100%);
+  }
+  @include media-tablet {
+    display: none;
+  }
+}
+
+.modal__content {
+  max-width: 350px;
+  margin: 50px 20px auto auto;
+  @include media-laptop {
+    max-width: 260.5px;
+    margin: 10px 9px auto auto;
+  }
+  @include media-tablet {
+    margin: 10px;
+  }
+}
+
+.modal__name {
+  @extend %h3;
+  @include media-tablet {
+    font-size: 35px;
+    text-align: center;
+  }
+}
+
+.modal__breed {
+  @extend %h4;
+  padding-top: 9px;
+  padding-bottom: 41px;
+  @include media-laptop {
+    padding-bottom: 21px;
+  }
+  @include media-tablet {
+    text-align: center;
+  }
+}
+
+.modal__description {
+  @extend %h5;
+  line-height: 112%;
+  @include media-laptop {
+    font-size: 13px;
+    line-height: 108%;
+  }
+  @include media-tablet {
+    text-align: justify;
+    line-height: 110%;
+  }
+}
+
+.modal__specs {
+  list-style: none;
+  padding-top: 42px;
+  padding-left: 9px;
+  li {
+    @extend %h5;
+    margin-bottom: 11px;
+  }
+  li::before {
+    content: "\2022";
+    color: $color-primary;
+    font-weight: bold;
+    display: inline-block;
+    width: 4px;
+    margin-left: -10px;
+    margin-right: 6px;
+  }
+  li span {
+    font-weight: bold;
+  }
+  @include media-laptop {
+    padding-top: 19px;
+    li {
+      margin-bottom: 7px;
+    }
+  }
+  @include media-tablet {
+    padding-top: 22px;
+    li:last-child {
+      margin: 0;
+    }
+  }
+}
