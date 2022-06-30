@@ -1,4 +1,4 @@
-interface NewsSource {
+export interface NewsSource {
     id: string;
     name: string;
     description: string;
@@ -20,18 +20,18 @@ interface Article {
 }
 
 interface SourcesResponse {
-    status: 'ok' | 'error';
+    status: 'ok';
     sources: Readonly<NewsSource>[];
 }
 
 interface ArticlesResponse {
-    status: 'ok' | 'error';
+    status: 'ok';
     totalResults: number;
     articles: Readonly<Article>[];
 }
 
 interface ErrorResponse {
-    status: 'ok' | 'error';
+    status: 'error';
     code: string;
     message: string;
 }
