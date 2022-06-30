@@ -1,4 +1,4 @@
-import { type CallBack } from '../../types/index';
+import { CallBack } from '../../types/index';
 
 type LoaderOptions = {
     [key: string]: string;
