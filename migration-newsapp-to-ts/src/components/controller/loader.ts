@@ -2,12 +2,12 @@ type LoaderOptions = {
     [key: string]: string;
 };
 
-type GetRespSettings = {
+interface GetRespSettings {
     endpoint: string;
     options: Partial<LoaderOptions>;
-};
+}
 
-type NewsSource = {
+interface NewsSource {
     id: string;
     name: string;
     description: string;
@@ -15,14 +15,14 @@ type NewsSource = {
     category: string;
     language: string;
     country: string;
-};
+}
 
-type ApiResponse = {
+interface ApiResponse {
     status: 'ok' | 'error';
-    sources?: NewsSource[];
+    sources?: Readonly<NewsSource>[];
     code?: number;
     message?: string;
-};
+}
 
 type CallBack = (data?: ApiResponse) => void;
 
