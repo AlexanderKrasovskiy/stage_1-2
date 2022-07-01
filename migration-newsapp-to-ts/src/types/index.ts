@@ -1,4 +1,4 @@
-export interface NewsSource {
+interface WritableNewsSource {
     id: string;
     name: string;
     description: string;
@@ -8,34 +8,28 @@ export interface NewsSource {
     country: string;
 }
 
-export interface Article {
-    source: { id: string | null; name: string };
+export type NewsSource = Readonly<WritableNewsSource>;
+
+interface WritableArticle {
+    source: { readonly id: string | null; readonly name: string };
     author: string | null;
     title: string;
-    description: string;
-    url: string;
     urlToImage: string;
     publishedAt: string;
     content: string;
 }
 
+export type Article = Readonly<WritableArticle & Pick<WritableNewsSource, 'url' | 'description'>>;
+
 export interface SourcesResponse {
     status: 'ok';
-    sources: Readonly<NewsSource>[];
+    sources: NewsSource[];
 }
 
 export interface ArticlesResponse {
     status: 'ok';
     totalResults: number;
-    articles: Readonly<Article>[];
+    articles: Article[];
 }
-
-export interface ErrorResponse {
-    status: 'error';
-    code: string;
-    message: string;
-}
-
-//type ApiResponse = SourcesResponse | ArticlesResponse | ErrorResponse;
 
 export type CallBack<T> = (data?: T) => void;
