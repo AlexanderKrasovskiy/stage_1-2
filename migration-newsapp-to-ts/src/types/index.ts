@@ -19,12 +19,12 @@ export interface Article {
     content: string;
 }
 
-interface SourcesResponse {
+export interface SourcesResponse {
     status: 'ok';
     sources: Readonly<NewsSource>[];
 }
 
-interface ArticlesResponse {
+export interface ArticlesResponse {
     status: 'ok';
     totalResults: number;
     articles: Readonly<Article>[];
