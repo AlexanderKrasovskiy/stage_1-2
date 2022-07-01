@@ -61,7 +61,7 @@ class Loader {
         options = {}
     ) {
         fetch(this.makeUrl(options, endpoint), { method })
-            .then(this.errorHandler)
+            .then(this.errorHandler.bind(this))
             .then((res): Promise<SourcesResponse | ArticlesResponse> => res.json())
             .then((data) => callback(data))
             .catch((err: Error) => console.error(err));
