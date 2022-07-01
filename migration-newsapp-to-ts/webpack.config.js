@@ -2,7 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-//const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, 'src', 'index'),
@@ -19,6 +19,13 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            // {
+            //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            //     type: 'asset/resource',
+            //     generator: {
+            //         filename: 'assets/[hash][ext][query]',
+            //     },
+            // },
         ],
     },
     resolve: {
@@ -28,19 +35,26 @@ const baseConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        //assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',
+            favicon: './src/assets/favicon.ico',
         }),
         new ESLintPlugin({
             extensions: ['.ts', '.js'],
             exclude: 'node_modules',
         }),
-        // new CopyPlugin({
-        //     patterns: [{ from: './src/assets', to: '.dist/assets' }],
-        // }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src', 'assets', 'news_placeholder.jpg'),
+                    to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
+                },
+            ],
+        }),
     ],
     stats: {
         errorDetails: true,
