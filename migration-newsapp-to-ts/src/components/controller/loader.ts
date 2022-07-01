@@ -15,15 +15,15 @@ enum StatusCodes {
 }
 
 class Loader {
-    baseLink: string;
-    options: LoaderOptions;
+    private baseLink: string;
+    private options: LoaderOptions;
 
     constructor(baseLink: string, options: LoaderOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp(
+    public getResp(
         { endpoint, options = {} }: GetRespSettings,
         callback = () => {
             console.error('No callback for GET response');
@@ -32,7 +32,7 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: Response) {
+    private errorHandler(res: Response) {
         //console.log('RESponse: \n', res); // ======================================
         if (!res.ok) {
             if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.NotFound)
@@ -43,7 +43,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options = {}, endpoint: string) {
+    private makeUrl(options = {}, endpoint: string) {
         const urlOptions = { ...this.options, ...options } as { [key: string]: string };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -54,7 +54,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: 'GET', endpoint: string, callback: CallBack<SourcesResponse | ArticlesResponse>, options = {}) {
+    private load(
+        method: 'GET',
+        endpoint: string,
+        callback: CallBack<SourcesResponse | ArticlesResponse>,
+        options = {}
+    ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res): Promise<SourcesResponse | ArticlesResponse> => res.json())
