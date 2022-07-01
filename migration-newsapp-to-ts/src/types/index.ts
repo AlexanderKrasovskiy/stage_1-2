@@ -8,7 +8,7 @@ export interface NewsSource {
     country: string;
 }
 
-interface Article {
+export interface Article {
     source: { id: string | null; name: string };
     author: string | null;
     title: string;
