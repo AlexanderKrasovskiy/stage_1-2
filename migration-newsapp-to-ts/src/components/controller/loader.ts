@@ -1,4 +1,4 @@
-import { CallBack } from '../../types/index';
+import { CallBack, SourcesResponse, ArticlesResponse, ErrorResponse } from '../../types/index';
 
 type LoaderOptions = {
     [key: string]: string;
@@ -54,12 +54,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: 'GET', endpoint: string, callback: CallBack, options = {}) {
+    load(method: 'GET', endpoint: string, callback: CallBack<SourcesResponse | ArticlesResponse>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => res.json())
+            .then((res): Promise<SourcesResponse | ArticlesResponse> => res.json())
             .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .catch((err: ErrorResponse) => console.error(err));
     }
 }
 

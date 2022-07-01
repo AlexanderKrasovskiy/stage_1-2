@@ -30,12 +30,12 @@ export interface ArticlesResponse {
     articles: Readonly<Article>[];
 }
 
-interface ErrorResponse {
+export interface ErrorResponse {
     status: 'error';
     code: string;
     message: string;
 }
 
-type ApiResponse = SourcesResponse | ArticlesResponse | ErrorResponse;
+//type ApiResponse = SourcesResponse | ArticlesResponse | ErrorResponse;
 
-export type CallBack = (data?: ApiResponse) => void;
+export type CallBack<T> = (data?: T) => void;
