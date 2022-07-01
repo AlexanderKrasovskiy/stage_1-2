@@ -1,4 +1,4 @@
-import { CallBack, SourcesResponse, ArticlesResponse, ErrorResponse } from '../../types/index';
+import { CallBack, SourcesResponse, ArticlesResponse } from '../../types/index';
 
 type LoaderOptions = {
     [key: string]: string;
@@ -64,7 +64,7 @@ class Loader {
             .then(this.errorHandler)
             .then((res): Promise<SourcesResponse | ArticlesResponse> => res.json())
             .then((data) => callback(data))
-            .catch((err: ErrorResponse) => console.error(err));
+            .catch((err: Error) => console.error(err));
     }
 }
 
