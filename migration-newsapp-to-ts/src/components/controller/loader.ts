@@ -1,4 +1,4 @@
-import { CallBack, SourcesResponse, ArticlesResponse } from '../../types/index';
+import { CallBack, SourcesResponse, ArticlesResponse } from '../types/index';
 
 type LoaderOptions = {
     [key: string]: string;
