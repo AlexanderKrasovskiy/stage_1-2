@@ -23,7 +23,7 @@ const baseConfig = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'assets/img/[name].[ext]',
+                    filename: 'assets/img/[name][ext]',
                 },
             },
         ],
@@ -35,7 +35,7 @@ const baseConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        assetModuleFilename: 'img/[name].[ext]',
+        assetModuleFilename: 'assets/img/[name][ext]',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -46,6 +46,14 @@ const baseConfig = {
         new ESLintPlugin({
             extensions: ['.ts', '.js'],
             exclude: 'node_modules',
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src', 'assets', 'img', 'news_placeholder.jpg'),
+                    to: path.resolve(__dirname, 'dist', 'assets', 'img', 'news_placeholder.jpg'),
+                },
+            ],
         }),
     ],
     stats: {
