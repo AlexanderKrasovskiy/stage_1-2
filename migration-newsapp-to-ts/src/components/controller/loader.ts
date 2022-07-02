@@ -50,10 +50,6 @@ class Loader {
             url += `${key}=${urlOptions[key]}&`;
         });
 
-        if (endpoint === 'sources') {
-            url = 'http://localhost:8080/dist/newsSources.json_';
-        } // temporal mock data source
-
         return url.slice(0, -1);
     }
 
