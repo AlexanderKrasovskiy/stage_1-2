@@ -21,6 +21,15 @@ export class AppView {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }
+
+    public drawOptions(data: SourcesResponse | undefined) {
+        const values = data?.sources ? data?.sources : [];
+        this.sources.drawOptions(values);
+    }
+
+    public filterNewsSources() {
+        this.sources.filterSources();
+    }
 }
 
 export default AppView;

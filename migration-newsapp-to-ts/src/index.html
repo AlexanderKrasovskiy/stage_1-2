@@ -8,14 +8,32 @@
     </head>
     <body>
         <header>
-            <h1>News Portal</h1>
+            <div class="wrapper">
+                <h1>News Portal</h1>
+
+                <form action="#" id="options-form">
+                    <select name="category" id="categorySelect">
+                        <option value="">--All Categories--</option>
+                    </select>
+
+                    <select name="language" id="languageSelect">
+                        <option value="">--All Languages--</option>
+                    </select>
+
+                    <button type="submit">Filter</button>
+                </form>
+            </div>
         </header>
         <main>
-            <div class="sources buttons"></div>
-            <div class="news"></div>
+            <div class="wrapper">
+                <div class="sources buttons"></div>
+                <div class="news"></div>
+            </div>
         </main>
         <footer>
-            <p class="copyright">Copyright <a href="https://newsapi.org">NewsAPI</a></p>
+            <div class="wrapper">
+                <p class="copyright">Copyright <a href="https://newsapi.org">NewsAPI</a></p>
+            </div>
         </footer>
 
         <template id="sourceItemTemp">

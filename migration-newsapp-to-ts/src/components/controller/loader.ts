@@ -33,7 +33,6 @@ class Loader {
     }
 
     private errorHandler(res: Response) {
-        //console.log('RESponse: \n', res); // ======================================
         if (!res.ok) {
             if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -50,7 +49,11 @@ class Loader {
         Object.keys(urlOptions).forEach((key) => {
             url += `${key}=${urlOptions[key]}&`;
         });
-        //console.log('Composed URL: \n', url.slice(0, -1)); // https://newsapi.org/v2/sources?apiKey=4cdc10...
+
+        if (endpoint === 'sources') {
+            url = 'http://localhost:8080/dist/newsSources.json_';
+        } // temporal mock data source
+
         return url.slice(0, -1);
     }
 
