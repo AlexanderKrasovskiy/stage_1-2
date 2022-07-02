@@ -5,5 +5,7 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
+        contentBasePublicPath: '/dist',
+        watchContentBase: true,
     },
 };
