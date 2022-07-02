@@ -19,13 +19,6 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
-            // {
-            //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            //     type: 'asset/resource',
-            //     generator: {
-            //         filename: 'assets/[hash][ext][query]',
-            //     },
-            // },
         ],
     },
     resolve: {
@@ -35,7 +28,6 @@ const baseConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        //assetModuleFilename: 'assets/[hash][ext][query]',
     },
     plugins: [
         new HtmlWebpackPlugin({
