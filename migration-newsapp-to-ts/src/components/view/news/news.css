@@ -1,3 +1,7 @@
+.news {
+    min-height: 310px;
+}
+
 .news__item {
     display: flex;
     flex-direction: column;

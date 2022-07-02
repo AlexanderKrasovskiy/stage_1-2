@@ -1,4 +1,8 @@
 body {
+    min-height: 100vh;
+}
+
+body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
@@ -24,9 +28,7 @@ header form {
 
 footer {
     height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: auto;
 }
 footer .copyright {
     font-size: 14px;
@@ -46,4 +48,41 @@ footer .copyright:before {
 .wrapper {
     max-width: 1280px;
     margin: 0 auto;
+}
+
+/* ===================== FOOTER STYLES ===================== */
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #333;
+}
+
+.footer-link {
+    display: block;
+    text-decoration: none;
+}
+
+.github {
+    width: 45px;
+    height: 45px;
+    background-image: url(./assets/img/github.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.copyright-year {
+    padding-left: 80px;
+    font-weight: 700;
+}
+
+.rss {
+    width: 121px;
+    height: 45px;
+    background-image: url(./assets/img/rs_school_js.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
