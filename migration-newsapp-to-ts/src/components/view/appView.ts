@@ -12,17 +12,17 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    public drawNews(data: ArticlesResponse | undefined) {
+    public drawNews(data?: ArticlesResponse) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    public drawSources(data: SourcesResponse | undefined) {
+    public drawSources(data?: SourcesResponse) {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }
 
-    public drawOptions(data: SourcesResponse | undefined) {
+    public drawOptions(data?: SourcesResponse) {
         const values = data?.sources ? data?.sources : [];
         this.sources.drawOptions(values);
     }

@@ -1,4 +1,4 @@
-interface WritableNewsSource {
+type WritableNewsSource = {
     id: string;
     name: string;
     description: string;
@@ -6,30 +6,30 @@ interface WritableNewsSource {
     category: string;
     language: string;
     country: string;
-}
+};
 
 export type NewsSource = Readonly<WritableNewsSource>;
 
-interface WritableArticle {
+type WritableArticle = {
     source: { readonly id: string | null; readonly name: string };
     author: string | null;
     title: string;
     urlToImage: string;
     publishedAt: string;
     content: string;
-}
+};
 
 export type Article = Readonly<WritableArticle & Pick<WritableNewsSource, 'url' | 'description'>>;
 
-export interface SourcesResponse {
+export type SourcesResponse = {
     status: 'ok';
     sources: NewsSource[];
-}
+};
 
-export interface ArticlesResponse {
+export type ArticlesResponse = {
     status: 'ok';
     totalResults: number;
     articles: Article[];
-}
+};
 
 export type CallBack<T> = (data?: T) => void;

@@ -35,6 +35,20 @@ class AppController extends AppLoader {
             target = target.parentNode as HTMLElement;
         }
     }
+
+    public getTopTechNews(callback: CallBack<ArticlesResponse>) {
+        super.getResp(
+            {
+                endpoint: 'top-headlines',
+                options: {
+                    category: 'technology',
+                    country: 'us',
+                    pageSize: '10',
+                },
+            },
+            callback
+        );
+    }
 }
 
 export default AppController;

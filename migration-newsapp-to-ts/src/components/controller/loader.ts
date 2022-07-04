@@ -1,13 +1,11 @@
 import { CallBack, SourcesResponse, ArticlesResponse } from '../types/index';
 
-type LoaderOptions = {
-    [key: string]: string;
-};
+type LoaderOptions = Record<string, string>;
 
-interface GetRespSettings {
+type GetRespSettings = {
     endpoint: string;
-    options?: Partial<LoaderOptions>;
-}
+    options?: LoaderOptions;
+};
 
 enum StatusCodes {
     Unauthorized = 401,
@@ -42,8 +40,8 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options = {}, endpoint: string) {
-        const urlOptions = { ...this.options, ...options } as { [key: string]: string };
+    private makeUrl(options: LoaderOptions = {}, endpoint: string) {
+        const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key) => {
@@ -57,7 +55,7 @@ class Loader {
         method: 'GET',
         endpoint: string,
         callback: CallBack<SourcesResponse | ArticlesResponse>,
-        options = {}
+        options: LoaderOptions = {}
     ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler.bind(this))

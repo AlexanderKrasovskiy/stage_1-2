@@ -16,6 +16,8 @@ class App {
             this.view.drawOptions(data);
         });
 
+        this.controller.getTopTechNews((data) => this.view.drawNews(data));
+
         (document.querySelector('.sources') as HTMLDivElement).addEventListener('click', (e) =>
             this.controller.getNews(e, (data) => this.view.drawNews(data))
         );
