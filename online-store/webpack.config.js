@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const dartSass = require('sass'); // eslint-disable-line import/no-extraneous-dependencies
+const dartSass = require('sass');
 
 const isDev = process.env.NODE_ENV === 'dev';
 
@@ -12,7 +12,7 @@ module.exports = {
     filename: isDev ? '[name].js' : '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    assetModuleFilename: 'assets/[hash][ext][query]',
+    assetModuleFilename: 'assets/[name][ext][query]',
   },
   mode: isDev ? 'development' : 'production',
   devtool: isDev ? 'eval-source-map' : false,
@@ -28,7 +28,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
-      favicon: './src/assets/icons/favicon.ico',
+      favicon: './src/assets/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: isDev ? '[name].css' : '[name].[contenthash].css',
@@ -78,14 +78,14 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[hash][ext][query]',
+          filename: 'assets/img/[name][ext][query]',
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[hash][ext][query]',
+          filename: 'assets/fonts/[name][ext][query]',
         },
       },
     ],

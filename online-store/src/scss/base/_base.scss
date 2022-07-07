@@ -1,0 +1,162 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // outline: 1px solid coral;
+}
+
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: $color-light-s;
+  color: $color-dark-l;
+}
+
+.accent-color {
+  color: $color-accent;
+  background-color: $color-dark-l;
+  padding: 2px 4px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 20px;
+}
+
+.header {
+  border-bottom: 2px solid $color-dark-l;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__img {
+  width: 40px;
+  height: 40px;
+  background-image: url('../assets/img/logo.png');
+  background-size: contain;
+  margin-right: 15px;
+}
+
+.logo__img:hover {
+  cursor: pointer;
+}
+
+.search {
+  // flex-grow: 1;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.search__input {
+  background-color: inherit;
+  border: 2px solid $color-dark-s;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 16px;
+  padding-right: 30px;
+  color: $color-dark-l;
+
+  // width: 80%;
+  // margin: 0 auto;
+  // display: block;
+  flex-grow: 1;
+}
+
+.search__input:focus {
+  background-color: $color-light-l;
+  outline: none;
+}
+
+.search__input::placeholder {
+  color: $color-dark-s;
+}
+
+.search__clear {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  transform: rotate(45deg);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  &-active {
+    display: flex;
+  }
+}
+
+.search__clear:hover {
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.cart__title {
+  letter-spacing: 0.1rem;
+}
+
+.cart__img {
+  width: 35px;
+  height: 35px;
+  background-image: url('../assets/img/cart.png');
+  background-size: contain;
+  margin-right: 20px;
+  position: relative;
+}
+
+.cart__count {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: $color-accent;
+  position: absolute;
+  top: -9px;
+  right: -12px;
+  &-active {
+    display: flex;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
