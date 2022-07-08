@@ -32,7 +32,7 @@
 
     <main class="main">
       <div class="wrapper main__wrapper">
-        <section class="filters">
+        <form class="filters">
 
           <div class="group brand">
             <h4 class="group__title">Brand</h4>
@@ -106,8 +106,12 @@
             </div>
           </div>
 
-          <div class="group instock"></div>
-        </section>
+          <div class="instock">
+            <label for="instock" class="instock__label">In Stock</label>
+            <input type="checkbox" name="instock" id="instock">
+          </div>
+
+        </form>
 
         <section class="products">Products</section>
       </div>
