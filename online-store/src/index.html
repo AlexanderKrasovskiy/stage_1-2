@@ -31,7 +31,54 @@
     </header>
 
     <main class="main">
-      <section class="wrapper"></section>
+      <div class="wrapper main__wrapper">
+        <section class="filters">
+
+          <div class="group brand">
+            <h4 class="group__title">Brand</h4>
+            <div class="group__options">
+              <div class="group__item">Apple</div>
+              <div class="group__item group__item-active">Google</div> <!-- active -->
+              <div class="group__item">OnePlus</div>
+            </div>
+          </div>
+
+          <div class="group storage">
+            <h4 class="group__title">Storage</h4>
+            <div class="group__options">
+              <div class="group__item">128gb</div>
+              <div class="group__item">256gb</div>
+              <div class="group__item group__item-active">512gb</div> <!-- active -->
+            </div>
+          </div>
+
+          <div class="group color">
+            <h4 class="group__title">Color</h4>
+            <div class="color__options">
+
+              <div class="color__item">
+                <input type="checkbox" name="white" id="white">
+                <label class="color__label color__label-wh" for="white"></label>
+              </div>
+
+              <div class="color__item">
+                <input type="checkbox" name="black" id="black">
+                <label class="color__label color__label-bl" for="black"></label>
+              </div>
+
+              <div class="color__item">
+                <input type="checkbox" name="green" id="green">
+                <label class="color__label color__label-gr" for="green"></label>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="group instock"></div>
+        </section>
+
+        <section class="products">Products</section>
+      </div>
     </main>
 
     <footer>

@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // outline: 1px solid coral;
+  //outline: 1px solid coral;
 }
 
 .body {
@@ -32,7 +32,7 @@
 }
 
 .header {
-  border-bottom: 2px solid $color-dark-l;
+  border-bottom: 2px solid $color-dark-s;
 }
 
 .header__wrapper {
@@ -54,15 +54,14 @@
   background-image: url('../assets/img/logo.png');
   background-size: contain;
   margin-right: 15px;
-}
-
-.logo__img:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .search {
   // flex-grow: 1;
-  width: 50%;
+  width: 40%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -83,15 +82,13 @@
   // margin: 0 auto;
   // display: block;
   flex-grow: 1;
-}
-
-.search__input:focus {
-  background-color: $color-light-l;
-  outline: none;
-}
-
-.search__input::placeholder {
-  color: $color-dark-s;
+  &:focus {
+    background-color: $color-light-l;
+    outline: none;
+  }
+  &::placeholder {
+    color: $color-dark-s;
+  }
 }
 
 .search__clear {
@@ -110,13 +107,12 @@
   font-weight: 700;
   font-size: 30px;
   line-height: 1;
+  &:hover {
+    cursor: pointer;
+  }
   &-active {
     display: flex;
   }
-}
-
-.search__clear:hover {
-  cursor: pointer;
 }
 
 .cart {
@@ -158,5 +154,83 @@
 }
 
 .main {
+  flex-grow: 1;
+}
+
+.main__wrapper {
+  display: flex;
+  padding: 20px;
+}
+
+.filters {
+  width: 220px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.group__item {
+  width: fit-content;
+  margin: 5px 0;
+  padding: 5px 20px;
+  &:hover {
+    cursor: pointer;
+  }
+  &-active {
+    border-radius: 15px;
+    background-color: $color-light-l;
+    font-weight: 500;
+  }
+}
+
+.color__options {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+}
+
+.color__item {
+  width: 26px;
+  height: 26px;
+  position: relative;
+}
+
+.color__item > input[type='checkbox'] {
+  visibility: hidden;
+}
+
+.color__item > input[type='checkbox']:checked + label::before {
+  content: '✓';
+  position: absolute;
+  top: 0;
+  left: 6px;
+}
+
+.color__label {
+  width: 85%;
+  height: 85%;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  &-wh {
+    background-color: #fff;
+  }
+  &-bl {
+    background-color: #000;
+    color: white;
+  }
+  &-gr {
+    background-color: #0f0;
+  }
+}
+
+.products {
   flex-grow: 1;
 }
