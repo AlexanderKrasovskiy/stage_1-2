@@ -1,0 +1,342 @@
+[
+  {
+    "brand": "Google",
+    "name": "Google Pixel 3a",
+    "color": "white",
+    "img": "pixel-3a-white.jpg",
+    "storage": 64,
+    "price": 329,
+    "inStock": false,
+    "year": 2019
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 5",
+    "color": "green",
+    "img": "pixel-5-green.jpg",
+    "storage": 64,
+    "price": 399,
+    "inStock": false,
+    "year": 2020
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 5",
+    "color": "green",
+    "img": "pixel-5-green.jpg",
+    "storage": 128,
+    "price": 499,
+    "inStock": true,
+    "year": 2020
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "black",
+    "img": "pixel-6-black.jpg",
+    "storage": 128,
+    "price": 599,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "black",
+    "img": "pixel-6-black.jpg",
+    "storage": 256,
+    "price": 699,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "green",
+    "img": "pixel-6-green.jpg",
+    "storage": 128,
+    "price": 599,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "green",
+    "img": "pixel-6-green.jpg",
+    "storage": 256,
+    "price": 699,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6 Pro",
+    "color": "white",
+    "img": "pixel-6-pro-white.jpg",
+    "storage": 256,
+    "price": 999,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6 Pro",
+    "color": "white",
+    "img": "pixel-6-pro-white.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "white",
+    "img": "pixel-6-white.jpg",
+    "storage": 128,
+    "price": 599,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Google",
+    "name": "Google Pixel 6",
+    "color": "white",
+    "img": "pixel-6-white.jpg",
+    "storage": 256,
+    "price": 699,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 4",
+    "color": "black",
+    "img": "4-black.jpg",
+    "storage": 64,
+    "price": 399,
+    "inStock": false,
+    "year": 2019
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "black",
+    "img": "13pro-black.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "black",
+    "img": "13pro-black.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "green",
+    "img": "13pro-green.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "green",
+    "img": "13pro-green.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "white",
+    "img": "13pro-white.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone 13 Pro",
+    "color": "white",
+    "img": "13pro-white.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone SE",
+    "color": "black",
+    "img": "se-black.jpg",
+    "storage": 64,
+    "price": 429,
+    "inStock": false,
+    "year": 2020
+  },
+  {
+    "brand": "Apple",
+    "name": "Apple iPhone SE",
+    "color": "black",
+    "img": "se-black.jpg",
+    "storage": 128,
+    "price": 479,
+    "inStock": true,
+    "year": 2020
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 8T",
+    "color": "green",
+    "img": "8t-green.jpg",
+    "storage": 128,
+    "price": 499,
+    "inStock": true,
+    "year": 2019
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 8T",
+    "color": "green",
+    "img": "8t-green.jpg",
+    "storage": 256,
+    "price": 599,
+    "inStock": false,
+    "year": 2019
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 9",
+    "color": "black",
+    "img": "9-black.jpg",
+    "storage": 128,
+    "price": 799,
+    "inStock": true,
+    "year": 2020
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 9",
+    "color": "black",
+    "img": "9-black.jpg",
+    "storage": 256,
+    "price": 899,
+    "inStock": true,
+    "year": 2020
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 9 Pro",
+    "color": "white",
+    "img": "9pro-white.jpg",
+    "storage": 256,
+    "price": 999,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 9 Pro",
+    "color": "white",
+    "img": "9pro-white.jpg",
+    "storage": 512,
+    "price": 1099,
+    "inStock": true,
+    "year": 2021
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "black",
+    "img": "10pro-black.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "black",
+    "img": "10pro-black.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "green",
+    "img": "10pro-green.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "green",
+    "img": "10pro-green.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "white",
+    "img": "10pro-white.jpg",
+    "storage": 256,
+    "price": 1099,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus 10 Pro",
+    "color": "white",
+    "img": "10pro-white.jpg",
+    "storage": 512,
+    "price": 1299,
+    "inStock": true,
+    "year": 2022
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus Nord 2",
+    "color": "green",
+    "img": "nord2-green.jpg",
+    "storage": 64,
+    "price": 329,
+    "inStock": false,
+    "year": 2019
+  },
+  {
+    "brand": "OnePlus",
+    "name": "OnePlus Nord 2",
+    "color": "green",
+    "img": "nord2-green.jpg",
+    "storage": 128,
+    "price": 399,
+    "inStock": true,
+    "year": 2022
+  }
+]
