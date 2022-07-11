@@ -1,6 +1,6 @@
 import './scss/global.scss';
 
-//=== SLIDER ========================================
+//=== SLIDER ===================================================
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
@@ -8,26 +8,26 @@ const priceSlider = document.getElementById('price__slider') as noUiSlider.targe
 const yearSlider = document.getElementById('year__slider') as noUiSlider.target;
 
 noUiSlider.create(priceSlider, {
-  start: [50, 1500],
+  start: [300, 1500],
   connect: true,
   range: {
-    min: 50,
-    max: 1500,
+    min: 300,
+    max: 1400,
   },
-  step: 50,
+  step: 100,
   tooltips: {
     to: function (numericValue) {
       return numericValue.toFixed();
     },
   },
-  margin: 250,
+  margin: 200,
 });
 
 noUiSlider.create(yearSlider, {
-  start: [2015, 2022],
+  start: [2019, 2022],
   connect: true,
   range: {
-    min: 2015,
+    min: 2019,
     max: 2022,
   },
   step: 1,
@@ -48,7 +48,7 @@ noUiSlider.create(yearSlider, {
 //priceSlider.noUiSlider?.set([300, 950]); // SET
 //priceSlider.noUiSlider?.reset(); // RESET
 
-// === IMAGES =====================================================
+// === IMAGES ================================================================================
 
 const cache: Record<string, string> = {};
 // {./google/pixel-6-green.jpg: "http://127.0.0.1:5500/dist/assets/icons/pixel-6-green.jpg"}
@@ -63,7 +63,7 @@ function importAll(r: __WebpackModuleApi.RequireContext) {
 
 importAll(require.context('./assets/images/', true, /\.(png|svg|jpg|jpeg|gif)$/i));
 
-// === TEST ADDING IMAGES ======================================================
+// === TEST ADDING IMAGES ====================================================================
 
 // const div = document.createElement('div');
 // div.style.width = '150px';
@@ -76,7 +76,8 @@ importAll(require.context('./assets/images/', true, /\.(png|svg|jpg|jpeg|gif)$/i
 // div.style.backgroundImage = `url('./assets/icons/pixel-6-green.jpg')`;
 // document.body.prepend(div);
 
-// === CLONE CARDS ==================================
+// === CLONE CARDS =========================================================================
+
 // let products = document.querySelector('.products');
 // let card = document.querySelector('.card');
 
@@ -84,3 +85,11 @@ importAll(require.context('./assets/images/', true, /\.(png|svg|jpg|jpeg|gif)$/i
 //   let copy = card.cloneNode(true);
 //   products.append(copy);
 // }
+
+// === COUNT IMAGES =======================================================================
+
+// wh   ...|.. |.     = 6
+// gr   .. |...|.     = 6
+// bl   .  |.. |...   = 6
+
+//       6 | 7 | 5
