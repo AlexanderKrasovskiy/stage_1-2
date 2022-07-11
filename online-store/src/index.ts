@@ -12,7 +12,7 @@ noUiSlider.create(priceSlider, {
   connect: true,
   range: {
     min: 300,
-    max: 1400,
+    max: 1300,
   },
   step: 100,
   tooltips: {

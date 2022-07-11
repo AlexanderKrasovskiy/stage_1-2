@@ -189,6 +189,12 @@
 // }
 // OLD ===
 
+.storage__options {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 33px;
+}
+
 .group__item {
   // width: fit-content;
   margin: 5px 0;
