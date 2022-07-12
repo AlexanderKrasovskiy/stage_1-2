@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "brand": "Google",
     "name": "Google Pixel 3a",
     "color": "white",
@@ -10,6 +11,7 @@
     "year": 2019
   },
   {
+    "id": 2,
     "brand": "Google",
     "name": "Google Pixel 5",
     "color": "green",
@@ -20,6 +22,7 @@
     "year": 2020
   },
   {
+    "id": 3,
     "brand": "Google",
     "name": "Google Pixel 5",
     "color": "green",
@@ -30,6 +33,7 @@
     "year": 2020
   },
   {
+    "id": 4,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "black",
@@ -40,6 +44,7 @@
     "year": 2021
   },
   {
+    "id": 5,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "black",
@@ -50,6 +55,7 @@
     "year": 2021
   },
   {
+    "id": 6,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "green",
@@ -60,6 +66,7 @@
     "year": 2021
   },
   {
+    "id": 7,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "green",
@@ -70,6 +77,7 @@
     "year": 2021
   },
   {
+    "id": 8,
     "brand": "Google",
     "name": "Google Pixel 6 Pro",
     "color": "white",
@@ -80,6 +88,7 @@
     "year": 2022
   },
   {
+    "id": 9,
     "brand": "Google",
     "name": "Google Pixel 6 Pro",
     "color": "white",
@@ -90,6 +99,7 @@
     "year": 2022
   },
   {
+    "id": 10,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "white",
@@ -100,6 +110,7 @@
     "year": 2021
   },
   {
+    "id": 11,
     "brand": "Google",
     "name": "Google Pixel 6",
     "color": "white",
@@ -110,6 +121,7 @@
     "year": 2021
   },
   {
+    "id": 12,
     "brand": "Apple",
     "name": "Apple iPhone 4",
     "color": "black",
@@ -120,6 +132,7 @@
     "year": 2019
   },
   {
+    "id": 13,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "black",
@@ -130,6 +143,7 @@
     "year": 2021
   },
   {
+    "id": 14,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "black",
@@ -140,6 +154,7 @@
     "year": 2022
   },
   {
+    "id": 15,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "green",
@@ -150,6 +165,7 @@
     "year": 2021
   },
   {
+    "id": 16,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "green",
@@ -160,6 +176,7 @@
     "year": 2022
   },
   {
+    "id": 17,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "white",
@@ -170,6 +187,7 @@
     "year": 2021
   },
   {
+    "id": 18,
     "brand": "Apple",
     "name": "Apple iPhone 13 Pro",
     "color": "white",
@@ -180,6 +198,7 @@
     "year": 2022
   },
   {
+    "id": 19,
     "brand": "Apple",
     "name": "Apple iPhone SE",
     "color": "black",
@@ -190,6 +209,7 @@
     "year": 2020
   },
   {
+    "id": 20,
     "brand": "Apple",
     "name": "Apple iPhone SE",
     "color": "black",
@@ -200,6 +220,7 @@
     "year": 2020
   },
   {
+    "id": 21,
     "brand": "OnePlus",
     "name": "OnePlus 8T",
     "color": "green",
@@ -210,6 +231,7 @@
     "year": 2019
   },
   {
+    "id": 22,
     "brand": "OnePlus",
     "name": "OnePlus 8T",
     "color": "green",
@@ -220,6 +242,7 @@
     "year": 2019
   },
   {
+    "id": 23,
     "brand": "OnePlus",
     "name": "OnePlus 9",
     "color": "black",
@@ -230,6 +253,7 @@
     "year": 2020
   },
   {
+    "id": 24,
     "brand": "OnePlus",
     "name": "OnePlus 9",
     "color": "black",
@@ -240,6 +264,7 @@
     "year": 2020
   },
   {
+    "id": 25,
     "brand": "OnePlus",
     "name": "OnePlus 9 Pro",
     "color": "white",
@@ -250,6 +275,7 @@
     "year": 2021
   },
   {
+    "id": 26,
     "brand": "OnePlus",
     "name": "OnePlus 9 Pro",
     "color": "white",
@@ -260,6 +286,7 @@
     "year": 2021
   },
   {
+    "id": 27,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "black",
@@ -270,6 +297,7 @@
     "year": 2022
   },
   {
+    "id": 28,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "black",
@@ -280,6 +308,7 @@
     "year": 2022
   },
   {
+    "id": 29,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "green",
@@ -290,6 +319,7 @@
     "year": 2022
   },
   {
+    "id": 30,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "green",
@@ -300,6 +330,7 @@
     "year": 2022
   },
   {
+    "id": 31,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "white",
@@ -310,6 +341,7 @@
     "year": 2022
   },
   {
+    "id": 32,
     "brand": "OnePlus",
     "name": "OnePlus 10 Pro",
     "color": "white",
@@ -320,6 +352,7 @@
     "year": 2022
   },
   {
+    "id": 33,
     "brand": "OnePlus",
     "name": "OnePlus Nord 2",
     "color": "green",
@@ -330,6 +363,7 @@
     "year": 2019
   },
   {
+    "id": 34,
     "brand": "OnePlus",
     "name": "OnePlus Nord 2",
     "color": "green",
