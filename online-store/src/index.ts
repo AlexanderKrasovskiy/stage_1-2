@@ -1,6 +1,12 @@
+import Controller from './components/controller';
 import './scss/global.scss';
 
-//=== SLIDER ===================================================
+const app = new Controller();
+app.start();
+
+// ======
+// ======
+// === SLIDER ===================================================
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
@@ -48,48 +54,18 @@ noUiSlider.create(yearSlider, {
 //priceSlider.noUiSlider?.set([300, 950]); // SET
 //priceSlider.noUiSlider?.reset(); // RESET
 
-// === IMAGES ================================================================================
+// === LOAD IMGs ================================================================================
 
 const cache: Record<string, string> = {};
-// {./google/pixel-6-green.jpg: "http://127.0.0.1:5500/dist/assets/icons/pixel-6-green.jpg"}
-// {./google/pixel-6-green.jpg: "http://localhost:8080/assets/icons/pixel-6-green.jpg"}
 
 function importAll(r: __WebpackModuleApi.RequireContext) {
-  //console.log(r.keys()); // ['./google/pixel-6-green.jpg']
-
   r.keys().forEach((key) => (cache[key] = r(key)));
-  console.log(cache);
 }
 
 importAll(require.context('./assets/images/', true, /\.(png|svg|jpg|jpeg|gif)$/i));
 
-// === TEST ADDING IMAGES ====================================================================
+// === ADD IMGs ====================================================================
 
 // const div = document.createElement('div');
-// div.style.width = '150px';
-// div.style.height = '150px';
-// div.style.margin = '20px';
-// div.style.padding = '20px';
-// div.style.backgroundSize = 'contain';
-// div.style.backgroundRepeat = 'no-repeat';
-
 // div.style.backgroundImage = `url('./assets/icons/pixel-6-green.jpg')`;
 // document.body.prepend(div);
-
-// === CLONE CARDS =========================================================================
-
-// let products = document.querySelector('.products');
-// let card = document.querySelector('.card');
-
-// for (let i = 0; i < 20; i++) {
-//   let copy = card.cloneNode(true);
-//   products.append(copy);
-// }
-
-// === COUNT IMAGES =======================================================================
-
-// wh   ...|.. |.     = 6
-// gr   .. |...|.     = 6
-// bl   .  |.. |...   = 6
-
-//       6 | 7 | 5
