@@ -397,7 +397,7 @@
   flex-wrap: wrap;
   //justify-content: space-evenly;
   gap: 15px;
-  padding: 20px 0;
+  padding-top: 20px;
 }
 
 .card {
@@ -443,6 +443,7 @@
 
 .tag {
   padding: 4px 8px;
+  margin-right: 3px;
   border-radius: 8px;
   border: 1px solid $color-light-l;
   background-color: $color-light-l;
