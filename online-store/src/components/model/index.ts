@@ -1,15 +1,16 @@
-import { Callback, Product } from '../types';
-import data from './data.json';
+import { Callback, Product, State } from '../types';
+import productsData from './data.json';
 import StateClass from './StateClass';
 
 class Model {
-  //private _state: State | Record<string, string>;
   private _state: StateClass;
   private _data: Product[];
 
   constructor() {
-    this._state = StateClass.getInstance(); // LOCAL ST
-    this._data = data;
+    this._state = StateClass.getInstance();
+    this._data = productsData;
+    this.addStorageHandler();
+    //console.log('STATE_DATA:___', this._state.data);
   }
 
   public getState(callback: Callback<StateClass>) {
@@ -103,6 +104,31 @@ class Model {
     if (!searchText) return productsArr;
 
     return productsArr.filter((el) => el.name.toLowerCase().includes(searchText.toLowerCase()));
+  }
+
+  private addStorageHandler() {
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem(
+        'catalogState',
+        JSON.stringify(this._state.data, function replacer(key, val) {
+          if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return [...val.values()];
+          return val;
+        }),
+      );
+    });
+
+    if (localStorage.getItem('catalogState') !== null) {
+      //console.log('___LOADING STORAGE___!!!');
+      const savedDataJson = localStorage.getItem('catalogState') as string;
+      const savedStateData: State = JSON.parse(savedDataJson, function (key, val) {
+        //console.log(key, val);
+        if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return new Set(val);
+        return val;
+      });
+      //console.log(savedStateData);
+
+      this._state.data = savedStateData;
+    }
   }
 }
 

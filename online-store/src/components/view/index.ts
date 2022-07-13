@@ -120,6 +120,8 @@ class View {
 
   private generateCard(productInfo: Product) {
     const { name, storage, img, inStock, year, color, price, id } = productInfo;
+    const instance = StateClass.getInstance();
+    const inCart = instance.data.inCart.has(id);
 
     // card
     const card = this._createElement('div', 'card');
@@ -147,8 +149,18 @@ class View {
     const cardFooter = this._createElement('div', 'card__footer');
     const cardPrice = this._createElement('span', 'card__price', '$' + price);
 
-    const btnClass = inStock ? 'card__btn' : 'card__btn card__btn-clicked';
-    const btnText = inStock ? '+' : '-';
+    //const btnClass = inStock ? 'card__btn' : 'card__btn card__btn-clicked';
+    //const btnText = inStock ? '+' : '-';
+    let btnClass;
+    let btnText;
+    if (!inStock || inCart) {
+      btnClass = 'card__btn card__btn-clicked';
+      btnText = '-';
+    } else {
+      btnClass = 'card__btn';
+      btnText = '+';
+    }
+
     const cardBtn = this._createElement('button', btnClass, btnText);
     if (inStock) this.addBtnHandler(cardBtn, id);
 
