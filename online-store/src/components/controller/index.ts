@@ -14,10 +14,10 @@ class Controller {
 
   public start() {
     this.model.getState((state) => {
+      this.view.setCart(state);
       this.view.setFilters(state);
       // this.view.setRange(state);
       // this.view.setSort(state);
-      // this.view.setCart(state);
     });
 
     this.model.getData((data) => this.view.drawCards(data));

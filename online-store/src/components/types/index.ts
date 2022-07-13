@@ -14,7 +14,7 @@ export type State = {
     };
   };
   search: string;
-  inCart: number[];
+  inCart: Set<number>;
   sortBy: string;
 };
 

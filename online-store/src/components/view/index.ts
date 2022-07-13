@@ -22,6 +22,7 @@ class View {
   searchInput;
   searchClearBtn;
   sortBySelect;
+  cartCount;
 
   constructor() {
     this._cardsContainer = document.querySelector('#products') as HTMLDivElement;
@@ -50,6 +51,8 @@ class View {
     this.searchClearBtn = document.querySelector('#search_clear') as HTMLSpanElement;
     // SortBy
     this.sortBySelect = document.querySelector('#sort_by') as HTMLSelectElement;
+    // Cart - Count
+    this.cartCount = document.querySelector('#cart_count') as HTMLSpanElement;
 
     this._drawRange();
   }
@@ -94,7 +97,17 @@ class View {
 
   // setSort(state) {}
 
-  // setCart(state) {}
+  public setCart(state: StateClass) {
+    const { inCart } = state.data;
+    const size = inCart.size;
+
+    if (size === 0) {
+      this.cartCount.classList.remove('cart__count-active');
+    } else {
+      this.cartCount.classList.add('cart__count-active');
+      this.cartCount.innerText = String(size);
+    }
+  }
 
   public drawCards(productsArr: Product[]) {
     this._cardsContainer.innerHTML = '';
@@ -106,9 +119,11 @@ class View {
   }
 
   private generateCard(productInfo: Product) {
-    const { name, storage, img, inStock, year, color, price } = productInfo;
+    const { name, storage, img, inStock, year, color, price, id } = productInfo;
 
+    // card
     const card = this._createElement('div', 'card');
+    !inStock ? (card.style.opacity = '0.5') : '';
 
     // title
     const cardTitle = this._createElement('div', 'card__title');
@@ -131,9 +146,12 @@ class View {
     // cardFooter
     const cardFooter = this._createElement('div', 'card__footer');
     const cardPrice = this._createElement('span', 'card__price', '$' + price);
+
     const btnClass = inStock ? 'card__btn' : 'card__btn card__btn-clicked';
     const btnText = inStock ? '+' : '-';
     const cardBtn = this._createElement('button', btnClass, btnText);
+    if (inStock) this.addBtnHandler(cardBtn, id);
+
     cardFooter.append(cardPrice, cardBtn);
 
     // combine elements
@@ -147,6 +165,24 @@ class View {
     el.className = className;
     el.innerText = text;
     return el;
+  }
+
+  private addBtnHandler(btn: HTMLElement, productId: number) {
+    btn.addEventListener('click', () => {
+      const instance = StateClass.getInstance();
+      const inCart = instance.data.inCart.has(productId);
+
+      if (inCart) {
+        instance.data.inCart.delete(productId);
+        btn.classList.remove('card__btn-clicked');
+        btn.innerText = '+';
+      } else {
+        instance.data.inCart.add(productId);
+        btn.classList.add('card__btn-clicked');
+        btn.innerText = '-';
+      }
+      this.setCart(instance);
+    });
   }
 
   public addListeners(redraw: () => void) {

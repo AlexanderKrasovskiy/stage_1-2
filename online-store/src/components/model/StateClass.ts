@@ -16,7 +16,7 @@ const defaultState: State = {
     },
   },
   search: '',
-  inCart: [],
+  inCart: new Set(),
   sortBy: '',
 };
 
