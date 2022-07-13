@@ -16,13 +16,22 @@ class Controller {
     this.model.getState((state) => {
       this.view.setCart(state);
       this.view.setFilters(state);
-      // this.view.setRange(state);
-      // this.view.setSort(state);
+      this.view.setSort(state);
     });
 
     this.model.getData((data) => this.view.drawCards(data));
 
     this.view.addListeners(() => this.model.getData((data) => this.view.drawCards(data)));
+
+    // this.view.addClearStorageListener(() => {
+    //   this.model.getState((state) => {
+    //     this.view.setCart(state);
+    //     this.view.setFilters(state);
+    //     this.view.setSort(state);
+    //   });
+
+    //   this.model.getData((data) => this.view.drawCards(data));
+    // });
   }
 }
 

@@ -112,6 +112,7 @@ class Model {
         'catalogState',
         JSON.stringify(this._state.data, function replacer(key, val) {
           if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return [...val.values()];
+          if (key === 'search') return '';
           return val;
         }),
       );

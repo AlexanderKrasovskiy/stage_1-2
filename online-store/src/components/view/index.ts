@@ -23,6 +23,8 @@ class View {
   searchClearBtn;
   sortBySelect;
   cartCount;
+  clearStorage;
+  filtersForm;
 
   constructor() {
     this._cardsContainer = document.querySelector('#products') as HTMLDivElement;
@@ -46,6 +48,7 @@ class View {
     this.yearSlider = document.getElementById('year__slider') as noUiSlider.target;
     // Filters - Buttons
     this.resetBtn = document.querySelector('#reset_btn') as HTMLButtonElement;
+    this.clearStorage = document.querySelector('#clear_storage_btn') as HTMLButtonElement;
     // Search
     this.searchInput = document.querySelector('#search_input') as HTMLInputElement;
     this.searchClearBtn = document.querySelector('#search_clear') as HTMLSpanElement;
@@ -53,6 +56,8 @@ class View {
     this.sortBySelect = document.querySelector('#sort_by') as HTMLSelectElement;
     // Cart - Count
     this.cartCount = document.querySelector('#cart_count') as HTMLSpanElement;
+    // Filters - Form
+    this.filtersForm = document.querySelector('#filters_form');
 
     this._drawRange();
   }
@@ -91,11 +96,35 @@ class View {
   }
 
   public setFilters(state: StateClass) {
-    const { filters } = state.data;
-    console.log(filters);
+    const { brand, storage, color, inStock, price, year } = state.data.filters;
+    //console.log(state.data.filters);
+    if (brand.size) {
+      if (brand.has('apple')) this.brandApple.checked = true;
+      if (brand.has('google')) this.brandGoogle.checked = true;
+      if (brand.has('oneplus')) this.brandOneplus.checked = true;
+    }
+    if (storage.size) {
+      if (storage.has('64gb')) this.storage64.checked = true;
+      if (storage.has('128gb')) this.storage128.checked = true;
+      if (storage.has('256gb')) this.storage256.checked = true;
+      if (storage.has('512gb')) this.storage512.checked = true;
+    }
+    if (color.size) {
+      if (color.has('white')) this.colorWhite.checked = true;
+      if (color.has('black')) this.colorBlack.checked = true;
+      if (color.has('green')) this.colorGreen.checked = true;
+    }
+    this.filterInStock.checked = inStock;
+    if (price.from > 300 || price.to < 1300) this.priceSlider.noUiSlider?.set([price.from, price.to]);
+    if (year.from > 2019 || price.to < 2022) this.yearSlider.noUiSlider?.set([year.from, year.to]);
   }
 
-  // setSort(state) {}
+  public setSort(state: StateClass) {
+    const { sortBy } = state.data;
+    if (sortBy) {
+      this.sortBySelect.value = sortBy;
+    }
+  }
 
   public setCart(state: StateClass) {
     const { inCart } = state.data;
@@ -217,6 +246,7 @@ class View {
     this.addRangeListener(this.yearSlider, 'year', redraw);
 
     this.addResetListener(redraw);
+    this.addClearStorageListener(redraw);
 
     this.addSearchInputListener(redraw);
     this.addSearchClearListener(redraw);
@@ -276,6 +306,44 @@ class View {
       // Clear input
       this.searchInput.value = '';
       // Redraw
+      redraw();
+    });
+  }
+
+  private addClearStorageListener(redraw: () => void) {
+    this.clearStorage.addEventListener('click', () => {
+      // drop storage
+      localStorage.removeItem('catalogState');
+
+      // set default state
+      const instance = StateClass.getInstance();
+      instance.setDefaultState();
+      // resetAllControls
+      this.brandApple.checked = false;
+      this.brandGoogle.checked = false;
+      this.brandOneplus.checked = false;
+
+      this.storage64.checked = false;
+      this.storage128.checked = false;
+      this.storage256.checked = false;
+      this.storage512.checked = false;
+
+      this.colorWhite.checked = false;
+      this.colorBlack.checked = false;
+      this.colorGreen.checked = false;
+
+      this.filterInStock.checked = false;
+
+      this.priceSlider.noUiSlider?.set([300, 1300]);
+      this.yearSlider.noUiSlider?.set([2019, 2022]);
+
+      this.sortBySelect.value = 'price-high';
+
+      this.cartCount.classList.remove('cart__count-active');
+      this.cartCount.innerText = '';
+
+      this.searchInput.value = '';
+
       redraw();
     });
   }

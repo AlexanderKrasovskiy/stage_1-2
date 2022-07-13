@@ -53,6 +53,10 @@ class StateClass {
     };
     this.data.search = '';
   }
+
+  public setDefaultState() {
+    this.data = defaultState;
+  }
 }
 
 export default StateClass;
