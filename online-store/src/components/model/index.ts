@@ -31,6 +31,7 @@ class Model {
     filteredResult = this.filterInStock(filteredResult);
     filteredResult = this.filterByPrice(filteredResult);
     filteredResult = this.filterByYear(filteredResult);
+    filteredResult = this.filterBySearch(filteredResult);
 
     return filteredResult;
   }
@@ -95,6 +96,13 @@ class Model {
     if (from === 2019 && to === 2022) return productsArr;
 
     return productsArr.filter((el) => el.year >= from && el.year <= to);
+  }
+
+  private filterBySearch(productsArr: Product[]) {
+    const searchText = this._state.data.search;
+    if (!searchText) return productsArr;
+
+    return productsArr.filter((el) => el.name.toLowerCase().includes(searchText.toLowerCase()));
   }
 }
 
