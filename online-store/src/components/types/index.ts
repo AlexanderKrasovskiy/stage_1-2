@@ -1,8 +1,8 @@
 export type State = {
   filters: {
-    brand: string[];
-    storage: number[];
-    color: string[];
+    brand: Set<string>;
+    storage: Set<string>;
+    color: Set<string>;
     inStock: boolean;
     price: {
       from: number;

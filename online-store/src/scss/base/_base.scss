@@ -97,6 +97,7 @@
   right: 10px;
 
   display: none;
+  //display: flex;
   align-items: center;
   justify-content: center;
 
@@ -114,6 +115,10 @@
     display: flex;
   }
 }
+
+// .search__input:focus + .search__clear {
+//   display: flex;
+// }
 
 .cart {
   display: flex;

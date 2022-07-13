@@ -17,8 +17,8 @@
         </div>
 
         <div class="search">
-          <input class="search__input" type="text" autofocus autocomplete="off" placeholder="Search">
-          <span class="search__clear search__clear-active">+</span> <!-- active -->
+          <input class="search__input" type="text" autofocus autocomplete="off" placeholder="Search" id="search_input">
+          <span class="search__clear" id="search_clear">+</span>
         </div>
 
         <div class="cart">
@@ -32,7 +32,7 @@
 
     <main class="main">
       <div class="wrapper main__wrapper">
-        <form class="filters">
+        <form class="filters" id="filters_form">
 
           <div class="group brand">
             <h4 class="group__title">Brand</h4>
@@ -43,8 +43,6 @@
                 <label for="apple" class="group__label">Apple</label>
               </div>
 
-              <!-- <div class="group__item1">Apple</div>
-              <div class="group__item1 group__item1-active">Apple</div> -->
               <div class="group__item">
                 <input type="checkbox" name="brand" id="google" value="google" class="group__checkbox">
                 <label for="google" class="group__label">Google</label>
@@ -82,10 +80,6 @@
                 <label for="512gb" class="group__label">512gb</label>
               </div>
 
-              <!-- <div class="group__item1">128gb</div>
-              <div class="group__item1">256gb</div>
-              <div class="group__item1 group__item1-active">512gb</div> -->
-
             </div>
           </div>
 
@@ -113,33 +107,29 @@
 
           <div class="instock">
             <label for="instock" class="instock__label">In Stock</label>
-            <input type="checkbox" name="instock" id="instock" class="instock__checkbox">
+            <input type="checkbox" name="instock" id="instock" class="instock__checkbox" value="instock">
           </div>
 
           <div class="price">
             <h4>Price ($)</h4>
-            <!-- <span id="price__low"></span> - <span id="price__high"></span> -->
             <div class="slider-styled" id="price__slider"></div>
           </div>
 
           <div class="year">
             <h4>Year</h4>
-            <!-- <span id="price__low"></span> - <span id="price__high"></span> -->
             <div class="slider-styled" id="year__slider"></div>
           </div>
 
-          <button class="btn btn__reset" type="reset">Reset Filters</button>
+          <button class="btn btn__reset" type="reset" id="reset_btn">Reset Filters</button>
           <button class="btn btn__storage" type="button">Clear Storage</button>
-          <!-- <input class="btn__reset" type="reset" value="Reset">
-          <input class="btn__storage" type="button" value="Storage"> -->
 
         </form>
 
         <section class="goods">
           <div>
             <form class="sort">
-              <label class="sort__label" for="sort">Sort By: </label>
-              <select class="sort__input" name="sort" id="sort">
+              <label class="sort__label" for="sort_by">Sort By: </label>
+              <select class="sort__input" name="sort" id="sort_by">
                 <option value="price-high">Price (Highest)</option>
                 <option value="price-low">Price (Lowest)</option>
                 <option value="name-a">Name (A-Z)</option>
@@ -150,7 +140,7 @@
           
           <div class="products" id="products">
 
-            <div class="card">
+            <!-- <div class="card">
 
               <div class="card__title">
                 <span class="card__name">Google Pixel 6</span>
@@ -189,10 +179,10 @@
 
               <div class="card__footer">
                 <span class="card__price">$1,399</span>
-                <button class="card__btn card__btn-clicked">-</button> <!-- card__btn-clicked -->
+                <button class="card__btn card__btn-clicked">-</button>
               </div>
               
-            </div>
+            </div> -->
 
           </div>
         </section>
