@@ -140,11 +140,16 @@ class View {
 
   public drawCards(productsArr: Product[]) {
     this._cardsContainer.innerHTML = '';
-    const fragment = document.createDocumentFragment();
 
-    productsArr.forEach((el) => fragment.append(this.generateCard(el)));
-
-    this._cardsContainer.append(fragment);
+    if (productsArr.length) {
+      const fragment = document.createDocumentFragment();
+      productsArr.forEach((el) => fragment.append(this.generateCard(el)));
+      this._cardsContainer.append(fragment);
+    } else {
+      const h2 = document.createElement('h2');
+      h2.innerText = 'Извините, совпадений не обнаружено';
+      this._cardsContainer.append(h2);
+    }
   }
 
   private generateCard(productInfo: Product) {
