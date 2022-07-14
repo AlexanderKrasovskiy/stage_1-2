@@ -7,19 +7,22 @@
     <title>TrubkaStore</title>
   </head>
   <body class="body">
-
-    <!-- <div class="alert">Извините, все слоты заполнены <span class="alert__btn">+</span></div> -->
-
     <header class="header">
       <div class="wrapper header__wrapper">
-
         <div class="logo">
           <div class="logo__img"></div>
           <h1 class="logo__title"><span class="accent-color">T</span>rubka_Store</h1>
         </div>
 
         <div class="search">
-          <input class="search__input" type="text" autofocus autocomplete="off" placeholder="Search" id="search_input">
+          <input
+            class="search__input"
+            type="text"
+            autofocus
+            autocomplete="off"
+            placeholder="Search"
+            id="search_input"
+          />
           <span class="search__clear" id="search_clear">+</span>
         </div>
 
@@ -35,81 +38,74 @@
     <main class="main">
       <div class="wrapper main__wrapper">
         <form class="filters" id="filters_form">
-
           <div class="group brand">
             <h4 class="group__title">Brand</h4>
             <div class="group__options">
-
               <div class="group__item">
-                <input type="checkbox" name="brand" id="apple" value="apple" class="group__checkbox">
+                <input type="checkbox" name="brand" id="apple" value="apple" class="group__checkbox" />
                 <label for="apple" class="group__label">Apple</label>
               </div>
 
               <div class="group__item">
-                <input type="checkbox" name="brand" id="google" value="google" class="group__checkbox">
+                <input type="checkbox" name="brand" id="google" value="google" class="group__checkbox" />
                 <label for="google" class="group__label">Google</label>
               </div>
 
               <div class="group__item">
-                <input type="checkbox" name="brand" id="oneplus" value="oneplus" class="group__checkbox">
+                <input type="checkbox" name="brand" id="oneplus" value="oneplus" class="group__checkbox" />
                 <label for="oneplus" class="group__label">OnePlus</label>
               </div>
-
             </div>
           </div>
 
           <div class="group storage">
             <h4 class="group__title">Storage</h4>
             <div class="storage__options">
-
               <div class="group__item">
-                <input type="checkbox" name="storage" id="64gb" value="64gb" class="group__checkbox">
+                <input type="checkbox" name="storage" id="64gb" value="64gb" class="group__checkbox" />
                 <label for="64gb" class="group__label">64gb</label>
               </div>
 
               <div class="group__item">
-                <input type="checkbox" name="storage" id="128gb" value="128gb" class="group__checkbox">
+                <input type="checkbox" name="storage" id="128gb" value="128gb" class="group__checkbox" />
                 <label for="128gb" class="group__label">128gb</label>
               </div>
 
               <div class="group__item">
-                <input type="checkbox" name="storage" id="256gb" value="256gb" class="group__checkbox">
+                <input type="checkbox" name="storage" id="256gb" value="256gb" class="group__checkbox" />
                 <label for="256gb" class="group__label">256gb</label>
               </div>
 
               <div class="group__item">
-                <input type="checkbox" name="storage" id="512gb" value="512gb" class="group__checkbox">
+                <input type="checkbox" name="storage" id="512gb" value="512gb" class="group__checkbox" />
                 <label for="512gb" class="group__label">512gb</label>
               </div>
-
             </div>
           </div>
 
           <div class="group color">
             <h4 class="group__title">Color</h4>
             <div class="color__options">
-
               <div class="color__item">
-                <input type="checkbox" name="color" id="white" value="white">
+                <input type="checkbox" name="color" id="white" value="white" />
                 <label class="color__label color__label-wh" for="white"></label>
               </div>
 
               <div class="color__item">
-                <input type="checkbox" name="color" id="black" value="black">
+                <input type="checkbox" name="color" id="black" value="black" />
                 <label class="color__label color__label-bl" for="black"></label>
               </div>
 
               <div class="color__item">
-                <input type="checkbox" name="color" id="green" value="green">
+                <input type="checkbox" name="color" id="green" value="green" />
                 <label class="color__label color__label-gr" for="green"></label>
               </div>
-              
             </div>
           </div>
 
           <div class="instock">
             <label for="instock" class="instock__label">In Stock</label>
-            <input type="checkbox" name="instock" id="instock" class="instock__checkbox" value="instock">
+            <input type="checkbox" name="instock" id="instock" class="instock__checkbox" value="instock" />
           </div>
 
           <div class="price">
@@ -124,7 +120,6 @@
 
           <button class="btn btn__reset" type="reset" id="reset_btn">Reset Filters</button>
           <button class="btn btn__storage" type="button" id="clear_storage_btn">Clear Storage</button>
-
         </form>
 
         <section class="goods">
@@ -139,54 +134,8 @@
               </select>
             </form>
           </div>
-          
-          <div class="products" id="products">
 
-            <!-- <div class="card">
-
-              <div class="card__title">
-                <span class="card__name">Google Pixel 6</span>
-                <span class="card__storage">128gb</span>
-              </div>
-
-              <div class="card__img" style="background-image: url('./assets/icons/pixel-6-green.jpg')"></div>
-
-              <div class="card__tags">
-                <span class="tag tag__instock">In Stock</span>
-                <span class="tag tag__year">2021</span>
-                <span class="tag tag__color">Green</span>
-              </div>
-
-              <div class="card__footer">
-                <span class="card__price">$999</span>
-                <button class="card__btn">+</button>
-              </div>
-              
-            </div>
-
-            <div class="card">
-
-              <div class="card__title">
-                <span class="card__name">Google Pixel 6</span>
-                <span class="card__storage">256gb</span>
-              </div>
-
-              <div class="card__img" style="background-image: url('./assets/icons/pixel-6-green.jpg')"></div>
-
-              <div class="card__tags">
-                <span class="tag tag__instock">Out of Stock</span>
-                <span class="tag tag__year">2021</span>
-                <span class="tag tag__color">Green</span>
-              </div>
-
-              <div class="card__footer">
-                <span class="card__price">$1,399</span>
-                <button class="card__btn card__btn-clicked">-</button>
-              </div>
-              
-            </div> -->
-
-          </div>
+          <div class="products" id="products"></div>
         </section>
       </div>
     </main>
@@ -197,13 +146,12 @@
           <a class="footer-link github" href="https://github.com/AlexanderKrasovskiy" target="_blank"></a>
 
           <div class="copyright-year">
-              <span>2022</span>
+            <span>2022</span>
           </div>
 
           <a class="footer-link rss" href="https://rs.school" target="_blank"></a>
-      </div>
+        </div>
       </div>
     </footer>
-
   </body>
 </html>

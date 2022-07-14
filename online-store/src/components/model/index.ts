@@ -10,7 +10,6 @@ class Model {
     this._state = StateClass.getInstance();
     this._data = productsData;
     this.addStorageHandler();
-    //console.log('STATE_DATA:___', this._state.data);
   }
 
   public getState(callback: Callback<StateClass>) {
@@ -68,7 +67,7 @@ class Model {
     const storageArr = Array(...this._state.data.filters.storage);
     if (storageArr.length === 0 || storageArr.length === 4) return productsArr;
 
-    return productsArr.filter((el) => storageArr.includes(el.storage + 'gb'));
+    return productsArr.filter((el) => storageArr.includes(`${el.storage}gb`));
   }
 
   private filterByColor(productsArr: Product[]) {
@@ -119,14 +118,12 @@ class Model {
     });
 
     if (localStorage.getItem('catalogState') !== null) {
-      //console.log('___LOADING STORAGE___!!!');
       const savedDataJson = localStorage.getItem('catalogState') as string;
       const savedStateData: State = JSON.parse(savedDataJson, function (key, val) {
-        //console.log(key, val);
         if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return new Set(val);
+
         return val;
       });
-      //console.log(savedStateData);
 
       this._state.data = savedStateData;
     }

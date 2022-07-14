@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  //outline: 1px solid coral;
 }
 
 .body {
@@ -60,7 +59,6 @@
 }
 
 .search {
-  // flex-grow: 1;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -78,9 +76,6 @@
   padding-right: 30px;
   color: $color-dark-l;
 
-  // width: 80%;
-  // margin: 0 auto;
-  // display: block;
   flex-grow: 1;
   &:focus {
     background-color: $color-light-l;
@@ -97,7 +92,6 @@
   right: 10px;
 
   display: none;
-  //display: flex;
   align-items: center;
   justify-content: center;
 
@@ -115,10 +109,6 @@
     display: flex;
   }
 }
-
-// .search__input:focus + .search__clear {
-//   display: flex;
-// }
 
 .cart {
   display: flex;
@@ -169,7 +159,6 @@
 }
 
 .filters {
-  //width: 220px;
   flex-basis: 200px;
   flex-shrink: 0;
   padding: 10px;
@@ -178,22 +167,6 @@
   gap: 10px;
 }
 
-// OLD ===
-// .group__item1 {
-//   width: fit-content;
-//   margin: 5px 0;
-//   padding: 5px 20px;
-//   &:hover {
-//     cursor: pointer;
-//   }
-//   &-active {
-//     border-radius: 15px;
-//     background-color: $color-light-l;
-//     font-weight: 500;
-//   }
-// }
-// OLD ===
-
 .storage__options {
   display: flex;
   flex-wrap: wrap;
@@ -201,7 +174,6 @@
 }
 
 .group__item {
-  // width: fit-content;
   margin: 5px 0;
   padding: 5px 20px;
   position: relative;
@@ -308,7 +280,6 @@
 }
 
 .slider-styled .noUi-handle .noUi-touch-area {
-  //border: 1px solid transparent;
   position: absolute;
   top: -10px;
   left: -10px;
@@ -318,9 +289,7 @@
   height: auto;
 }
 
-/* Show a border when hovering the area the handle responds to */
 .slider-styled .noUi-handle:hover .noUi-touch-area {
-  //border: 1px dashed #7f7f7f;
   cursor: pointer;
 }
 
@@ -396,17 +365,13 @@
 }
 
 .products {
-  // margin-top: 10px;
-  // border-top: 1px solid $color-dark-s;
   display: flex;
   flex-wrap: wrap;
-  //justify-content: space-evenly;
   gap: 15px;
   padding-top: 20px;
 }
 
 .card {
-  //margin: 10px 0;
   padding: 15px;
   border-radius: 5px;
   background-color: #fff;
@@ -426,9 +391,7 @@
 }
 
 .card__storage {
-  //display: inline-block;
   padding: 0 4px;
-  //margin-left: auto;
   border: 1px solid $color-light-l;
   border-radius: 5px;
   background-color: $color-light-s;
@@ -535,7 +498,6 @@
   padding: 10px 30px 10px 20px;
   border: 3px solid $color-dark-s;
   border-radius: 30px;
-  //box-shadow: 0px 0px 6px 3px $color-danger;
   background-color: $color-accent;
   font-weight: 500;
   position: fixed;

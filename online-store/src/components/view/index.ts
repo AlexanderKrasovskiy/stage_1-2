@@ -97,7 +97,7 @@ class View {
 
   public setFilters(state: StateClass) {
     const { brand, storage, color, inStock, price, year } = state.data.filters;
-    //console.log(state.data.filters);
+
     if (brand.size) {
       if (brand.has('apple')) this.brandApple.checked = true;
       if (brand.has('google')) this.brandGoogle.checked = true;
@@ -164,7 +164,7 @@ class View {
     // title
     const cardTitle = this._createElement('div', 'card__title');
     const cardName = this._createElement('span', 'card__name', name);
-    const cardStorage = this._createElement('span', 'card__storage', storage + 'gb');
+    const cardStorage = this._createElement('span', 'card__storage', `${storage}gb`);
     cardTitle.append(cardName, cardStorage);
 
     // img
@@ -181,21 +181,12 @@ class View {
 
     // cardFooter
     const cardFooter = this._createElement('div', 'card__footer');
-    const cardPrice = this._createElement('span', 'card__price', '$' + price);
+    const cardPrice = this._createElement('span', 'card__price', `$${price}`);
 
-    //const btnClass = inStock ? 'card__btn' : 'card__btn card__btn-clicked';
-    //const btnText = inStock ? '+' : '-';
-    let btnClass;
-    let btnText;
-    if (!inStock || inCart) {
-      btnClass = 'card__btn card__btn-clicked';
-      btnText = '-';
-    } else {
-      btnClass = 'card__btn';
-      btnText = '+';
-    }
-
+    const btnClass = !inStock || inCart ? 'card__btn card__btn-clicked' : 'card__btn';
+    const btnText = !inStock || inCart ? '-' : '+';
     const cardBtn = this._createElement('button', btnClass, btnText);
+
     if (inStock) this.addBtnHandler(cardBtn, id);
 
     cardFooter.append(cardPrice, cardBtn);
@@ -337,28 +328,28 @@ class View {
 
   private addResetListener(redraw: () => void) {
     this.resetBtn.addEventListener('click', () => {
-      // Reset state.filters & state.search
+      // Reset state (filters & search)
       const instance = StateClass.getInstance();
       instance.resetDataFilters();
-      // Reset range sliders
+      // Reset sliders
       this.priceSlider.noUiSlider?.reset();
       this.yearSlider.noUiSlider?.reset();
       // Clear input
       this.searchInput.value = '';
-      // Redraw
+
       redraw();
     });
   }
 
   private addClearStorageListener(redraw: () => void) {
     this.clearStorage.addEventListener('click', () => {
-      // drop storage
+      // Clear storage
       localStorage.removeItem('catalogState');
 
-      // set default state
+      // Set default state
       const instance = StateClass.getInstance();
       instance.setDefaultState();
-      // resetAllControls
+      // Reset all controls
       this.brandApple.checked = false;
       this.brandGoogle.checked = false;
       this.brandOneplus.checked = false;
