@@ -1,0 +1,84 @@
+.card {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  flex-grow: 1;
+  max-width: 250px;
+}
+.card__title {
+  padding-bottom: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__name {
+  padding-right: 3px;
+}
+
+.card__storage {
+  padding: 0 4px;
+  border: 1px solid $color-light-l;
+  border-radius: 5px;
+  background-color: $color-light-s;
+}
+
+.card__img {
+  min-width: 200px;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.card__tags {
+  padding: 10px 0;
+}
+
+.tag {
+  padding: 4px 8px;
+  margin-right: 3px;
+  border-radius: 8px;
+  border: 1px solid $color-light-l;
+  background-color: $color-light-l;
+  font-size: 10px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__price {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card__btn {
+  font-size: 20px;
+  padding: 5px 25px;
+  background-color: $color-accent;
+  border-radius: 20px;
+  border: 1px solid $color-light-l;
+  transition: all 0.3s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  &-clicked {
+    background-color: $color-light-s;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+
+.card:hover .card__btn {
+  box-shadow: 0px 0px 2px 2px $color-accent;
+}
+
+.card:hover .card__btn-clicked {
+  box-shadow: none;
+}

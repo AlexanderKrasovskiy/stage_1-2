@@ -2,7 +2,19 @@
 
 @import 'base/fonts';
 @import 'base/base';
+@import 'base/alert';
 
-// @import 'layout/wrapper';
+@import 'layout/wrapper';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/goods';
 
-// @import 'components/logo';
+@import 'components/logo';
+@import 'components/search';
+@import 'components/cart';
+@import 'components/filters';
+@import 'components/rangeSliders';
+@import 'components/filterBtns';
+@import 'components/sort';
+@import 'components/productCard';
+@import 'components/footer';

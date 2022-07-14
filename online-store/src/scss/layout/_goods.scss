@@ -1,0 +1,10 @@
+.goods {
+  flex-grow: 1;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 20px;
+}
