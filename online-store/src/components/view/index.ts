@@ -211,7 +211,14 @@ class View {
   private addBtnHandler(btn: HTMLElement, productId: number) {
     btn.addEventListener('click', () => {
       const instance = StateClass.getInstance();
+
+      const cartSize = instance.data.inCart.size;
       const inCart = instance.data.inCart.has(productId);
+
+      if (cartSize === 20 && !inCart) {
+        this.showAlert();
+        return;
+      }
 
       if (inCart) {
         instance.data.inCart.delete(productId);
@@ -224,6 +231,34 @@ class View {
       }
       this.setCart(instance);
     });
+  }
+
+  private showAlert() {
+    const alert = this._createElement('div', 'alert', 'Извините, все слоты заполнены');
+    const btn = this._createElement('span', 'alert__btn', '+');
+
+    btn.addEventListener(
+      'click',
+      () => {
+        alert.remove();
+      },
+      { once: true },
+    );
+
+    alert.append(btn);
+    document.body.append(alert);
+
+    setTimeout(() => {
+      alert.classList.add('alert-active');
+    }, 0);
+
+    setTimeout(() => {
+      alert.classList.remove('alert-active');
+    }, 2400);
+
+    setTimeout(() => {
+      alert.remove();
+    }, 2800);
   }
 
   public addListeners(redraw: () => void) {

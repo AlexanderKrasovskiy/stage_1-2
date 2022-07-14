@@ -529,3 +529,36 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.alert {
+  width: fit-content;
+  padding: 10px 30px 10px 20px;
+  border: 3px solid $color-dark-s;
+  border-radius: 30px;
+  //box-shadow: 0px 0px 6px 3px $color-danger;
+  background-color: $color-accent;
+  font-weight: 500;
+  position: fixed;
+  z-index: 2;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-25%);
+  transition: all 0.4s;
+}
+
+.alert-active {
+  top: 9px;
+}
+
+.alert__btn {
+  position: absolute;
+  top: 1px;
+  right: -3px;
+  transform: rotate(45deg);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 0.7;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
