@@ -1,8 +1,8 @@
 import { Callback, Product, State } from '../types';
 import productsData from './data.json';
-import StateClass from './StateClass';
+import { StateClass } from './StateClass';
 
-class Model {
+export class Model {
   private _state: StateClass;
   private _data: Product[];
 
@@ -129,5 +129,3 @@ class Model {
     }
   }
 }
-
-export default Model;

@@ -20,7 +20,7 @@ const defaultState: State = {
   sortBy: '',
 };
 
-class StateClass {
+export class StateClass {
   private static instance: StateClass;
   data: State;
 
@@ -58,5 +58,3 @@ class StateClass {
     this.data = defaultState;
   }
 }
-
-export default StateClass;

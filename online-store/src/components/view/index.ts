@@ -1,9 +1,9 @@
 import { Product } from '../types';
-import StateClass from '../model/StateClass';
+import { StateClass } from '../model/StateClass';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
-class View {
+export class View {
   _cardsContainer;
   priceSlider;
   yearSlider;
@@ -416,5 +416,3 @@ class View {
     });
   }
 }
-
-export default View;

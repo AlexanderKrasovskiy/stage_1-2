@@ -1,4 +1,4 @@
-import Controller from './components/controller';
+import { Controller } from './components/controller';
 import './scss/global.scss';
 import { logScore } from './components/selfAssessment';
 

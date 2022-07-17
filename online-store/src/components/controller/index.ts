@@ -1,9 +1,9 @@
-import Model from '../model';
-import View from '../view';
+import { Model } from '../model';
+import { View } from '../view';
 
 import { importAll } from './loadImgs';
 
-class Controller {
+export class Controller {
   private model: Model;
   private view: View;
 
@@ -27,5 +27,3 @@ class Controller {
     importAll(require.context('../../assets/images/', true, /\.(png|svg|jpg|jpeg|gif)$/i));
   }
 }
-
-export default Controller;
