@@ -24,7 +24,6 @@ export class View {
   sortBySelect;
   cartCount;
   clearStorage;
-  filtersForm;
 
   constructor() {
     this._cardsContainer = document.querySelector('#products') as HTMLDivElement;
@@ -56,8 +55,6 @@ export class View {
     this.sortBySelect = document.querySelector('#sort_by') as HTMLSelectElement;
     // Cart - Count
     this.cartCount = document.querySelector('#cart_count') as HTMLSpanElement;
-    // Filters - Form
-    this.filtersForm = document.querySelector('#filters_form');
 
     this._drawRange();
   }
