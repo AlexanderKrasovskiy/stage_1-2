@@ -46,7 +46,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  instance.resetDataFilters();
+  instance.setDefaultState();
 });
 
 describe('Model.filterByBrand(mockProductArr)', () => {

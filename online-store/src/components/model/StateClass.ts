@@ -1,4 +1,5 @@
 import { State } from '../types';
+import { makeDeepCopyWithSet } from '../../helpers';
 
 const defaultState: State = {
   filters: {
@@ -25,7 +26,7 @@ export class StateClass {
   data: State;
 
   private constructor() {
-    this.data = defaultState;
+    this.data = makeDeepCopyWithSet(defaultState);
   }
 
   public static getInstance(): StateClass {
@@ -37,24 +38,12 @@ export class StateClass {
   }
 
   public resetDataFilters() {
-    this.data.filters = {
-      brand: new Set(),
-      storage: new Set(),
-      color: new Set(),
-      inStock: false,
-      price: {
-        from: 300,
-        to: 1300,
-      },
-      year: {
-        from: 2019,
-        to: 2022,
-      },
-    };
-    this.data.search = '';
+    const { filters, search } = makeDeepCopyWithSet(defaultState);
+    this.data.filters = filters;
+    this.data.search = search;
   }
 
   public setDefaultState() {
-    this.data = defaultState;
+    this.data = makeDeepCopyWithSet(defaultState);
   }
 }
