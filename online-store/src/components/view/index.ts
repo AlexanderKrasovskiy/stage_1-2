@@ -1,7 +1,15 @@
 import { Product } from '../types';
-import { StateClass } from '../model/StateClass';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
+import {
+  StateClass,
+  DEFAULT_PRICE_FROM,
+  DEFAULT_PRICE_TO,
+  DEFAULT_YEAR_FROM,
+  DEFAULT_YEAR_TO,
+} from '../model/StateClass';
+
+const MAX_CART_SIZE = 20;
 
 export class View {
   _cardsContainer;
@@ -61,11 +69,11 @@ export class View {
 
   private _drawRange() {
     noUiSlider.create(this.priceSlider, {
-      start: [300, 1500],
+      start: [DEFAULT_PRICE_FROM, DEFAULT_PRICE_TO],
       connect: true,
       range: {
-        min: 300,
-        max: 1300,
+        min: DEFAULT_PRICE_FROM,
+        max: DEFAULT_PRICE_TO,
       },
       step: 100,
       tooltips: {
@@ -77,11 +85,11 @@ export class View {
     });
 
     noUiSlider.create(this.yearSlider, {
-      start: [2019, 2022],
+      start: [DEFAULT_YEAR_FROM, DEFAULT_YEAR_TO],
       connect: true,
       range: {
-        min: 2019,
-        max: 2022,
+        min: DEFAULT_YEAR_FROM,
+        max: DEFAULT_YEAR_TO,
       },
       step: 1,
       tooltips: {
@@ -112,8 +120,10 @@ export class View {
       if (color.has('green')) this.colorGreen.checked = true;
     }
     this.filterInStock.checked = inStock;
-    if (price.from > 300 || price.to < 1300) this.priceSlider.noUiSlider?.set([price.from, price.to]);
-    if (year.from > 2019 || price.to < 2022) this.yearSlider.noUiSlider?.set([year.from, year.to]);
+    if (price.from > DEFAULT_PRICE_FROM || price.to < DEFAULT_PRICE_TO)
+      this.priceSlider.noUiSlider?.set([price.from, price.to]);
+    if (year.from > DEFAULT_YEAR_FROM || year.to < DEFAULT_YEAR_TO)
+      this.yearSlider.noUiSlider?.set([year.from, year.to]);
   }
 
   public setSort(state: StateClass) {
@@ -208,7 +218,7 @@ export class View {
       const cartSize = instance.data.inCart.size;
       const inCart = instance.data.inCart.has(productId);
 
-      if (cartSize === 20 && !inCart) {
+      if (cartSize === MAX_CART_SIZE && !inCart) {
         this.showAlert();
         return;
       }
@@ -362,8 +372,8 @@ export class View {
 
       this.filterInStock.checked = false;
 
-      this.priceSlider.noUiSlider?.set([300, 1300]);
-      this.yearSlider.noUiSlider?.set([2019, 2022]);
+      this.priceSlider.noUiSlider?.set([DEFAULT_PRICE_FROM, DEFAULT_PRICE_TO]);
+      this.yearSlider.noUiSlider?.set([DEFAULT_YEAR_FROM, DEFAULT_YEAR_TO]);
 
       this.sortBySelect.value = 'price-high';
 

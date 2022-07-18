@@ -1,6 +1,11 @@
 import { State } from '../types';
 import { makeDeepCopyWithSet } from '../../helpers';
 
+export const DEFAULT_PRICE_FROM = 300;
+export const DEFAULT_PRICE_TO = 1300;
+export const DEFAULT_YEAR_FROM = 2019;
+export const DEFAULT_YEAR_TO = 2022;
+
 const DEFAULT_STATE: State = {
   filters: {
     brand: new Set(),
@@ -8,12 +13,12 @@ const DEFAULT_STATE: State = {
     color: new Set(),
     inStock: false,
     price: {
-      from: 300,
-      to: 1300,
+      from: DEFAULT_PRICE_FROM,
+      to: DEFAULT_PRICE_TO,
     },
     year: {
-      from: 2019,
-      to: 2022,
+      from: DEFAULT_YEAR_FROM,
+      to: DEFAULT_YEAR_TO,
     },
   },
   search: '',

@@ -1,7 +1,7 @@
 import { Callback, Product, State } from '../types';
 import productsData from './data.json';
-import { StateClass } from './StateClass';
 import { stringifyJsonWithSet, parseJsonWithSet } from '../../helpers';
+import { StateClass, DEFAULT_PRICE_FROM, DEFAULT_PRICE_TO, DEFAULT_YEAR_FROM, DEFAULT_YEAR_TO } from './StateClass';
 
 export class Model {
   private _state: StateClass;
@@ -87,14 +87,14 @@ export class Model {
 
   private filterByPrice(productsArr: Product[]) {
     const { from, to } = this._state.data.filters.price;
-    if (from === 300 && to === 1300) return productsArr;
+    if (from === DEFAULT_PRICE_FROM && to === DEFAULT_PRICE_TO) return productsArr;
 
     return productsArr.filter((el) => el.price >= from && el.price <= to);
   }
 
   private filterByYear(productsArr: Product[]) {
     const { from, to } = this._state.data.filters.year;
-    if (from === 2019 && to === 2022) return productsArr;
+    if (from === DEFAULT_YEAR_FROM && to === DEFAULT_YEAR_TO) return productsArr;
 
     return productsArr.filter((el) => el.year >= from && el.year <= to);
   }
