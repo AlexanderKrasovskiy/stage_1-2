@@ -164,21 +164,17 @@ export class View {
     const instance = StateClass.getInstance();
     const inCart = instance.data.inCart.has(id);
 
-    // card
     const card = this._createElement('div', 'card');
     !inStock ? (card.style.opacity = '0.5') : '';
 
-    // title
     const cardTitle = this._createElement('div', 'card__title');
     const cardName = this._createElement('span', 'card__name', name);
     const cardStorage = this._createElement('span', 'card__storage', `${storage}gb`);
     cardTitle.append(cardName, cardStorage);
 
-    // img
     const cardImg = this._createElement('div', 'card__img');
     cardImg.style.backgroundImage = `url('./assets/icons/${img}')`;
 
-    // tags
     const cardTags = this._createElement('div', 'card__tags');
     const inStockText = inStock ? 'In Stock' : 'Out of Stock';
     const inStockTag = this._createElement('span', 'tag tag__instock', inStockText);
@@ -186,7 +182,6 @@ export class View {
     const colorTag = this._createElement('span', 'tag tag__color', color);
     cardTags.append(inStockTag, yearTag, colorTag);
 
-    // cardFooter
     const cardFooter = this._createElement('div', 'card__footer');
     const cardPrice = this._createElement('span', 'card__price', `$${price}`);
 
@@ -198,7 +193,6 @@ export class View {
 
     cardFooter.append(cardPrice, cardBtn);
 
-    // combine elements
     card.append(cardTitle, cardImg, cardTags, cardFooter);
 
     return card;
@@ -335,13 +329,12 @@ export class View {
 
   private addResetListener(redraw: () => void) {
     this.resetBtn.addEventListener('click', () => {
-      // Reset state (filters & search)
       const instance = StateClass.getInstance();
       instance.resetDataFilters();
-      // Reset sliders
+
       this.priceSlider.noUiSlider?.reset();
       this.yearSlider.noUiSlider?.reset();
-      // Clear input
+
       this.searchInput.value = '';
 
       redraw();
@@ -350,13 +343,11 @@ export class View {
 
   private addClearStorageListener(redraw: () => void) {
     this.clearStorage.addEventListener('click', () => {
-      // Clear storage
       localStorage.removeItem('catalogState');
 
-      // Set default state
       const instance = StateClass.getInstance();
       instance.setDefaultState();
-      // Reset all controls
+
       this.brandApple.checked = false;
       this.brandGoogle.checked = false;
       this.brandOneplus.checked = false;
