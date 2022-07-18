@@ -105,7 +105,7 @@ export class Model {
     return productsArr.filter((el) => el.name.toLowerCase().includes(searchText.toLowerCase()));
   }
 
-  private addStorageHandler() {
+  public addStorageHandler() {
     window.addEventListener('beforeunload', () => {
       localStorage.setItem(
         'catalogState',
