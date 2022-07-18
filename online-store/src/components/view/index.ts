@@ -26,34 +26,34 @@ export class View {
   clearStorage;
 
   constructor() {
-    this._cardsContainer = document.querySelector('#products') as HTMLDivElement;
-    // Filters - Brands
-    this.brandApple = document.querySelector('#apple') as HTMLInputElement;
-    this.brandGoogle = document.querySelector('#google') as HTMLInputElement;
-    this.brandOneplus = document.querySelector('#oneplus') as HTMLInputElement;
-    // Filters - Storage
-    this.storage64 = document.getElementById('64gb') as HTMLInputElement;
-    this.storage128 = document.getElementById('128gb') as HTMLInputElement;
-    this.storage256 = document.getElementById('256gb') as HTMLInputElement;
-    this.storage512 = document.getElementById('512gb') as HTMLInputElement;
-    // Filters - Color
-    this.colorWhite = document.querySelector('#white') as HTMLInputElement;
-    this.colorBlack = document.querySelector('#black') as HTMLInputElement;
-    this.colorGreen = document.querySelector('#green') as HTMLInputElement;
-    // Filters - InStock
-    this.filterInStock = document.querySelector('#instock') as HTMLInputElement;
-    // Filters - Range
-    this.priceSlider = document.getElementById('price__slider') as noUiSlider.target;
-    this.yearSlider = document.getElementById('year__slider') as noUiSlider.target;
-    // Filters - Buttons
+    this._cardsContainer = document.querySelector('#products_container') as HTMLDivElement;
+
+    this.brandApple = document.querySelector('#brands_apple') as HTMLInputElement;
+    this.brandGoogle = document.querySelector('#brands_google') as HTMLInputElement;
+    this.brandOneplus = document.querySelector('#brands_oneplus') as HTMLInputElement;
+
+    this.storage64 = document.querySelector('#storage_64gb') as HTMLInputElement;
+    this.storage128 = document.querySelector('#storage_128gb') as HTMLInputElement;
+    this.storage256 = document.querySelector('#storage_256gb') as HTMLInputElement;
+    this.storage512 = document.querySelector('#storage_512gb') as HTMLInputElement;
+
+    this.colorWhite = document.querySelector('#color_options_item_white') as HTMLInputElement;
+    this.colorBlack = document.querySelector('#color_options_item_black') as HTMLInputElement;
+    this.colorGreen = document.querySelector('#color_options_item_green') as HTMLInputElement;
+
+    this.filterInStock = document.querySelector('#filters_instock') as HTMLInputElement;
+
+    this.priceSlider = document.querySelector('#filters_price_slider') as noUiSlider.target;
+    this.yearSlider = document.querySelector('#filters_year_slider') as noUiSlider.target;
+
     this.resetBtn = document.querySelector('#reset_btn') as HTMLButtonElement;
     this.clearStorage = document.querySelector('#clear_storage_btn') as HTMLButtonElement;
-    // Search
+
     this.searchInput = document.querySelector('#search_input') as HTMLInputElement;
-    this.searchClearBtn = document.querySelector('#search_clear') as HTMLSpanElement;
-    // SortBy
+    this.searchClearBtn = document.querySelector('#search_clear_btn') as HTMLSpanElement;
+
     this.sortBySelect = document.querySelector('#sort_by') as HTMLSelectElement;
-    // Cart - Count
+
     this.cartCount = document.querySelector('#cart_count') as HTMLSpanElement;
 
     this._drawRange();
