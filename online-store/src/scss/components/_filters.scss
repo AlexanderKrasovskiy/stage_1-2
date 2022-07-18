@@ -92,18 +92,31 @@
 
 .instock {
   padding: 5px 0;
+  display: flex;
 }
 
 .instock__label {
   display: inline-block;
-  padding: 5px 10px 5px 0;
+  // padding: 5px 10px 5px 0;
+  padding: 5px 15px;
+  margin-right: 10px;
+  transition: 0.3s;
   &:hover {
     cursor: pointer;
     font-weight: 500;
   }
 }
 
+.instock__checkbox {
+  order: 2;
+}
+
 .instock__checkbox:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.instock__checkbox:checked + .instock__label {
+  background-color: $color-light-l;
+  border-radius: 10px;
 }
