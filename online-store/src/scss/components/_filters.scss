@@ -79,14 +79,14 @@
     cursor: pointer;
   }
   &-wh {
-    background-color: #fff;
+    background-color: $color-filters-white;
   }
   &-bl {
-    background-color: #000;
-    color: white;
+    background-color: $color-filters-black;
+    color: $color-filters-white;
   }
   &-gr {
-    background-color: #0f0;
+    background-color: $color-filters-green;
   }
 }
 
