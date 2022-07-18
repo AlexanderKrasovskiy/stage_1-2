@@ -1,6 +1,7 @@
 import { Callback, Product, State } from '../types';
 import productsData from './data.json';
 import { StateClass } from './StateClass';
+import { stringifyJsonWithSet, parseJsonWithSet } from '../../helpers';
 
 export class Model {
   private _state: StateClass;
@@ -107,23 +108,12 @@ export class Model {
 
   public addStorageHandler() {
     window.addEventListener('beforeunload', () => {
-      localStorage.setItem(
-        'catalogState',
-        JSON.stringify(this._state.data, function replacer(key, val) {
-          if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return [...val.values()];
-          if (key === 'search') return '';
-          return val;
-        }),
-      );
+      localStorage.setItem('catalogState', stringifyJsonWithSet(this._state.data));
     });
 
     if (localStorage.getItem('catalogState') !== null) {
       const savedDataJson = localStorage.getItem('catalogState') as string;
-      const savedStateData: State = JSON.parse(savedDataJson, function (key, val) {
-        if (key === 'brand' || key === 'storage' || key === 'color' || key === 'inCart') return new Set(val);
-
-        return val;
-      });
+      const savedStateData: State = parseJsonWithSet(savedDataJson);
 
       this._state.data = savedStateData;
     }
