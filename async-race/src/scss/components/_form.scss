@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form__name {
+  font-family: inherit;
+  font-size: 17px;
+}
+
+.form__color:hover {
+  cursor: pointer;
+}
+
+.form__name,
+.form__color {
+  border-radius: 5px;
+}

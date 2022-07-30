@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-light;
+  background-color: $color-dark;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hidden {
+  display: none;
+}

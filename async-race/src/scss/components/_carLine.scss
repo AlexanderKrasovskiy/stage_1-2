@@ -1,0 +1,39 @@
+.cars__list {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.car__li {
+  list-style: none;
+}
+
+.car__name {
+  display: inline-block;
+  font-weight: 500;
+  margin-left: 5px;
+  letter-spacing: 1px;
+}
+
+.race__track {
+  height: 50px;
+  border-bottom: 3px dashed $color-light;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.svg__img {
+  margin-left: 10px;
+  transform: translateX(0px);
+  align-self: flex-end;
+}
+
+.finish__flag {
+  position: absolute;
+  bottom: 0;
+  right: 90px;
+  font-size: 34px;
+}
