@@ -26,3 +26,13 @@ export type Winner = {
   wins: number;
   time: number;
 };
+
+export type WinnerWithCar = Car & Winner;
+
+export type Handler = () => void;
+
+export type RenderGarageParams = {
+  carsArr: Car[];
+  count: number;
+  page: number;
+};
