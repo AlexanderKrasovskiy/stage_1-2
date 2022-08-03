@@ -31,8 +31,31 @@ export type WinnerWithCar = Car & Winner;
 
 export type Handler = () => void;
 
+export type CreateCarHandler = (x: CarParams) => void;
+
 export type RenderGarageParams = {
   carsArr: Car[];
   count: number;
   page: number;
+};
+
+export type UpdateViewHandler = (x: RenderGarageParams) => void;
+
+export interface FormElements extends HTMLFormControlsCollection {
+  name: HTMLInputElement;
+  color: HTMLInputElement;
+}
+
+export type LiData = {
+  id: number;
+  name: string;
+  color: string;
+  selectBtn: HTMLButtonElement;
+  deleteBtn: HTMLButtonElement;
+  // startBtn: HTMLButtonElement;
+  // stopBtn: HTMLButtonElement;
+  // nameSpan: HTMLSpanElement;
+  // svg: SVGElement;
+  // flag: HTMLSpanElement;
+  // animation?: number;
 };

@@ -11,19 +11,18 @@ export class AppController {
     this.root = createElement('main');
     this.appView = new AppView(this.root);
     this.garageController = new GarageController(this.root);
+    // this.winnersController = new winnersController(this.root);
   }
 
   switchToGarage = () => {
-    // winnersController.hide()
-    // garageController.show()
-    console.log('garageController.getGarage()');
+    // this.winnersController.hide()
+    this.garageController.show();
   };
 
   switchToWinners = () => {
-    // await winnersController.getWinners()
-    // garageController.hide()
-    // winnersController.show()
-    console.log('winnersController.getWinners()');
+    // await this.winnersController.getWinners()
+    this.garageController.hide();
+    // this.winnersController.show()
   };
 
   start = () => {

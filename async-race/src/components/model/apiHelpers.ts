@@ -1,12 +1,12 @@
 import { Car, CarParams, RaceParams, WinnersParams, Winner } from '../types';
 
-const host = 'http://127.0.0.1:3000';
-const MAX_CARS_ON_PAGE = 7;
+const HOST = 'http://127.0.0.1:3000';
+export const MAX_CARS_ON_PAGE = 7;
 const MAX_WINNERS_ON_PAGE = 10;
 
 //
 export const getCars = async (page = 1, limit = MAX_CARS_ON_PAGE) => {
-  const url = `${host}/garage/?_page=${page}&_limit=${limit}`;
+  const url = `${HOST}/garage/?_page=${page}&_limit=${limit}`;
   const res = await fetch(url);
   const carsArr = (await res.json()) as Car[];
   const totalCars = Number(res.headers.get('X-Total-Count'));
@@ -19,7 +19,7 @@ export const getCars = async (page = 1, limit = MAX_CARS_ON_PAGE) => {
 
 // 200 - {Car} / 404 NOT FOUND - {}
 export const getCar = async (id: number) => {
-  const url = `${host}/garage/${id}`;
+  const url = `${HOST}/garage/${id}`;
   const res = await fetch(url);
   const car = (await res.json()) as Car;
   return car;
@@ -28,8 +28,8 @@ export const getCar = async (id: number) => {
 // getCar(20).then(console.log).catch(console.error);
 
 // 200 - {Car}
-export const createCar = async (data: CarParams) => {
-  const url = `${host}/garage`;
+export const createCarReq = async (data: CarParams) => {
+  const url = `${HOST}/garage`;
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -43,8 +43,8 @@ export const createCar = async (data: CarParams) => {
 // createCar({ name: 'Maybach', color: 'VeryBlack' }).then(console.log).catch(console.error);
 
 // 200 - {} / 404 - {}
-export const deleteCar = async (id: number) => {
-  const url = `${host}/garage/${id}`;
+export const deleteCarReq = async (id: number) => {
+  const url = `${HOST}/garage/${id}`;
   const res = await fetch(url, {
     method: 'DELETE',
   });
@@ -58,7 +58,7 @@ export const deleteCar = async (id: number) => {
 
 // 200 - {Car} / 404 - {}
 export const updateCar = async (id: number, data: CarParams) => {
-  const url = `${host}/garage/${id}`;
+  const url = `${HOST}/garage/${id}`;
   const res = await fetch(url, {
     method: 'PUT',
     headers: {
@@ -73,7 +73,7 @@ export const updateCar = async (id: number, data: CarParams) => {
 
 // 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
 export const startEngine = async (id: number) => {
-  const url = `${host}/engine/?id=${id}&status=started`;
+  const url = `${HOST}/engine/?id=${id}&status=started`;
   const res = await fetch(url, { method: 'PATCH' });
   const raceParams = (await res.json()) as RaceParams;
   return raceParams;
@@ -83,7 +83,7 @@ export const startEngine = async (id: number) => {
 // 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
 // !!!___ enable STOP only after res from START
 export const stopEngine = async (id: number) => {
-  const url = `${host}/engine/?id=${id}&status=stopped`;
+  const url = `${HOST}/engine/?id=${id}&status=stopped`;
   const res = await fetch(url, { method: 'PATCH' });
   if (res.ok) return true;
   return false;
@@ -94,7 +94,7 @@ export const stopEngine = async (id: number) => {
 // 400 Wrong Params / 404 Not Found (first set start)
 // 429 drive in progress (no multi drive req)
 export const drive = async (id: number) => {
-  const url = `${host}/engine/?id=${id}&status=drive`;
+  const url = `${HOST}/engine/?id=${id}&status=drive`;
   const res = await fetch(url, {
     method: 'PATCH',
   });
@@ -107,9 +107,9 @@ export const drive = async (id: number) => {
 
 // 200 OK - {id, wins, time} -> { ..., color, name }
 export const getWinners = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, order }: WinnersParams) => {
-  let url = `${host}/winners/?_page=${page}&_limit=${limit}`;
+  let url = `${HOST}/winners/?_page=${page}&_limit=${limit}`;
   if (sortBy && order) url += `&_sort=${sortBy}&_order=${order}`;
-  // let url = `${host}/winners/?_page=${String(page)}&_limit=${String(limit)}`;
+  // let url = `${HOST}/winners/?_page=${String(page)}&_limit=${String(limit)}`;
   // if (sortBy && order) url += `&_sort=${String(sortBy)}&_order=${String(order)}`;
 
   const res = await fetch(url);
@@ -136,7 +136,7 @@ export const getWinners = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, or
 
 // 200 OK - {id, wins, time} / 404 Not Found - {}
 export const getWinner = async (id: number) => {
-  const url = `${host}/winners/${id}`;
+  const url = `${HOST}/winners/${id}`;
   const res = await fetch(url);
   const winner = (await res.json()) as Winner;
   return winner;
@@ -147,7 +147,7 @@ export const getWinner = async (id: number) => {
 
 // 201 CREATED - {id, wins, time} / 500 Duplicate ID
 export const createWinner = async (data: Winner) => {
-  const url = `${host}/winners`;
+  const url = `${HOST}/winners`;
   const res = await fetch(url, {
     method: 'POST',
     headers: {
@@ -162,7 +162,7 @@ export const createWinner = async (data: Winner) => {
 
 // 200 OK - {} / 404 Not Found - {}
 export const deleteWinner = async (id: number) => {
-  const url = `${host}/winners/${id}`;
+  const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
     method: 'DELETE',
   });
@@ -173,7 +173,7 @@ export const deleteWinner = async (id: number) => {
 
 // 200 OK - {} / 404 Not Found - {}
 export const updateWinner = async ({ id, wins, time }: Winner) => {
-  const url = `${host}/winners/${id}`;
+  const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
     method: 'PUT',
     headers: {

@@ -1,23 +1,38 @@
 import { GarageView } from '../view/GarageView';
 import { GarageModel } from '../model/GarageModel';
+import { CarParams, RenderGarageParams } from '../types';
 
 export class GarageController {
-  garageView;
-  garageModel;
+  view;
+  model;
 
   constructor(rootElement: HTMLElement) {
     // this.root = rootElement;
-    this.garageView = new GarageView(rootElement);
-    this.garageModel = new GarageModel();
+    this.view = new GarageView(rootElement);
+    this.model = new GarageModel();
 
-    this.garageModel.updateGarage(this.garageView.renderGarage);
+    // bindidngs
+    this.view.bindCreateCar(this.handleCreateCar);
+    this.view.bindDeleteCar(this.model.deleteCar);
+    this.model.bindUpdateGarage(this.handleUpdateGarage);
+
+    // init
+    this.model.initGarage(this.view.initGarage);
   }
 
+  handleCreateCar = async (props: CarParams) => {
+    await this.model.createCar(props);
+  };
+
+  handleUpdateGarage = (props: RenderGarageParams) => {
+    this.view.updateGarage(props);
+  };
+
   hide = () => {
-    this.garageView.hideGarage();
+    this.view.hideGarage();
   };
 
   show = () => {
-    this.garageView.showGarage();
+    this.view.showGarage();
   };
 }
