@@ -1,4 +1,4 @@
-import { getCars, createCarReq, deleteCarReq, updateCarReq } from './apiHelpers';
+import { getCars, createCarReq, deleteCarReq, updateCarReq, MAX_CARS_ON_PAGE } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 
 export class GarageModel {
@@ -37,6 +37,11 @@ export class GarageModel {
   public async deleteCar(id: number) {
     await deleteCarReq(id);
     // await deleteWinnerReq;
+    const prevPage = this.carsPage - 1;
+    if (prevPage * MAX_CARS_ON_PAGE === this.carsCount - 1) {
+      this.carsPage = prevPage;
+    }
+
     await this.updateGarageState();
 
     this.updateGarageView({
@@ -48,6 +53,17 @@ export class GarageModel {
 
   public async updateCar({ id, name, color }: Car) {
     await updateCarReq(id, { name, color });
+    await this.updateGarageState();
+
+    this.updateGarageView({
+      carsArr: this.cars,
+      count: this.carsCount,
+      page: this.carsPage,
+    });
+  }
+
+  public async flipPage(val: number) {
+    this.carsPage += val;
     await this.updateGarageState();
 
     this.updateGarageView({

@@ -38,7 +38,7 @@ export class GarageView {
     this.deleteCarByModel = () => {};
   }
 
-  initGarage({ carsArr, count, page }: RenderGarageParams) {
+  public initGarage({ carsArr, count, page }: RenderGarageParams) {
     const garageControls = createElement('div', 'garage__controls');
     const raceControls = createElement('div', 'race__controls');
     raceControls.append(this.raceStartBtn, this.raceResetBtn, this.generateCarsBtn);
@@ -68,7 +68,7 @@ export class GarageView {
     );
   }
 
-  insertCarLi(car: Car) {
+  private insertCarLi(car: Car) {
     const { name, color, id } = car; // id
     const li = createElement('li', 'car__li');
 
@@ -109,7 +109,7 @@ export class GarageView {
     this.cars[id] = carDataObj;
   }
 
-  bindCreateCar(handler: CreateCarHandler) {
+  public bindCreateCar(handler: CreateCarHandler) {
     this.formCreate.addEventListener('submit', async (e) => {
       e.preventDefault();
       const elements = this.formCreate.elements as FormElements;
@@ -122,7 +122,7 @@ export class GarageView {
     });
   }
 
-  bindUpdateCar(handler: (x: Car) => void) {
+  public bindUpdateCar(handler: (x: Car) => void) {
     this.formUpdate.addEventListener('submit', async (e) => {
       e.preventDefault();
       const elements = this.formUpdate.elements as FormElements;
@@ -189,6 +189,22 @@ export class GarageView {
   private handleDeleteCar(id: number) {
     this.cars[id].deleteBtn.addEventListener('click', async () => {
       await this.deleteCarByModel(id);
+    });
+  }
+
+  public bindNextPage(callback: (x: number) => void) {
+    this.nextPageBtn.addEventListener('click', () => {
+      this.nextPageBtn.setAttribute('disabled', '');
+      this.nextPageBtn.classList.remove('btn-primary');
+      callback(1);
+    });
+  }
+
+  public bindPrevPage(callback: (x: number) => void) {
+    this.prevPageBtn.addEventListener('click', () => {
+      this.prevPageBtn.setAttribute('disabled', '');
+      this.prevPageBtn.classList.remove('btn-primary');
+      callback(-1);
     });
   }
 
