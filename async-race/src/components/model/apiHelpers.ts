@@ -57,7 +57,7 @@ export const deleteCarReq = async (id: number) => {
 // deleteCar(6).then(console.log).catch(console.error);
 
 // 200 - {Car} / 404 - {}
-export const updateCar = async (id: number, data: CarParams) => {
+export const updateCarReq = async (id: number, data: CarParams) => {
   const url = `${HOST}/garage/${id}`;
   const res = await fetch(url, {
     method: 'PUT',

@@ -38,7 +38,7 @@ export class GarageView {
     this.deleteCarByModel = () => {};
   }
 
-  initGarage = ({ carsArr, count, page }: RenderGarageParams) => {
+  initGarage({ carsArr, count, page }: RenderGarageParams) {
     const garageControls = createElement('div', 'garage__controls');
     const raceControls = createElement('div', 'race__controls');
     raceControls.append(this.raceStartBtn, this.raceResetBtn, this.generateCarsBtn);
@@ -66,7 +66,7 @@ export class GarageView {
       paginationDiv,
       this.modalWinner,
     );
-  };
+  }
 
   insertCarLi(car: Car) {
     const { name, color, id } = car; // id
@@ -122,7 +122,23 @@ export class GarageView {
     });
   }
 
-  updateGarage({ carsArr, count, page }: RenderGarageParams) {
+  bindUpdateCar(handler: (x: Car) => void) {
+    this.formUpdate.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const elements = this.formUpdate.elements as FormElements;
+      const name = elements.name.value;
+      const color = elements.color.value;
+      const id = this.selectedCar;
+      [...elements].forEach((el) => {
+        el.setAttribute('disabled', '');
+        if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
+      });
+      elements.name.value = '';
+      await handler({ id, name, color });
+    });
+  }
+
+  public updateGarage({ carsArr, count, page }: RenderGarageParams) {
     this.carsCountHeading.innerText = `Garage (${count} cars)`;
     this.garagePage.innerText = `Page #${page}`;
     this.carsList.innerHTML = '';
@@ -162,6 +178,7 @@ export class GarageView {
         el.removeAttribute('disabled');
         if (el.tagName === 'BUTTON') el.classList.add('btn-secondary');
       });
+      elements.name.focus();
     });
   }
 
@@ -169,11 +186,11 @@ export class GarageView {
     this.deleteCarByModel = callback;
   }
 
-  private handleDeleteCar = (id: number) => {
+  private handleDeleteCar(id: number) {
     this.cars[id].deleteBtn.addEventListener('click', async () => {
       await this.deleteCarByModel(id);
     });
-  };
+  }
 
   public hideGarage() {
     this.garageDiv.classList.add('hidden');

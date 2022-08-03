@@ -1,4 +1,4 @@
-import { getCars, createCarReq, deleteCarReq } from './apiHelpers';
+import { getCars, createCarReq, deleteCarReq, updateCarReq } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 
 export class GarageModel {
@@ -26,9 +26,7 @@ export class GarageModel {
   public async createCar(props: CarParams) {
     await createCarReq(props);
     await this.updateGarageState();
-    // await new Promise((res) => {
-    //   setTimeout(() => res(1), 1500);
-    // });
+
     this.updateGarageView({
       carsArr: this.cars,
       count: this.carsCount,
@@ -36,16 +34,28 @@ export class GarageModel {
     });
   }
 
-  public deleteCar = async (id: number) => {
+  public async deleteCar(id: number) {
     await deleteCarReq(id);
     // await deleteWinnerReq;
     await this.updateGarageState();
+
     this.updateGarageView({
       carsArr: this.cars,
       count: this.carsCount,
       page: this.carsPage,
     });
-  };
+  }
+
+  public async updateCar({ id, name, color }: Car) {
+    await updateCarReq(id, { name, color });
+    await this.updateGarageState();
+
+    this.updateGarageView({
+      carsArr: this.cars,
+      count: this.carsCount,
+      page: this.carsPage,
+    });
+  }
 
   public bindUpdateGarage(callback: UpdateViewHandler) {
     this.updateGarageView = callback;
