@@ -223,13 +223,11 @@ export class GarageView {
 
       const raceParams = await this.startEngineByModel(id);
       startAnimation(raceParams, this.cars[id]);
-      // const { stopBtn } = this.cars[id];
+
       stopBtn.classList.add('btn__stop-active');
       stopBtn.removeAttribute('disabled');
       const { code } = await this.driveByModel(id);
       if (code === 500) {
-        console.log('Code: ', code);
-        console.log('Anim_ID in Veiw Car Obj: ', this.cars[id].animationID);
         window.cancelAnimationFrame(this.cars[id].animationID);
         return { success: false, id };
       }

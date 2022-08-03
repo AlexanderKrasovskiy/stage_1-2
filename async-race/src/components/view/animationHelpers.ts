@@ -29,10 +29,8 @@ export const startAnimation = ({ distance, velocity }: RaceParams, car: LiData) 
 
     if (msPassed < animationTime) {
       carObj.animationID = window.requestAnimationFrame(step);
-      // console.log('Anim ID in anim_START: ', car.animationID);
     }
   };
 
   carObj.animationID = window.requestAnimationFrame(step);
-  // console.log('Anim ID in anim_START_____END OF FN: ', carObj.animationID);
 };
