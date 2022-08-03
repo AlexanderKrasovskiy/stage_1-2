@@ -1,4 +1,12 @@
-import { getCars, createCarReq, deleteCarReq, updateCarReq, MAX_CARS_ON_PAGE } from './apiHelpers';
+import {
+  getCars,
+  createCarReq,
+  deleteCarReq,
+  updateCarReq,
+  MAX_CARS_ON_PAGE,
+  startEngineReq,
+  driveReq,
+} from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 import { getRandomCarsArr } from './randomCarsHelpers';
 
@@ -76,6 +84,16 @@ export class GarageModel {
       count: this.carsCount,
       page: this.carsPage,
     });
+  }
+
+  public async startEngine(id: number) {
+    const raceParams = await startEngineReq(id);
+    return raceParams;
+  }
+
+  public async drive(id: number) {
+    const result = await driveReq(id);
+    return result;
   }
 
   public async flipPage(val: number) {

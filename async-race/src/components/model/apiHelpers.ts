@@ -72,7 +72,7 @@ export const updateCarReq = async (id: number, data: CarParams) => {
 // updateCar(1, { name: 'TETRIS', color: '#660099' }).then(console.log).catch(console.error);
 
 // 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
-export const startEngine = async (id: number) => {
+export const startEngineReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=started`;
   const res = await fetch(url, { method: 'PATCH' });
   const raceParams = (await res.json()) as RaceParams;
@@ -93,7 +93,7 @@ export const stopEngine = async (id: number) => {
 // 200 OK { success: true } / 500 engine broken
 // 400 Wrong Params / 404 Not Found (first set start)
 // 429 drive in progress (no multi drive req)
-export const drive = async (id: number) => {
+export const driveReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=drive`;
   const res = await fetch(url, {
     method: 'PATCH',

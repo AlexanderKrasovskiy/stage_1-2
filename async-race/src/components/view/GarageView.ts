@@ -1,6 +1,7 @@
-import { createElement, createForm, createCarSvgText } from './viewHelpers';
-import { RenderGarageParams, Car, CreateCarHandler, FormElements, LiData } from '../types';
+import { createElement, createForm, createCarSvgText } from './renderHelpers';
+import { RenderGarageParams, Car, CreateCarHandler, FormElements, LiData, RaceParams, DriveHandler } from '../types';
 import { MAX_CARS_ON_PAGE } from '../model/apiHelpers';
+import { startAnimation } from './animationHelpers';
 
 export class GarageView {
   garageDiv;
@@ -18,6 +19,8 @@ export class GarageView {
   cars: Record<string, LiData>;
   selectedCar;
   deleteCarByModel: (id: number) => void;
+  startEngineByModel: (id: number) => Promise<RaceParams>;
+  driveByModel: DriveHandler;
 
   constructor(rootElement: HTMLElement) {
     this.garageDiv = createElement('div', 'garage');
@@ -36,6 +39,8 @@ export class GarageView {
     this.cars = {};
     this.selectedCar = 0;
     this.deleteCarByModel = () => {};
+    this.startEngineByModel = () => Promise.resolve({ velocity: 1, distance: 1 });
+    this.driveByModel = () => Promise.resolve({ success: true, code: 200 });
   }
 
   public initGarage({ carsArr, count, page }: RenderGarageParams) {
@@ -83,9 +88,7 @@ export class GarageView {
     const engineStopBtn = createElement('button', 'btn__stop', '■', '', true) as HTMLButtonElement;
     const raceTrack = createElement('div', 'race__track');
     raceTrack.innerHTML = createCarSvgText(color);
-    // const svg = raceTrack.lastChild as SVGElement;
-    // svg.style.fill = '#ffffff';
-    // svg.style.transform = 'translateX(200px)';
+    const svg = raceTrack.lastChild as SVGElement;
 
     const finishFlagSpan = createElement('span', 'finish__flag', '🏁');
     raceTrack.prepend(engineStartBtn, engineStopBtn, finishFlagSpan);
@@ -100,11 +103,12 @@ export class GarageView {
       color,
       selectBtn: selectCarBtn,
       deleteBtn: deleteCarBtn,
-      // startBtn: engineStartBtn,
-      // stopBtn: engineStopBtn,
+      startBtn: engineStartBtn,
+      stopBtn: engineStopBtn,
+      svg,
+      flag: finishFlagSpan,
+      animationID: 0,
       // nameSpan: carNameSpan,
-      // svg,
-      // flag: finishFlagSpan,
     };
     this.cars[id] = carDataObj;
   }
@@ -157,6 +161,7 @@ export class GarageView {
       this.insertCarLi(car);
       this.handleSelectCar(car.id);
       this.handleDeleteCar(car.id);
+      this.handleStartEngine(car.id);
     });
     this.handlePaginationStyles(count, page);
   }
@@ -199,6 +204,36 @@ export class GarageView {
   private handleDeleteCar(id: number) {
     this.cars[id].deleteBtn.addEventListener('click', async () => {
       await this.deleteCarByModel(id);
+    });
+  }
+
+  public bindStartEngine(callback: (x: number) => Promise<RaceParams>) {
+    this.startEngineByModel = callback;
+  }
+
+  public bindDriveCar(callback: DriveHandler) {
+    this.driveByModel = callback;
+  }
+
+  private handleStartEngine(id: number) {
+    this.cars[id].startBtn.addEventListener('click', async () => {
+      const { startBtn, stopBtn } = this.cars[id];
+      startBtn.classList.remove('btn__start-active');
+      startBtn.setAttribute('disabled', '');
+
+      const raceParams = await this.startEngineByModel(id);
+      startAnimation(raceParams, this.cars[id]);
+      // const { stopBtn } = this.cars[id];
+      stopBtn.classList.add('btn__stop-active');
+      stopBtn.removeAttribute('disabled');
+      const { code } = await this.driveByModel(id);
+      if (code === 500) {
+        console.log('Code: ', code);
+        console.log('Anim_ID in Veiw Car Obj: ', this.cars[id].animationID);
+        window.cancelAnimationFrame(this.cars[id].animationID);
+        return { success: false, id };
+      }
+      return { success: true, id };
     });
   }
 

@@ -52,10 +52,17 @@ export type LiData = {
   color: string;
   selectBtn: HTMLButtonElement;
   deleteBtn: HTMLButtonElement;
-  // startBtn: HTMLButtonElement;
-  // stopBtn: HTMLButtonElement;
+  startBtn: HTMLButtonElement;
+  stopBtn: HTMLButtonElement;
+  svg: SVGElement;
+  flag: HTMLSpanElement;
+  animationID: number;
   // nameSpan: HTMLSpanElement;
-  // svg: SVGElement;
-  // flag: HTMLSpanElement;
-  // animation?: number;
 };
+
+type DriveResult = {
+  success: boolean;
+  code: number;
+};
+
+export type DriveHandler = (id: number) => Promise<DriveResult>;
