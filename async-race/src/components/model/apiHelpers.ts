@@ -82,7 +82,7 @@ export const startEngineReq = async (id: number) => {
 
 // 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
 // !!!___ enable STOP only after res from START
-export const stopEngine = async (id: number) => {
+export const stopEngineReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=stopped`;
   const res = await fetch(url, { method: 'PATCH' });
   if (res.ok) return true;

@@ -18,6 +18,7 @@ export class GarageController {
     this.view.bindGenerateRandomCars(this.model.generateRandomCars.bind(this.model));
     this.view.bindStartEngine(this.model.startEngine.bind(this.model));
     this.view.bindDriveCar(this.model.drive.bind(this.model));
+    this.view.bindStopEngine(this.model.stopEngine.bind(this.model));
     this.model.bindUpdateGarage(this.view.updateGarage.bind(this.view));
 
     // init

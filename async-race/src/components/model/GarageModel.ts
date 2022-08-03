@@ -6,6 +6,7 @@ import {
   MAX_CARS_ON_PAGE,
   startEngineReq,
   driveReq,
+  stopEngineReq,
 } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 import { getRandomCarsArr } from './randomCarsHelpers';
@@ -93,6 +94,11 @@ export class GarageModel {
 
   public async drive(id: number) {
     const result = await driveReq(id);
+    return result;
+  }
+
+  public async stopEngine(id: number) {
+    const result = await stopEngineReq(id);
     return result;
   }
 
