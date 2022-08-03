@@ -15,6 +15,7 @@ export class GarageController {
     this.view.bindUpdateCar(this.model.updateCar.bind(this.model));
     this.view.bindNextPage(this.model.flipPage.bind(this.model));
     this.view.bindPrevPage(this.model.flipPage.bind(this.model));
+    this.view.bindGenerateRandomCars(this.model.generateRandomCars.bind(this.model));
     this.model.bindUpdateGarage(this.view.updateGarage.bind(this.view));
 
     // init

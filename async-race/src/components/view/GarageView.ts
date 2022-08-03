@@ -138,6 +138,16 @@ export class GarageView {
     });
   }
 
+  public bindGenerateRandomCars(callabck: (x?: number) => void) {
+    this.generateCarsBtn.addEventListener('click', async () => {
+      this.generateCarsBtn.setAttribute('disabled', '');
+      this.generateCarsBtn.classList.remove('btn-secondary');
+      await callabck();
+      this.generateCarsBtn.removeAttribute('disabled');
+      this.generateCarsBtn.classList.add('btn-secondary');
+    });
+  }
+
   public updateGarage({ carsArr, count, page }: RenderGarageParams) {
     this.carsCountHeading.innerText = `Garage (${count} cars)`;
     this.garagePage.innerText = `Page #${page}`;

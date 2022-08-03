@@ -1,5 +1,8 @@
 import { getCars, createCarReq, deleteCarReq, updateCarReq, MAX_CARS_ON_PAGE } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
+import { getRandomCarsArr } from './randomCarsHelpers';
+
+const NUM_CARS_TO_GENERATE = 100;
 
 export class GarageModel {
   updateGarageView: UpdateViewHandler;
@@ -34,11 +37,24 @@ export class GarageModel {
     });
   }
 
+  public async generateRandomCars(count = NUM_CARS_TO_GENERATE) {
+    const carsArr = getRandomCarsArr(count);
+    await Promise.all(carsArr.map((c) => createCarReq(c)));
+
+    await this.updateGarageState();
+
+    this.updateGarageView({
+      carsArr: this.cars,
+      count: this.carsCount,
+      page: this.carsPage,
+    });
+  }
+
   public async deleteCar(id: number) {
     await deleteCarReq(id);
     // await deleteWinnerReq;
     const prevPage = this.carsPage - 1;
-    if (prevPage * MAX_CARS_ON_PAGE === this.carsCount - 1) {
+    if (prevPage * MAX_CARS_ON_PAGE === this.carsCount - 1 && this.carsPage > 1) {
       this.carsPage = prevPage;
     }
 
