@@ -47,6 +47,7 @@ export class GarageView {
     this.postWinnerByModel = () => Promise.resolve();
 
     this.initStartRaceListener();
+    this.initResetRaceListener();
   }
 
   public initGarage({ carsArr, count, page }: RenderGarageParams) {
@@ -292,7 +293,24 @@ export class GarageView {
       this.modalWinner.classList.remove('hidden');
 
       await this.postWinnerByModel(id, timeMs);
-      console.log('Winner Posted!');
+      // console.log('Winner Posted!');
+    });
+  }
+
+  private initResetRaceListener() {
+    this.raceResetBtn.addEventListener('click', async () => {
+      // hide modal
+      this.modalWinner.classList.add('hidden');
+      // disable RESET btn
+      this.raceResetBtn.setAttribute('disabled', '');
+      this.raceResetBtn.classList.remove('btn-primary');
+
+      const carsArr = Object.values(this.cars);
+      const promises = carsArr.map((car) => this.stopEngine(car.id));
+      await Promise.all(promises);
+      // enable RACE btn
+      this.raceStartBtn.removeAttribute('disabled');
+      this.raceStartBtn.classList.add('btn-primary');
     });
   }
 
