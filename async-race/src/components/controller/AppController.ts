@@ -1,32 +1,33 @@
 import { createElement } from '../view/renderHelpers';
 import { AppView } from '../view/AppView';
 import { GarageController } from './GarageController';
+import { WinnersController } from './WinnersController';
 
 export class AppController {
   root;
   appView;
   garageController;
+  winnersController;
 
   constructor() {
     this.root = createElement('main');
     this.appView = new AppView(this.root);
     this.garageController = new GarageController(this.root);
-    // this.winnersController = new winnersController(this.root);
+    this.winnersController = new WinnersController(this.root);
   }
 
-  switchToGarage = () => {
-    // this.winnersController.hide()
+  switchToGarage() {
+    this.winnersController.hide();
     this.garageController.show();
-  };
+  }
 
-  switchToWinners = () => {
-    // await this.winnersController.getWinners()
+  switchToWinners() {
     this.garageController.hide();
-    // this.winnersController.show()
-  };
+    this.winnersController.show();
+  }
 
-  start = () => {
-    this.appView.bindSwitchToGarage(this.switchToGarage);
-    this.appView.bindSwitchToWinners(this.switchToWinners);
-  };
+  start() {
+    this.appView.bindSwitchToGarage(this.switchToGarage.bind(this));
+    this.appView.bindSwitchToWinners(this.switchToWinners.bind(this));
+  }
 }

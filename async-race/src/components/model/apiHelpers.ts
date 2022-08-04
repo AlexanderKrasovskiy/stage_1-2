@@ -2,7 +2,7 @@ import { Car, CarParams, RaceParams, WinnersParams, Winner } from '../types';
 
 const HOST = 'http://127.0.0.1:3000';
 export const MAX_CARS_ON_PAGE = 7;
-const MAX_WINNERS_ON_PAGE = 10;
+export const MAX_WINNERS_ON_PAGE = 10;
 
 //
 export const getCars = async (page = 1, limit = MAX_CARS_ON_PAGE) => {
@@ -106,7 +106,7 @@ export const driveReq = async (id: number) => {
 // startEngine(1).then(() => drive(1)).then(console.log).catch(console.error);
 
 // 200 OK - [{id, wins, timeInSec}] -> { ..., color, name }
-export const getWinners = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, order }: WinnersParams) => {
+export const getWinnersReq = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, order }: WinnersParams) => {
   let url = `${HOST}/winners/?_page=${page}&_limit=${limit}`;
   if (sortBy && order) url += `&_sort=${sortBy}&_order=${order}`;
   // let url = `${HOST}/winners/?_page=${String(page)}&_limit=${String(limit)}`;

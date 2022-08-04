@@ -29,6 +29,12 @@ export type Winner = {
 
 export type WinnerWithCar = Car & Winner;
 
+export type RenderWinnersParams = {
+  winners: WinnerWithCar[];
+  total: number;
+  page: number;
+};
+
 export type Handler = () => void;
 
 export type CreateCarHandler = (x: CarParams) => void;
