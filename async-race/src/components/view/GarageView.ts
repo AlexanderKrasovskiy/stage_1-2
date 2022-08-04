@@ -22,6 +22,7 @@ export class GarageView {
   startEngineByModel: (id: number) => Promise<RaceParams>;
   driveByModel: DriveHandler;
   stopByModel: (id: number) => Promise<boolean>;
+  postWinnerByModel: (x: number, y: number) => Promise<void>;
 
   constructor(rootElement: HTMLElement) {
     this.garageDiv = createElement('div', 'garage');
@@ -43,6 +44,7 @@ export class GarageView {
     this.startEngineByModel = () => Promise.resolve({ velocity: 1, distance: 1 });
     this.driveByModel = () => Promise.resolve({ success: true, code: 200 });
     this.stopByModel = () => Promise.resolve(true);
+    this.postWinnerByModel = () => Promise.resolve();
 
     this.initStartRaceListener();
   }
@@ -266,6 +268,10 @@ export class GarageView {
     startBtn.classList.add('btn__start-active');
   }
 
+  public bindPostWinner(callback: (x: number, y: number) => Promise<void>) {
+    this.postWinnerByModel = callback;
+  }
+
   private initStartRaceListener() {
     this.raceStartBtn.addEventListener('click', async () => {
       const carsArr = Object.values(this.cars);
@@ -275,16 +281,18 @@ export class GarageView {
       this.raceStartBtn.setAttribute('disabled', '');
       this.raceStartBtn.classList.remove('btn-primary');
 
-      const winner = await this.findWinner(promises, ids);
+      const { id, timeMs } = await this.findWinner(promises, ids);
 
       this.raceResetBtn.removeAttribute('disabled');
       this.raceResetBtn.classList.add('btn-primary');
 
-      const { name } = this.cars[winner.id];
-      const timeInSec = (winner.timeMs / 1000).toFixed(2);
+      const { name } = this.cars[id];
+      const timeInSec = (timeMs / 1000).toFixed(2);
       this.modalWinner.innerText = `${name} went first [${timeInSec}s]!`;
       this.modalWinner.classList.remove('hidden');
-      // post winner
+
+      await this.postWinnerByModel(id, timeMs);
+      console.log('Winner Posted!');
     });
   }
 

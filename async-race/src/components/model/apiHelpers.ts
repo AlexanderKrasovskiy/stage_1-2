@@ -105,7 +105,7 @@ export const driveReq = async (id: number) => {
 };
 // startEngine(1).then(() => drive(1)).then(console.log).catch(console.error);
 
-// 200 OK - {id, wins, time} -> { ..., color, name }
+// 200 OK - [{id, wins, timeInSec}] -> { ..., color, name }
 export const getWinners = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, order }: WinnersParams) => {
   let url = `${HOST}/winners/?_page=${page}&_limit=${limit}`;
   if (sortBy && order) url += `&_sort=${sortBy}&_order=${order}`;
@@ -134,19 +134,22 @@ export const getWinners = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, or
 };
 // getWinners({ page: 1 }).then(console.log).catch(console.error);
 
-// 200 OK - {id, wins, time} / 404 Not Found - {}
-export const getWinner = async (id: number) => {
+// 200 OK - {id, wins, timeInSec} / 404 Not Found - {}
+export const getWinnerReq = async (id: number) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url);
   const winner = (await res.json()) as Winner;
-  return winner;
+  return {
+    winner,
+    status: res.status,
+  };
 };
 // getWinner(10).then(console.log).catch(console.error);
 
 // ? m.b. FN getWinnerStatus
 
 // 201 CREATED - {id, wins, time} / 500 Duplicate ID
-export const createWinner = async (data: Winner) => {
+export const createWinnerReq = async (data: Winner) => {
   const url = `${HOST}/winners`;
   const res = await fetch(url, {
     method: 'POST',
@@ -172,7 +175,7 @@ export const deleteWinner = async (id: number) => {
 // deleteWinner(2).then(console.log).catch(console.error);
 
 // 200 OK - {} / 404 Not Found - {}
-export const updateWinner = async ({ id, wins, time }: Winner) => {
+export const updateWinnerReq = async ({ id, wins, time }: Winner) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
     method: 'PUT',

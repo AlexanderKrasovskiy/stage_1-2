@@ -7,6 +7,9 @@ import {
   startEngineReq,
   driveReq,
   stopEngineReq,
+  getWinnerReq,
+  updateWinnerReq,
+  createWinnerReq,
 } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 import { getRandomCarsArr } from './randomCarsHelpers';
@@ -100,6 +103,17 @@ export class GarageModel {
   public async stopEngine(id: number) {
     const result = await stopEngineReq(id);
     return result;
+  }
+
+  public async postWinner(id: number, timeMs: number) {
+    const { winner, status } = await getWinnerReq(id);
+    if (status === 200) {
+      const newWinsCount = winner.wins + 1;
+      const newTime = timeMs / 1000 < winner.time ? timeMs / 1000 : winner.time;
+      await updateWinnerReq({ id, wins: newWinsCount, time: newTime });
+    } else {
+      await createWinnerReq({ id, wins: 1, time: timeMs / 1000 });
+    }
   }
 
   public async flipPage(val: number) {
