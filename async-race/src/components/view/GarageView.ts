@@ -218,6 +218,10 @@ export class GarageView {
 
   private handleDeleteCar(id: number) {
     this.cars[id].deleteBtn.addEventListener('click', async () => {
+      [...this.formUpdate.elements].forEach((el) => {
+        el.setAttribute('disabled', '');
+        if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
+      });
       await this.deleteCarByModel(id);
     });
   }
@@ -380,6 +384,11 @@ export class GarageView {
 
   private disableControlsAndPagination() {
     [...this.formCreate.elements].forEach((el) => {
+      el.setAttribute('disabled', '');
+      if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
+    });
+
+    [...this.formUpdate.elements].forEach((el) => {
       el.setAttribute('disabled', '');
       if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
     });
