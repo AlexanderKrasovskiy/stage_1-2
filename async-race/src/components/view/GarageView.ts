@@ -151,16 +151,6 @@ export class GarageView {
       elements.name.value = '';
       await handler({ id, name, color });
     });
-    this.formUpdate.addEventListener('focusout', () => {
-      [...this.formUpdate.elements].forEach((el) => {
-        el.setAttribute('disabled', '');
-        if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
-        if (el instanceof HTMLInputElement && el.type === 'text') {
-          const tempEl = el;
-          tempEl.value = '';
-        }
-      });
-    });
   }
 
   public bindGenerateRandomCars(callabck: (x?: number) => void) {
