@@ -18,6 +18,8 @@ export class GarageView {
   modalWinner;
   cars: Record<string, LiData>;
   selectedCar;
+  totalCars;
+  currentPage;
   deleteCarByModel: (id: number) => void;
   startEngineByModel: (id: number) => Promise<RaceParams>;
   driveByModel: DriveHandler;
@@ -40,6 +42,8 @@ export class GarageView {
     this.modalWinner = createElement('div', 'modal__winner hidden');
     this.cars = {};
     this.selectedCar = 0;
+    this.totalCars = 0;
+    this.currentPage = 0;
     this.deleteCarByModel = () => {};
     this.startEngineByModel = () => Promise.resolve({ velocity: 1, distance: 1 });
     this.driveByModel = () => Promise.resolve({ success: true, code: 200 });
@@ -147,6 +151,16 @@ export class GarageView {
       elements.name.value = '';
       await handler({ id, name, color });
     });
+    this.formUpdate.addEventListener('focusout', () => {
+      [...this.formUpdate.elements].forEach((el) => {
+        el.setAttribute('disabled', '');
+        if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
+        if (el instanceof HTMLInputElement && el.type === 'text') {
+          const tempEl = el;
+          tempEl.value = '';
+        }
+      });
+    });
   }
 
   public bindGenerateRandomCars(callabck: (x?: number) => void) {
@@ -160,6 +174,9 @@ export class GarageView {
   }
 
   public updateGarage({ carsArr, count, page }: RenderGarageParams) {
+    this.totalCars = count;
+    this.currentPage = page;
+
     this.carsCountHeading.innerText = `Garage (${count} cars)`;
     this.garagePage.innerText = `Page #${page}`;
     this.carsList.innerHTML = '';
@@ -229,14 +246,22 @@ export class GarageView {
 
   private handleStartEngine(id: number) {
     this.cars[id].startBtn.addEventListener('click', async () => {
+      this.raceStartBtn.setAttribute('disabled', '');
+      this.raceStartBtn.classList.remove('btn-primary');
+      this.disableControlsAndPagination();
       await this.startEngine(id);
     });
   }
 
   private async startEngine(id: number) {
-    const { startBtn, stopBtn } = this.cars[id];
+    const { startBtn, stopBtn, selectBtn, deleteBtn } = this.cars[id];
     startBtn.classList.remove('btn__start-active');
     startBtn.setAttribute('disabled', '');
+
+    selectBtn.setAttribute('disabled', '');
+    selectBtn.classList.remove('btn-secondary');
+    deleteBtn.setAttribute('disabled', '');
+    deleteBtn.classList.remove('btn-secondary');
 
     const raceParams = await this.startEngineByModel(id);
     startAnimation(raceParams, this.cars[id]);
@@ -254,14 +279,23 @@ export class GarageView {
 
   private handleStopEngine(id: number) {
     this.cars[id].stopBtn.addEventListener('click', async () => {
+      this.raceStartBtn.removeAttribute('disabled');
+      this.raceStartBtn.classList.add('btn-primary');
       await this.stopEngine(id);
+      this.enableControlsAndPagination();
     });
   }
 
   private async stopEngine(id: number) {
-    const { stopBtn, startBtn, svg } = this.cars[id];
+    const { stopBtn, startBtn, svg, selectBtn, deleteBtn } = this.cars[id];
     stopBtn.setAttribute('disabled', '');
     stopBtn.classList.remove('btn__stop-active');
+
+    selectBtn.removeAttribute('disabled');
+    selectBtn.classList.add('btn-secondary');
+    deleteBtn.removeAttribute('disabled');
+    deleteBtn.classList.add('btn-secondary');
+
     await this.stopByModel(id);
     window.cancelAnimationFrame(this.cars[id].animationID);
     svg.style.transform = 'translateX(0px)';
@@ -275,12 +309,13 @@ export class GarageView {
 
   private initStartRaceListener() {
     this.raceStartBtn.addEventListener('click', async () => {
+      this.raceStartBtn.setAttribute('disabled', '');
+      this.raceStartBtn.classList.remove('btn-primary');
+      this.disableControlsAndPagination();
+
       const carsArr = Object.values(this.cars);
       const promises = carsArr.map((car) => this.startEngine(car.id));
       const ids = carsArr.map((c) => c.id);
-
-      this.raceStartBtn.setAttribute('disabled', '');
-      this.raceStartBtn.classList.remove('btn-primary');
 
       const { id, timeMs } = await this.findWinner(promises, ids);
 
@@ -299,18 +334,17 @@ export class GarageView {
 
   private initResetRaceListener() {
     this.raceResetBtn.addEventListener('click', async () => {
-      // hide modal
       this.modalWinner.classList.add('hidden');
-      // disable RESET btn
       this.raceResetBtn.setAttribute('disabled', '');
       this.raceResetBtn.classList.remove('btn-primary');
 
       const carsArr = Object.values(this.cars);
       const promises = carsArr.map((car) => this.stopEngine(car.id));
       await Promise.all(promises);
-      // enable RACE btn
+
       this.raceStartBtn.removeAttribute('disabled');
       this.raceStartBtn.classList.add('btn-primary');
+      this.enableControlsAndPagination();
     });
   }
 
@@ -352,5 +386,33 @@ export class GarageView {
 
   public showGarage() {
     this.garageDiv.classList.remove('hidden');
+  }
+
+  private disableControlsAndPagination() {
+    [...this.formCreate.elements].forEach((el) => {
+      el.setAttribute('disabled', '');
+      if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
+    });
+
+    this.generateCarsBtn.setAttribute('disabled', '');
+    this.generateCarsBtn.classList.remove('btn-secondary');
+
+    this.prevPageBtn.setAttribute('disabled', '');
+    this.prevPageBtn.classList.remove('btn-primary');
+
+    this.nextPageBtn.setAttribute('disabled', '');
+    this.nextPageBtn.classList.remove('btn-primary');
+  }
+
+  private enableControlsAndPagination() {
+    [...this.formCreate.elements].forEach((el) => {
+      el.removeAttribute('disabled');
+      if (el.tagName === 'BUTTON') el.classList.add('btn-secondary');
+    });
+
+    this.generateCarsBtn.removeAttribute('disabled');
+    this.generateCarsBtn.classList.add('btn-secondary');
+
+    this.handlePaginationStyles(this.totalCars, this.currentPage);
   }
 }
