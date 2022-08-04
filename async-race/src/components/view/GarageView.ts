@@ -43,6 +43,8 @@ export class GarageView {
     this.startEngineByModel = () => Promise.resolve({ velocity: 1, distance: 1 });
     this.driveByModel = () => Promise.resolve({ success: true, code: 200 });
     this.stopByModel = () => Promise.resolve(true);
+
+    this.initStartRaceListener();
   }
 
   public initGarage({ carsArr, count, page }: RenderGarageParams) {
@@ -76,7 +78,7 @@ export class GarageView {
   }
 
   private insertCarLi(car: Car) {
-    const { name, color, id } = car; // id
+    const { name, color, id } = car;
     const li = createElement('li', 'car__li');
 
     const selectCarBtn = createElement('button', 'btn btn-secondary', 'SELECT') as HTMLButtonElement;
@@ -224,36 +226,83 @@ export class GarageView {
 
   private handleStartEngine(id: number) {
     this.cars[id].startBtn.addEventListener('click', async () => {
-      const { startBtn, stopBtn } = this.cars[id];
-      startBtn.classList.remove('btn__start-active');
-      startBtn.setAttribute('disabled', '');
-
-      const raceParams = await this.startEngineByModel(id);
-      startAnimation(raceParams, this.cars[id]);
-
-      stopBtn.classList.add('btn__stop-active');
-      stopBtn.removeAttribute('disabled');
-      const { code } = await this.driveByModel(id);
-      if (code === 500) {
-        window.cancelAnimationFrame(this.cars[id].animationID);
-        return { success: false, id };
-      }
-      return { success: true, id };
+      await this.startEngine(id);
     });
+  }
+
+  private async startEngine(id: number) {
+    const { startBtn, stopBtn } = this.cars[id];
+    startBtn.classList.remove('btn__start-active');
+    startBtn.setAttribute('disabled', '');
+
+    const raceParams = await this.startEngineByModel(id);
+    startAnimation(raceParams, this.cars[id]);
+
+    stopBtn.classList.add('btn__stop-active');
+    stopBtn.removeAttribute('disabled');
+    const { code } = await this.driveByModel(id);
+    const timeMs = Math.round(raceParams.distance / raceParams.velocity);
+    if (code === 500) {
+      window.cancelAnimationFrame(this.cars[id].animationID);
+      return { success: false, id, timeMs };
+    }
+    return { success: true, id, timeMs };
   }
 
   private handleStopEngine(id: number) {
     this.cars[id].stopBtn.addEventListener('click', async () => {
-      const { stopBtn, startBtn, svg } = this.cars[id];
-      stopBtn.setAttribute('disabled', '');
-      stopBtn.classList.remove('btn__stop-active');
-      await this.stopByModel(id);
-      window.cancelAnimationFrame(this.cars[id].animationID);
-      svg.style.transform = 'translateX(0px)';
-      startBtn.removeAttribute('disabled');
-      startBtn.classList.add('btn__start-active');
+      await this.stopEngine(id);
     });
   }
+
+  private async stopEngine(id: number) {
+    const { stopBtn, startBtn, svg } = this.cars[id];
+    stopBtn.setAttribute('disabled', '');
+    stopBtn.classList.remove('btn__stop-active');
+    await this.stopByModel(id);
+    window.cancelAnimationFrame(this.cars[id].animationID);
+    svg.style.transform = 'translateX(0px)';
+    startBtn.removeAttribute('disabled');
+    startBtn.classList.add('btn__start-active');
+  }
+
+  private initStartRaceListener() {
+    this.raceStartBtn.addEventListener('click', async () => {
+      const carsArr = Object.values(this.cars);
+      const promises = carsArr.map((car) => this.startEngine(car.id));
+      const ids = carsArr.map((c) => c.id);
+
+      this.raceStartBtn.setAttribute('disabled', '');
+      this.raceStartBtn.classList.remove('btn-primary');
+
+      const winner = await this.findWinner(promises, ids);
+
+      this.raceResetBtn.removeAttribute('disabled');
+      this.raceResetBtn.classList.add('btn-primary');
+
+      const { name } = this.cars[winner.id];
+      const timeInSec = (winner.timeMs / 1000).toFixed(2);
+      this.modalWinner.innerText = `${name} went first [${timeInSec}s]!`;
+      this.modalWinner.classList.remove('hidden');
+      // post winner
+    });
+  }
+
+  private findWinner = async (
+    promises: Promise<{ success: boolean; id: number; timeMs: number }>[],
+    ids: number[],
+  ): Promise<{ success: boolean; id: number; timeMs: number }> => {
+    const res = await Promise.race(promises);
+
+    if (!res.success) {
+      const idx = ids.findIndex((i) => i === res.id);
+      const newPromises = [...promises.slice(0, idx), ...promises.slice(idx + 1)];
+      const newIds = [...ids.slice(0, idx), ...ids.slice(idx + 1)];
+      return this.findWinner(newPromises, newIds);
+    }
+
+    return res;
+  };
 
   public bindNextPage(callback: (x: number) => void) {
     this.nextPageBtn.addEventListener('click', () => {

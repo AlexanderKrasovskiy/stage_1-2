@@ -1,6 +1,6 @@
 import { RaceParams, LiData } from '../types';
 
-const STEP_FROM_FLAG = 15;
+const STEP_FROM_FLAG = 5;
 
 const getTrackWidth = ({ svg, flag }: LiData) => {
   const svgRect = svg.getBoundingClientRect();
