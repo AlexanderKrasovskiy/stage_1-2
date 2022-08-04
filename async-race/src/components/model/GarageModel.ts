@@ -10,6 +10,7 @@ import {
   getWinnerReq,
   updateWinnerReq,
   createWinnerReq,
+  deleteWinnerReq,
 } from './apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
 import { getRandomCarsArr } from './randomCarsHelpers';
@@ -64,7 +65,8 @@ export class GarageModel {
 
   public async deleteCar(id: number) {
     await deleteCarReq(id);
-    // await deleteWinnerReq;
+    await deleteWinnerReq(id);
+
     const prevPage = this.carsPage - 1;
     if (prevPage * MAX_CARS_ON_PAGE === this.carsCount - 1 && this.carsPage > 1) {
       this.carsPage = prevPage;

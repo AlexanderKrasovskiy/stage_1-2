@@ -164,7 +164,7 @@ export const createWinnerReq = async (data: Winner) => {
 // createWinner({ id: 2, wins: 1, time: 7.77 }).then(console.log).catch(console.error);
 
 // 200 OK - {} / 404 Not Found - {}
-export const deleteWinner = async (id: number) => {
+export const deleteWinnerReq = async (id: number) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
     method: 'DELETE',
