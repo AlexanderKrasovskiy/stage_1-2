@@ -33,6 +33,8 @@ export type RenderWinnersParams = {
   winners: WinnerWithCar[];
   total: number;
   page: number;
+  order: 'ASC' | 'DESC' | undefined;
+  sortBy: 'wins' | 'time' | undefined;
 };
 
 export type Handler = () => void;

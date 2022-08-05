@@ -20,15 +20,15 @@ export class WinnersView {
     this.flipPageByModel = () => {};
   }
 
-  public renderWinners({ winners, total, page }: RenderWinnersParams) {
+  public renderWinners({ winners, total, page, order, sortBy }: RenderWinnersParams) {
     this.winnersDiv.innerHTML = '';
 
     const winnersCountHeading = createElement('h2', '', `Winners (${total})`);
     const pageCountHeading = createElement('h3', '', `Page #${page}`);
 
     const table = createElement('table');
-    const thead = this.getThead();
-    const tbody = getTbody(winners);
+    const thead = this.getThead(order, sortBy);
+    const tbody = getTbody(winners, page);
     table.append(thead, tbody);
 
     const paginationDiv = createElement('div', 'pagination');
@@ -72,7 +72,7 @@ export class WinnersView {
     }
   }
 
-  private getThead() {
+  private getThead(order: 'ASC' | 'DESC' | undefined, sortBy: 'wins' | 'time' | undefined) {
     const thead = createElement('thead', 'table__head');
 
     const tr = createElement('tr');
@@ -80,12 +80,18 @@ export class WinnersView {
     const carHeading = createElement('th', '', 'Car');
     const nameHeading = createElement('th', '', 'Name');
 
-    const winsHeading = createElement('th', 'pointer', 'Wins ↓↑');
+    let winsArrow = '';
+    if (sortBy === 'wins' && order === 'ASC') winsArrow = ' ↑';
+    if (sortBy === 'wins' && order === 'DESC') winsArrow = ' ↓';
+    const winsHeading = createElement('th', 'pointer', `Wins${winsArrow}`);
     winsHeading.addEventListener('click', () => {
       this.sortByModel('wins');
     });
 
-    const timeHeading = createElement('th', 'pointer', 'Best time ↓↑');
+    let timeArrow = '';
+    if (sortBy === 'time' && order === 'ASC') timeArrow = ' ↑';
+    if (sortBy === 'time' && order === 'DESC') timeArrow = ' ↓';
+    const timeHeading = createElement('th', 'pointer', `Best time${timeArrow}`);
     timeHeading.addEventListener('click', () => {
       this.sortByModel('time');
     });

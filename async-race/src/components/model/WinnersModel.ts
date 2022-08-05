@@ -17,6 +17,8 @@ export class WinnersModel {
       winners: this.winners,
       total: this.winnersCount,
       page: this.winnersPage,
+      order: this.order,
+      sortBy: this.sortBy,
     };
   }
 
