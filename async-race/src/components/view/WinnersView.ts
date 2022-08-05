@@ -1,6 +1,7 @@
 import { createElement, getTbody } from './renderHelpers';
 import { RenderWinnersParams } from '../types';
 import { MAX_WINNERS_ON_PAGE } from '../model/apiHelpers';
+import { handlePaginationStyles } from './paginationStylesHelper';
 
 export class WinnersView {
   winnersDiv;
@@ -39,7 +40,7 @@ export class WinnersView {
       this.flipPageByModel(1);
     });
 
-    this.handlePaginationStyles(total, page, prevPageBtn, nextPageBtn);
+    handlePaginationStyles(total, page, prevPageBtn, nextPageBtn, MAX_WINNERS_ON_PAGE);
 
     paginationDiv.append(prevPageBtn, nextPageBtn);
 
@@ -50,22 +51,22 @@ export class WinnersView {
     this.flipPageByModel = callback;
   }
 
-  private handlePaginationStyles(count: number, page: number, prevPageBtn: HTMLElement, nextPageBtn: HTMLElement) {
-    if (page === 1) {
-      prevPageBtn.setAttribute('disabled', '');
-      prevPageBtn.classList.remove('btn-primary');
-    } else {
-      prevPageBtn.removeAttribute('disabled');
-      prevPageBtn.classList.add('btn-primary');
-    }
-    if (count <= MAX_WINNERS_ON_PAGE || page * MAX_WINNERS_ON_PAGE >= count) {
-      nextPageBtn.setAttribute('disabled', '');
-      nextPageBtn.classList.remove('btn-primary');
-    } else {
-      nextPageBtn.removeAttribute('disabled');
-      nextPageBtn.classList.add('btn-primary');
-    }
-  }
+  // private handlePaginationStyles(count: number, page: number, prevPageBtn: HTMLElement, nextPageBtn: HTMLElement) {
+  //   if (page === 1) {
+  //     prevPageBtn.setAttribute('disabled', '');
+  //     prevPageBtn.classList.remove('btn-primary');
+  //   } else {
+  //     prevPageBtn.removeAttribute('disabled');
+  //     prevPageBtn.classList.add('btn-primary');
+  //   }
+  //   if (count <= MAX_WINNERS_ON_PAGE || page * MAX_WINNERS_ON_PAGE >= count) {
+  //     nextPageBtn.setAttribute('disabled', '');
+  //     nextPageBtn.classList.remove('btn-primary');
+  //   } else {
+  //     nextPageBtn.removeAttribute('disabled');
+  //     nextPageBtn.classList.add('btn-primary');
+  //   }
+  // }
 
   private getThead(order: 'ASC' | 'DESC' | undefined, sortBy: 'wins' | 'time' | undefined) {
     const thead = createElement('thead', 'table__head');
