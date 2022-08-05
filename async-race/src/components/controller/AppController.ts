@@ -1,4 +1,4 @@
-import { createElement } from '../view/renderHelpers';
+import { createElement } from '../view/helpers/renderHelpers';
 import { AppView } from '../view/AppView';
 import { GarageController } from './GarageController';
 import { WinnersController } from './WinnersController';

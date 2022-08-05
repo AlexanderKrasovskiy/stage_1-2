@@ -1,4 +1,4 @@
-import { WinnerWithCar } from '../types';
+import { WinnerWithCar } from '../../types';
 
 export const createElement = (tag: string, className?: string, text?: string, id?: string, disabled?: boolean) => {
   const el = document.createElement(tag);

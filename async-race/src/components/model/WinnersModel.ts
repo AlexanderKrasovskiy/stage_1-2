@@ -1,4 +1,4 @@
-import { getWinnersReq } from './apiHelpers';
+import { getWinnersReq } from './helpers/apiHelpers';
 import { WinnerWithCar } from '../types';
 
 export class WinnersModel {

@@ -11,9 +11,9 @@ import {
   updateWinnerReq,
   createWinnerReq,
   deleteWinnerReq,
-} from './apiHelpers';
+} from './helpers/apiHelpers';
 import { Car, RenderGarageParams, CarParams, UpdateViewHandler } from '../types';
-import { getRandomCarsArr } from './randomCarsHelpers';
+import { getRandomCarsArr } from './helpers/randomCarsHelpers';
 
 const NUM_CARS_TO_GENERATE = 100;
 

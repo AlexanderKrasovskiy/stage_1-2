@@ -1,4 +1,4 @@
-import { RaceParams, LiData } from '../types';
+import { RaceParams, LiData } from '../../types';
 
 const STEP_FROM_FLAG = 5;
 

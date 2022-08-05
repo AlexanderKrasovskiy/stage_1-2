@@ -1,4 +1,4 @@
-import { Car, CarParams, RaceParams, WinnersParams, Winner } from '../types';
+import { Car, CarParams, RaceParams, WinnersParams, Winner } from '../../types';
 
 const HOST = 'http://127.0.0.1:3000';
 export const MAX_CARS_ON_PAGE = 7;

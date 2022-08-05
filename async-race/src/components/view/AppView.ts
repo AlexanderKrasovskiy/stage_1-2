@@ -1,5 +1,5 @@
 import { Handler } from '../types';
-import { createElement } from './renderHelpers';
+import { createElement } from './helpers/renderHelpers';
 
 export class AppView {
   toGarageBtn;

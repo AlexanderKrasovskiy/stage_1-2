@@ -1,8 +1,8 @@
-import { createElement, createForm, createCarSvgText } from './renderHelpers';
+import { createElement, createForm, createCarSvgText } from './helpers/renderHelpers';
 import { RenderGarageParams, Car, CreateCarHandler, FormElements, LiData, RaceParams, DriveHandler } from '../types';
-import { MAX_CARS_ON_PAGE } from '../model/apiHelpers';
-import { handlePaginationStyles } from './paginationStylesHelper';
-import { startAnimation } from './animationHelpers';
+import { MAX_CARS_ON_PAGE } from '../model/helpers/apiHelpers';
+import { handlePaginationStyles } from './helpers/paginationStylesHelper';
+import { startAnimation } from './helpers/animationHelpers';
 
 export class GarageView {
   garageDiv;
@@ -180,23 +180,6 @@ export class GarageView {
 
     handlePaginationStyles(count, page, this.prevPageBtn, this.nextPageBtn, MAX_CARS_ON_PAGE);
   }
-
-  // private handlePaginationStyles(count: number, page: number) {
-  //   if (page === 1) {
-  //     this.prevPageBtn.setAttribute('disabled', '');
-  //     this.prevPageBtn.classList.remove('btn-primary');
-  //   } else {
-  //     this.prevPageBtn.removeAttribute('disabled');
-  //     this.prevPageBtn.classList.add('btn-primary');
-  //   }
-  //   if (count <= MAX_CARS_ON_PAGE || page * MAX_CARS_ON_PAGE >= count) {
-  //     this.nextPageBtn.setAttribute('disabled', '');
-  //     this.nextPageBtn.classList.remove('btn-primary');
-  //   } else {
-  //     this.nextPageBtn.removeAttribute('disabled');
-  //     this.nextPageBtn.classList.add('btn-primary');
-  //   }
-  // }
 
   private handleSelectCar(id: number) {
     this.cars[id].selectBtn.addEventListener('click', () => {
@@ -423,7 +406,6 @@ export class GarageView {
     this.generateCarsBtn.removeAttribute('disabled');
     this.generateCarsBtn.classList.add('btn-secondary');
 
-    // this.handlePaginationStyles(this.totalCars, this.currentPage);
     handlePaginationStyles(this.totalCars, this.currentPage, this.prevPageBtn, this.nextPageBtn, MAX_CARS_ON_PAGE);
   }
 }
