@@ -12,7 +12,7 @@ export class WinnersModel {
 
   public async getWinners() {
     await this.updateWinnersState();
-    // console.log('PAGE in GetWinners in Model after Update', this.winnersPage);
+
     return {
       winners: this.winners,
       total: this.winnersCount,
@@ -25,12 +25,10 @@ export class WinnersModel {
   public setSort(by: 'wins' | 'time' | undefined) {
     this.sortBy = by;
     this.order = this.order === 'ASC' ? 'DESC' : 'ASC';
-    // console.log('SORT BY: ', by);
   }
 
   public flipPage(byNum: 1 | -1) {
     this.winnersPage += byNum;
-    // console.log('PAGE in FLIP in Model', this.winnersPage);
   }
 
   private async updateWinnersState() {

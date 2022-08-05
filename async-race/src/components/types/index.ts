@@ -65,7 +65,6 @@ export type LiData = {
   svg: SVGElement;
   flag: HTMLSpanElement;
   animationID: number;
-  // nameSpan: HTMLSpanElement;
 };
 
 type DriveResult = {

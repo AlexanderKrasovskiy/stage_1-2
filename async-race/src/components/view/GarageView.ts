@@ -60,16 +60,7 @@ export class GarageView {
     raceControls.append(this.raceStartBtn, this.raceResetBtn, this.generateCarsBtn);
     garageControls.append(this.formCreate, this.formUpdate, raceControls);
 
-    // this.carsCountHeading.innerText = `Garage (${count} cars)`;
-    // this.garagePage.innerText = `Page #${page}`;
-
-    // carsArr.forEach((car) => this.insertCarLi(car));
-
     const paginationDiv = createElement('div', 'pagination');
-    // if (count > 7) {
-    //   this.nextPageBtn.classList.add('btn-primary');
-    //   this.nextPageBtn.removeAttribute('disabled');
-    // }
     paginationDiv.append(this.prevPageBtn, this.nextPageBtn);
 
     this.updateGarage({ carsArr, count, page });
@@ -107,7 +98,6 @@ export class GarageView {
     li.append(carConfigDiv, raceTrack);
     this.carsList.append(li);
 
-    // MEGA OBJ - {id: {id, 4_btns, nameSpan, svg, animation, flag, name, color }}
     const carDataObj = {
       id,
       name,
@@ -119,7 +109,6 @@ export class GarageView {
       svg,
       flag: finishFlagSpan,
       animationID: 0,
-      // nameSpan: carNameSpan,
     };
     this.cars[id] = carDataObj;
   }
@@ -127,10 +116,12 @@ export class GarageView {
   public bindCreateCar(handler: CreateCarHandler) {
     this.formCreate.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const elements = this.formCreate.elements as FormElements;
       const name = elements.name.value;
-      const color = elements.color.value;
       elements.name.value = '';
+      const color = elements.color.value;
+
       this.formCreate.setAttribute('disabled', '');
       await handler({ name, color });
       this.formCreate.removeAttribute('disabled');
@@ -140,14 +131,17 @@ export class GarageView {
   public bindUpdateCar(handler: (x: Car) => void) {
     this.formUpdate.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const elements = this.formUpdate.elements as FormElements;
       const name = elements.name.value;
       const color = elements.color.value;
       const id = this.selectedCar;
+
       [...elements].forEach((el) => {
         el.setAttribute('disabled', '');
         if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
       });
+
       elements.name.value = '';
       await handler({ id, name, color });
     });
@@ -157,7 +151,9 @@ export class GarageView {
     this.generateCarsBtn.addEventListener('click', async () => {
       this.generateCarsBtn.setAttribute('disabled', '');
       this.generateCarsBtn.classList.remove('btn-secondary');
+
       await callabck();
+
       this.generateCarsBtn.removeAttribute('disabled');
       this.generateCarsBtn.classList.add('btn-secondary');
     });
@@ -169,8 +165,10 @@ export class GarageView {
 
     this.carsCountHeading.innerText = `Garage (${count} cars)`;
     this.garagePage.innerText = `Page #${page}`;
+
     this.carsList.innerHTML = '';
     this.cars = {};
+
     carsArr.forEach((car) => {
       this.insertCarLi(car);
       this.handleSelectCar(car.id);
@@ -178,6 +176,7 @@ export class GarageView {
       this.handleStartEngine(car.id);
       this.handleStopEngine(car.id);
     });
+
     this.handlePaginationStyles(count, page);
   }
 
@@ -201,13 +200,16 @@ export class GarageView {
   private handleSelectCar(id: number) {
     this.cars[id].selectBtn.addEventListener('click', () => {
       this.selectedCar = id;
+
       const elements = this.formUpdate.elements as FormElements;
       elements.name.value = this.cars[id].name;
       elements.color.value = this.cars[id].color;
+
       [...elements].forEach((el) => {
         el.removeAttribute('disabled');
         if (el.tagName === 'BUTTON') el.classList.add('btn-secondary');
       });
+
       elements.name.focus();
     });
   }
@@ -222,6 +224,7 @@ export class GarageView {
         el.setAttribute('disabled', '');
         if (el.tagName === 'BUTTON') el.classList.remove('btn-secondary');
       });
+
       await this.deleteCarByModel(id);
     });
   }
@@ -243,27 +246,31 @@ export class GarageView {
       this.raceStartBtn.setAttribute('disabled', '');
       this.raceStartBtn.classList.remove('btn-primary');
       this.disableControlsAndPagination();
+
       await this.startEngine(id);
     });
   }
 
   private async startEngine(id: number) {
     const { startBtn, stopBtn, selectBtn, deleteBtn } = this.cars[id];
-    startBtn.classList.remove('btn__start-active');
     startBtn.setAttribute('disabled', '');
+    startBtn.classList.remove('btn__start-active');
 
     selectBtn.setAttribute('disabled', '');
     selectBtn.classList.remove('btn-secondary');
+
     deleteBtn.setAttribute('disabled', '');
     deleteBtn.classList.remove('btn-secondary');
 
     const raceParams = await this.startEngineByModel(id);
     startAnimation(raceParams, this.cars[id]);
 
-    stopBtn.classList.add('btn__stop-active');
     stopBtn.removeAttribute('disabled');
+    stopBtn.classList.add('btn__stop-active');
+
     const { code } = await this.driveByModel(id);
     const timeMs = Math.round(raceParams.distance / raceParams.velocity);
+
     if (code === 500) {
       window.cancelAnimationFrame(this.cars[id].animationID);
       return { success: false, id, timeMs };
@@ -275,6 +282,7 @@ export class GarageView {
     this.cars[id].stopBtn.addEventListener('click', async () => {
       this.raceStartBtn.removeAttribute('disabled');
       this.raceStartBtn.classList.add('btn-primary');
+
       await this.stopEngine(id);
       this.enableControlsAndPagination();
     });
@@ -287,12 +295,14 @@ export class GarageView {
 
     selectBtn.removeAttribute('disabled');
     selectBtn.classList.add('btn-secondary');
+
     deleteBtn.removeAttribute('disabled');
     deleteBtn.classList.add('btn-secondary');
 
     await this.stopByModel(id);
     window.cancelAnimationFrame(this.cars[id].animationID);
     svg.style.transform = 'translateX(0px)';
+
     startBtn.removeAttribute('disabled');
     startBtn.classList.add('btn__start-active');
   }
@@ -318,11 +328,11 @@ export class GarageView {
 
       const { name } = this.cars[id];
       const timeInSec = (timeMs / 1000).toFixed(2);
+
       this.modalWinner.innerText = `${name} went first [${timeInSec}s]!`;
       this.modalWinner.classList.remove('hidden');
 
       await this.postWinnerByModel(id, timeMs);
-      // console.log('Winner Posted!');
     });
   }
 

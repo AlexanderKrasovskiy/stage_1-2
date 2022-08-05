@@ -4,7 +4,6 @@ const HOST = 'http://127.0.0.1:3000';
 export const MAX_CARS_ON_PAGE = 7;
 export const MAX_WINNERS_ON_PAGE = 10;
 
-//
 export const getCars = async (page = 1, limit = MAX_CARS_ON_PAGE) => {
   const url = `${HOST}/garage/?_page=${page}&_limit=${limit}`;
   const res = await fetch(url);
@@ -15,19 +14,14 @@ export const getCars = async (page = 1, limit = MAX_CARS_ON_PAGE) => {
     total: totalCars,
   };
 };
-// getCars().then(console.log).catch(console.error);
 
-// 200 - {Car} / 404 NOT FOUND - {}
 export const getCar = async (id: number) => {
   const url = `${HOST}/garage/${id}`;
   const res = await fetch(url);
   const car = (await res.json()) as Car;
   return car;
 };
-// getCar(1).then(console.log).catch(console.error);
-// getCar(20).then(console.log).catch(console.error);
 
-// 200 - {Car}
 export const createCarReq = async (data: CarParams) => {
   const url = `${HOST}/garage`;
   const res = await fetch(url, {
@@ -40,9 +34,7 @@ export const createCarReq = async (data: CarParams) => {
   const newCar = (await res.json()) as Car;
   return newCar;
 };
-// createCar({ name: 'Maybach', color: 'VeryBlack' }).then(console.log).catch(console.error);
 
-// 200 - {} / 404 - {}
 export const deleteCarReq = async (id: number) => {
   const url = `${HOST}/garage/${id}`;
   const res = await fetch(url, {
@@ -53,10 +45,7 @@ export const deleteCarReq = async (id: number) => {
   }
   return false;
 };
-// deleteCar(6).then(console.log).catch(console.error);
-// deleteCar(6).then(console.log).catch(console.error);
 
-// 200 - {Car} / 404 - {}
 export const updateCarReq = async (id: number, data: CarParams) => {
   const url = `${HOST}/garage/${id}`;
   const res = await fetch(url, {
@@ -69,30 +58,21 @@ export const updateCarReq = async (id: number, data: CarParams) => {
   const updatedCar = (await res.json()) as Car;
   return updatedCar;
 };
-// updateCar(1, { name: 'TETRIS', color: '#660099' }).then(console.log).catch(console.error);
 
-// 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
 export const startEngineReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=started`;
   const res = await fetch(url, { method: 'PATCH' });
   const raceParams = (await res.json()) as RaceParams;
   return raceParams;
 };
-// startEngine(1).then(console.log).catch(console.error);
 
-// 200 OK {raceParams} / 400 Wrong Params / 404 Not Found
-// !!!___ enable STOP only after res from START
 export const stopEngineReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=stopped`;
   const res = await fetch(url, { method: 'PATCH' });
   if (res.ok) return true;
   return false;
 };
-// stopEngine(1).then(console.log).catch(console.error);
 
-// 200 OK { success: true } / 500 engine broken
-// 400 Wrong Params / 404 Not Found (first set start)
-// 429 drive in progress (no multi drive req)
 export const driveReq = async (id: number) => {
   const url = `${HOST}/engine/?id=${id}&status=drive`;
   const res = await fetch(url, {
@@ -103,14 +83,10 @@ export const driveReq = async (id: number) => {
   }
   return { success: false, code: res.status };
 };
-// startEngine(1).then(() => drive(1)).then(console.log).catch(console.error);
 
-// 200 OK - [{id, wins, timeInSec}] -> { ..., color, name }
 export const getWinnersReq = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy, order }: WinnersParams) => {
   let url = `${HOST}/winners/?_page=${page}&_limit=${limit}`;
   if (sortBy && order) url += `&_sort=${sortBy}&_order=${order}`;
-  // let url = `${HOST}/winners/?_page=${String(page)}&_limit=${String(limit)}`;
-  // if (sortBy && order) url += `&_sort=${String(sortBy)}&_order=${String(order)}`;
 
   const res = await fetch(url);
   const winnersArr = (await res.json()) as Winner[];
@@ -132,9 +108,7 @@ export const getWinnersReq = async ({ page, limit = MAX_WINNERS_ON_PAGE, sortBy,
     total: totalWinners,
   };
 };
-// getWinners({ page: 1 }).then(console.log).catch(console.error);
 
-// 200 OK - {id, wins, timeInSec} / 404 Not Found - {}
 export const getWinnerReq = async (id: number) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url);
@@ -144,11 +118,7 @@ export const getWinnerReq = async (id: number) => {
     status: res.status,
   };
 };
-// getWinner(10).then(console.log).catch(console.error);
 
-// ? m.b. FN getWinnerStatus
-
-// 201 CREATED - {id, wins, time} / 500 Duplicate ID
 export const createWinnerReq = async (data: Winner) => {
   const url = `${HOST}/winners`;
   const res = await fetch(url, {
@@ -161,9 +131,7 @@ export const createWinnerReq = async (data: Winner) => {
   const newWinner = (await res.json()) as Winner;
   return newWinner;
 };
-// createWinner({ id: 2, wins: 1, time: 7.77 }).then(console.log).catch(console.error);
 
-// 200 OK - {} / 404 Not Found - {}
 export const deleteWinnerReq = async (id: number) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
@@ -172,9 +140,7 @@ export const deleteWinnerReq = async (id: number) => {
   if (res.ok) return true;
   return false;
 };
-// deleteWinner(2).then(console.log).catch(console.error);
 
-// 200 OK - {} / 404 Not Found - {}
 export const updateWinnerReq = async ({ id, wins, time }: Winner) => {
   const url = `${HOST}/winners/${id}`;
   const res = await fetch(url, {
@@ -187,4 +153,3 @@ export const updateWinnerReq = async ({ id, wins, time }: Winner) => {
   const updatedWinner = (await res.json()) as Winner;
   return updatedWinner;
 };
-// updateWinner({ id: 8, wins: 3, time: 42 }).then(console.log).catch(console.error);

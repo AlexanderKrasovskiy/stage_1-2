@@ -9,7 +9,6 @@ export class GarageController {
     this.view = new GarageView(rootElement);
     this.model = new GarageModel();
 
-    // bindidngs
     this.view.bindCreateCar(this.model.createCar.bind(this.model));
     this.view.bindDeleteCar(this.model.deleteCar.bind(this.model));
     this.view.bindUpdateCar(this.model.updateCar.bind(this.model));
@@ -22,7 +21,6 @@ export class GarageController {
     this.view.bindPostWinner(this.model.postWinner.bind(this.model));
     this.model.bindUpdateGarage(this.view.updateGarage.bind(this.view));
 
-    // init
     this.model.initGarage(this.view.initGarage.bind(this.view));
   }
 

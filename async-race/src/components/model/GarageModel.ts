@@ -24,14 +24,9 @@ export class GarageModel {
     this.updateGarageView = () => {};
   }
 
-  // private winnersPage = 1,
-  // private winners: WinnerWithCar[] = [],
-  // private winnersCount = 0,
-  // private sortBy: 'wins' | 'time' | null = null,
-  // private order: 'ASC' | 'DESC' | null = null
-
   public async initGarage(renderView: (obj: RenderGarageParams) => void) {
     await this.updateGarageState();
+
     renderView({
       carsArr: this.cars,
       count: this.carsCount,

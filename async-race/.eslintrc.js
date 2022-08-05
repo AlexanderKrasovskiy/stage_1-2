@@ -12,7 +12,6 @@ module.exports = {
     'airbnb-base',
     'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/recommended',
     'plugin:import/typescript',
     'prettier',
@@ -25,9 +24,7 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
-    // 'no-debugger': 'off',
     'class-methods-use-this': 'off',
-    // 'import/no-unresolved': 'warn',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-var-requires': 'off',

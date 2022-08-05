@@ -4,17 +4,12 @@ import { MAX_WINNERS_ON_PAGE } from '../model/apiHelpers';
 
 export class WinnersView {
   winnersDiv;
-  // prevPageBtn;
-  // nextPageBtn;
   sortByModel: (x: 'wins' | 'time') => void;
   flipPageByModel: (x: 1 | -1) => void;
 
   constructor(rootElement: HTMLElement) {
     this.winnersDiv = createElement('div', 'winners hidden');
     rootElement.append(this.winnersDiv);
-
-    // this.prevPageBtn = createElement('button', 'btn', 'PREV', '', true);
-    // this.nextPageBtn = createElement('button', 'btn', 'NEXT', '', true);
 
     this.sortByModel = () => {};
     this.flipPageByModel = () => {};
