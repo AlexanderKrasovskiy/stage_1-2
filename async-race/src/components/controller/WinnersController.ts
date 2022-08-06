@@ -26,7 +26,6 @@ export class WinnersController {
   }
 
   public async show() {
-    this.model.setSort(undefined);
     const res = await this.model.getWinners();
     this.view.renderWinners(res);
     this.view.showWinners();
