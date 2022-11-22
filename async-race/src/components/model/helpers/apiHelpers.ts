@@ -1,6 +1,7 @@
 import { Car, CarParams, RaceParams, WinnersParams, Winner } from '../../types';
 
-const HOST = 'http://127.0.0.1:3000';
+// const HOST = 'http://127.0.0.1:3000';
+const HOST = 'https://api-race.onrender.com';
 export const MAX_CARS_ON_PAGE = 7;
 export const MAX_WINNERS_ON_PAGE = 10;
 
