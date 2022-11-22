@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Angular vs React</title>
+
+		<link rel="stylesheet" href="./dist_2/reset.css">
+		<link rel="stylesheet" href="./dist_2/reveal.css">
+		<link rel="stylesheet" href="./dist_2/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="./plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h2>Angular vs React</h2>
+					<img data-src="./my_assets/1_avr.webp" class="r-stretch">
+					<p>* WTF - What To Favor</p>
+				</section>
+
+				<section>
+					<h3>Motivation</h3>
+					<ul>
+						<li>Key diffs</li>
+						<li>Informed decision</li>
+						<li>Stage - 3</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Disclaimer</h3>
+					<ul>
+						<li>! an expert</li>
+						<li>newbie conclusions possible</li>
+					</ul>
+				</section>
+
+				<!-- <section>
+					<h3>Plan</h3>
+					<ul>
+						<li>Definitions</li>
+						<li>1<sup>st</sup> look at <span style="color: #dd1b16">Angular</span></li>
+						<li>1<sup>st</sup> look at <span style="color: #61DBFB">React</span></li>
+						<li>In-Depth comparison</li>
+						<li>Conclusions & Tips</li>
+					</ul>
+				</section> -->
+
+				<section>
+					<h3>Static -> SPA</h3>
+					<img data-src="./my_assets/2_history.jpg" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>What's a F/W ?</h3>
+					<p>Typical problems</p>
+					<ul>
+						<li>architecture</li>
+						<li>routing</li>
+						<li>components</li>
+						<li>listeners</li>
+						<li>data</li>
+						<li>...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>So, a F/W - is a tool ... </h3>
+					<ul>
+						<li>solve typical problems</li>
+						<li>with less code</li>
+						<li>get faster apps</li>
+						<!-- <li>custom solutions vs CMS</li> -->
+					</ul>
+				</section>
+
+				<section>
+					<h3>How ?</h3>
+					<img data-src="./my_assets/3_components.png" class="r-stretch">
+					<p>Components</p>
+				</section>
+
+				<section>
+					<h3>Why exactly A & R ?</h3>
+					<ol>
+						<li>popularity</li>
+						<li>3-rd stage</li>
+						<img data-src="./my_assets/4_st_3_cards.png" class="r-stretch">
+					</ol>
+				</section>
+
+				<section>
+					<h3>Basic Comparison</h3>
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th style="color: #dd1b16">Angular</th>
+								<th style="color: #61DBFB">React</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Type</td>
+								<td>framework</td>
+								<td>library</td>
+							</tr>
+							<tr>
+								<td>Company</td>
+								<td>Google</td>
+								<td>Facebook</td>
+							</tr>
+							<tr>
+								<td>Year</td>
+								<td>2016 (2.0+)</td>
+								<td>2013</td>
+							</tr>
+							<tr>
+								<td>Code</td>
+								<td>TS</td>
+								<td>JS / TS</td>
+							</tr>
+							<tr>
+								<td>DOM</td>
+								<td>Real</td>
+								<td>Virtual</td>
+							</tr>
+							<tr>
+								<td>Templates</td>
+								<td>ext. HTML</td>
+								<td>JSX</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h3>Projects</h3>
+					<img data-src="./my_assets/5_projects.webp" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>Best use cases</h3>
+					<ul>
+						<li><span style="color: #dd1b16">Angular</span> - data-driven, large-scale apps with complex logic (ex. Trading system)</li>
+						<li><span style="color: #61DBFB">React</span> - multiple rendering, UI activity apps (ex. Dashboards)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>In-Depth Comparison</h2>
+				</section>
+
+				<section>
+					<h3><span style="color: #dd1b16">F/W</span> vs <span style="color: #61DBFB">Library</span></h3>
+					<div>
+						<img data-src="./my_assets/6_multitool.jfif" class="r-stretch">
+						<img data-src="./my_assets/6_lego.jfif" class="r-stretch">
+					</div>
+				</section>
+
+				<section>
+					<h3>In terms of MVC</h3>
+					<div>
+						<img data-src="./my_assets/7_mvc.png" class="r-stretch">
+					</div>
+				</section>
+
+				<!-- <section>
+					<h3>Ecosystem</h3>
+					<div>
+						<img data-src="./my_assets/8_ecosystem_a.png" width="400">
+						<img data-src="./my_assets/8_ecosystem_r.png" width="510">
+						<p><span style="color: #dd1b16">stability</span> vs <span style="color: #61DBFB">options</span></p>
+					</div>
+				</section> -->
+
+				<section>
+					<h3>Structure</h3>
+					<div style="text-align: left; padding-left: 200px">
+						<p style="color: #dd1b16">Angular</p>
+						<p>- strict structure</p>
+						<p>- typical projects</p>
+						<p style="color: #61DBFB">React</p>
+						<p>- high freedom - high responsibility</p>
+						<p>- no typical projects</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>Size of Apps / Companies</h3>
+					<p><span style="color: #dd1b16">Angular</span> - M-L</p>
+					<p><span style="color: #61DBFB">React</span> - S-M-L</p>
+				</section>
+
+				<section>
+					<h3>DOM</h3>
+					<p><span style="color: #61DBFB">Virtual</span> vs <span style="color: #dd1b16">Real</span></p>
+					<img data-src="./my_assets/9_virt_dom.png" class="r-stretch">
+				</section>
+
+				<!-- <section>
+					<h3>Data Binding</h3>
+					<img data-src="./my_assets/10_data_binding.jpg" class="r-stretch">
+					<p>* from SO – 1-way is easier to debug</p>
+				</section> -->
+
+				<section>
+					<h3>Templates vs JSX</h3>
+					<p><span style="color: #dd1b16">Angular</span></p>
+					<img data-src="./my_assets/11_code_ang_ts.png" class="r-stretch">
+				</section>
+				<section>
+					<h3>Templates vs JSX</h3>
+					<p><span style="color: #dd1b16">Angular</span> - JS in HTML</p>
+					<img data-src="./my_assets/11_code_ang_html.png" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>Templates vs JSX</h3>
+					<p><span style="color: #61DBFB">JSX</span> - HTML in JS</p>
+					<img data-src="./my_assets/11_code_r.jpg" class="r-stretch">
+				</section>
+				<section>
+					<h3>Templates vs JSX</h3>
+					<p><span style="color: #61DBFB">React</span></p>
+					<img data-src="./my_assets/11_code_r_2.png" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>Performance</h3>
+					<img data-src="./my_assets/12_performance.webp" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>Bundle Size</h3>
+					<p>Why?</p>
+					<p>Small file -> faster loads -> higher ranking</p>
+					<ul>
+						<li><span style="color: #dd1b16">Angular</span> + RxJS = 766K</li>
+						<li><span style="color: #61DBFB">React</span> 14.5 + React DOM + Redux = 139K</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><span style="color: #61DBFB">React Native</span> vs <span style="color: #dd1b16">Ionic</span></h3>
+					<p>HH.ru</p>
+					<ul>
+						<li><span style="color: #61DBFB">148</span> jobs - (ex. Instagram, Discord)</li>
+						<li><span style="color: #dd1b16">11</span> jobs</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Scalability</h3>
+					<ul>
+						<li><span style="color: #dd1b16">Independent</span></li>
+						<li><span style="color: #61DBFB">3-rd party libs</span></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Time to start a project</h3>
+					<ul>
+						<li><span style="color: #dd1b16">CLI</span></li>
+						<li><span style="color: #61DBFB">CRA / Webpack</span></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Popularity</h3>
+					<ul>
+						<li><a href="https://npmtrends.com/@angular/core-vs-react-vs-vue">NPM downloads</a></li>
+						<li><a href="https://star-history.com/#facebook/react&vuejs/vue&angular/angular">GH stars</a></li>
+						<li><a href="https://trends.google.com/trends/explore?cat=31&q=Vue%20jobs,React%20jobs,Angular%20jobs">№ of Jobs</a></li>
+						<li><a href="https://2021.stateofjs.com/en-US/libraries/front-end-frameworks">State of JS 2021</a></li>
+						<li><a href="https://survey.stackoverflow.co/2022/#technology">SO Dev Survey 2022</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Popularity - NPM downloads</h3>
+					<img data-src="./my_assets/13_1_downloads.png" class="r-stretch">
+					<p>5x diff</p>
+				</section>
+
+				<section>
+					<h3>Popularity - GH stars</h3>
+					<img data-src="./my_assets/13_2_stars.png" class="r-stretch">
+					<p><span style="color: #61DBFB">193k</span> vs <span style="color: #dd1b16">83k</span> -> 2x diff</p>
+				</section>
+
+				<section>
+					<h3>Popularity - Jobs</h3>
+					<img data-src="./my_assets/13_3_jobs.png" class="r-stretch">
+					<p>Google Trends -> 3x diff</p>
+				</section>
+				<section>
+					<h3>Popularity - Jobs</h3>
+					<p>HH.ru:</p>
+					<p><span style="color: #61DBFB">1531</span> jobs vs <span style="color: #dd1b16">541</span> jobs -> 3x diff</p>
+				</section>
+				
+				<section>
+					<h3>State of JS - Usage</h3>
+					<img data-src="./my_assets/13_4_sojs_usage.png" class="r-stretch">
+					<p><span style="color: #61DBFB">80%</span> vs <span style="color: #dd1b16">54%</span> -> 1.5x diff</p>
+				</section>
+				
+				<section>
+					<h3>State of JS - Satisfaction</h3>
+					<img data-src="./my_assets/13_5_sojs_satisfaction.png" class="r-stretch">
+					<p><span style="color: #61DBFB">84%</span> vs <span style="color: #dd1b16">45%</span> -> 1.8x diff</p>
+				</section>
+				
+				<section>
+					<h3>SO Dev Survey 22 - Usage</h3>
+					<img data-src="./my_assets/13_6_so_usage.png" class="r-stretch">
+					<p><span style="color: #61DBFB">42%</span> vs <span style="color: #dd1b16">20%</span> -> 2x diff</p>
+				</section>
+				
+				<section>
+					<h3>SO Dev Survey 22 - Wanted</h3>
+					<img data-src="./my_assets/13_6_so_wanted.png" class="r-stretch">
+					<p><span style="color: #61DBFB">22%</span> vs <span style="color: #dd1b16">7%</span> -> 3x diff</p>
+					<p>* m.b. less <span style="color: #dd1b16">A</span> candidates</p>
+				</section>
+
+				<section>
+					<h3>Popularity - Conclusions</h3>
+					<ul>
+						<li><span style="color: #61DBFB">R</span> is more popular</li>
+						<li>BUT - Devs asked, not Companies</li>
+					</ul>
+				</section>
+
+				<!-- <section>
+					<h3>Community</h3>
+					<ul>
+						<li><span style="color: #dd1b16">A</span> - big community</li>
+						<li><span style="color: #61DBFB">R</span> - bigger :)</li>
+					</ul>
+				</section> -->
+
+				<section>
+					<h3>Learning Curve</h3>
+					<img data-src="./my_assets/14_learning_curve.jpeg" class="r-stretch">
+				</section>
+
+				<section>
+					<h3>Final thoughts</h3>
+					<ul>
+						<li>structure</li>
+						<li>learning curve</li>
+						<li>size of company</li>
+						<li>mobile</li>
+						<li>1st job / relocation</li>
+						<!-- <li>community</li> -->
+					</ul>
+				</section>
+
+				<section>
+					<h2>Bye !</h2>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="./dist_2/reveal.js"></script>
+		<script src="./plugin/notes/notes.js"></script>
+		<script src="./plugin/markdown/markdown.js"></script>
+		<script src="./plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
