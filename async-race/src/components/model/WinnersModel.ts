@@ -13,6 +13,16 @@ export class WinnersModel {
   public async getWinners() {
     await this.updateWinnersState();
 
+    if (this.winners.length === 0 && this.winnersPage > 1) {
+      if (this.winnersCount % 10 === 0) {
+        this.winnersPage = this.winnersCount / 10;
+      } else {
+        this.winnersPage = Math.trunc(this.winnersCount / 10) + 1;
+      }
+
+      await this.updateWinnersState();
+    }
+
     return {
       winners: this.winners,
       total: this.winnersCount,
